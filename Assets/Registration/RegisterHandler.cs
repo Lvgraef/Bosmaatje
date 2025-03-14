@@ -2,6 +2,8 @@ using System.Linq;
 using NUnit.Framework.Constraints;
 using TMPro;
 using UnityEngine;
+using Assets.ApiCLient;
+using Assets.Dto_s;
 
 public class RegisterHandler : MonoBehaviour
 {
@@ -16,7 +18,6 @@ public class RegisterHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class RegisterHandler : MonoBehaviour
         
     }
 
-    public void OnRegisterButton()
+    public async void OnRegisterButton()
     {
         userTriedRegistrating = true;
         HandleRegistrationInputValidation();
@@ -37,9 +38,25 @@ public class RegisterHandler : MonoBehaviour
 
 
         // registration
+       
+        ApiClient apiClient = new ApiClient();
+        string success = await apiClient.Register(new PostRegisterRequestDto
+        {
+            Email = emailInputField.text,
+            Password = passwordInputField.text
+        });
+        if (success == null)
+        {
+            errorText.text = "Er is iets mis gegaan bij het registreren.";
+            return;
+        }
+        else
+        {
+            errorText.text = "Registratie gelukt";
+        }
 
-        // with the API
-    }
+            // with the API
+        }
 
 
     private void HandleRegistrationInputValidation()
