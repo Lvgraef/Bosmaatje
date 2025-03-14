@@ -7,6 +7,8 @@ namespace ApiClient
 {
     public static class ApiUtil
     {
+        public const string BaseUrl = "";
+        
         public static async Task<string> PerformApiCall(string url, string method, string jsonData = null, string token = null)
         {
             using UnityWebRequest request = new UnityWebRequest(url, method);

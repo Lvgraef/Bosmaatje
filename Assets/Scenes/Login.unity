@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 83002611}
   - component: {fileID: 83002610}
   m_Layer: 5
-  m_Name: StandingDeer
+  m_Name: Deer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,8 +595,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281485072
-  m_fontColor: {r: 0.0627451, g: 0.2784314, b: 0.19607845, a: 1}
+    rgba: 3358738192
+  m_fontColor: {r: 0.0627451, g: 0.2784314, b: 0.19607845, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -845,7 +845,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 246614467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1954644992}
+        m_TargetAssemblyTypeName: Login.LoginManager, Assembly-CSharp
+        m_MethodName: Register
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &411865704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,7 +1389,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1398,7 +1410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 867758858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1954644992}
+        m_TargetAssemblyTypeName: Login.LoginManager, Assembly-CSharp
+        m_MethodName: Login
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &867758858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2171,7 +2195,7 @@ GameObject:
   - component: {fileID: 1791471053}
   - component: {fileID: 1791471052}
   m_Layer: 5
-  m_Name: GrazingDeer
+  m_Name: Deer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2216,7 +2240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -71761611395953666, guid: 896566a95a542224ca33d4c2d70f23c6, type: 3}
+  m_Sprite: {fileID: 8683669369157306362, guid: 027d18d6cc5fffe409c75eec0fe2f224, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2243,7 +2267,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954644994}
-  - component: {fileID: 1954644993}
   - component: {fileID: 1954644992}
   m_Layer: 0
   m_Name: LoginManager
@@ -2264,22 +2287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd1c967ec4b4e7aa1a4a6e67df35b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiClient: {fileID: 1954644993}
   statusText: {fileID: 2013165910}
   emailField: {fileID: 1227947642}
   passwordField: {fileID: 194885023}
---- !u!114 &1954644993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954644991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4387c2d0f2908a4fb8b076d9cbc7d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1954644994
 Transform:
   m_ObjectHideFlags: 0
@@ -2382,8 +2392,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281485072
-  m_fontColor: {r: 0.0627451, g: 0.2784314, b: 0.19607845, a: 1}
+    rgba: 3358738192
+  m_fontColor: {r: 0.0627451, g: 0.2784314, b: 0.19607845, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2487,7 +2497,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 314}
-  m_SizeDelta: {x: 699.29, y: 68.6301}
+  m_SizeDelta: {x: 1553.5725, y: 68.6301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013165910
 MonoBehaviour:
@@ -2509,7 +2519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Status text placeholder
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc00c155c138a4e4981776959b2a2bf9, type: 2}
   m_sharedMaterial: {fileID: 5739056619973533484, guid: cc00c155c138a4e4981776959b2a2bf9, type: 2}
@@ -2536,7 +2546,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.35
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
