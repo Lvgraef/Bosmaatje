@@ -31,6 +31,11 @@ namespace Registration
                 await SceneManager.LoadSceneAsync("Scenes/Login");
             }
         }
+        
+        public async void OnLoginButton()
+        {
+            await SceneManager.LoadSceneAsync("Scenes/Login");
+        }
 
 
         private void HandleRegistrationInputValidation()
