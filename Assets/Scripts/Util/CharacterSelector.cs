@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Util
 {
     public class CharacterSelector : MonoBehaviour
     {
-        public List<GameObject> characters;
+        public List<CharacterKeyValue> characters;
         public int selectedCharacter;
 
         public void Next()
@@ -13,7 +14,7 @@ namespace Util
             selectedCharacter = (selectedCharacter + 1) % characters.Count;
             for (var i = 0; i < characters.Count; i++)
             {
-                characters[i].SetActive(i == selectedCharacter);
+                characters[i].character.SetActive(i == selectedCharacter);
             }
         }
         
@@ -22,8 +23,16 @@ namespace Util
             selectedCharacter = (selectedCharacter - 1 + characters.Count) % characters.Count;
             for (var i = 0; i < characters.Count; i++)
             {
-                characters[i].SetActive(i == selectedCharacter);
+                characters[i].character.SetActive(i == selectedCharacter);
             }
         }
+    }
+    
+    [Serializable]
+    public struct CharacterKeyValue
+    {
+        public string name;
+        public GameObject character;
+        public GameObject prefab;
     }
 }
