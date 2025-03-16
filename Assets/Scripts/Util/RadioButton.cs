@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Util
 {
@@ -14,6 +15,14 @@ namespace Util
             for (var i = 0; i < radioButtonSelects.Count; i++)
             {
                 radioButtonSelects[i].SetActive(i == index);
+            }
+        }
+
+        public void SetEnabled(bool enable)
+        {
+            foreach (var componentsInChild in GetComponentsInChildren<Button>())
+            {
+                componentsInChild.interactable = enabled;
             }
         }
     }

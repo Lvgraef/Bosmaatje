@@ -1,9 +1,11 @@
-﻿using ApiClient;
+﻿using System;
+using ApiClient;
 using Dto;
 using TMPro;
 using UI.Dates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Util;
 
 namespace Configuration
@@ -18,6 +20,29 @@ namespace Configuration
         public RadioButton treatmentPlanSelector;
         public DatePicker treatmentStartDateField;
 
+        private async void Start()
+        {
+            if (true)//await ConfigurationApiClient.GetConfiguration() != null)
+            {
+                childNameField.interactable = true;
+                foreach (var componentsInChild in childBirthDateField.transform.GetComponentsInChildren<Button>())
+                {
+                    componentsInChild.interactable = false;
+                }
+
+                treatmentPlanSelector.SetEnabled(false);
+            }
+            else
+            {
+                childNameField.interactable = false;
+                foreach (var componentsInChild in childBirthDateField.transform.GetComponentsInChildren<Button>())
+                {
+                    componentsInChild.interactable = true;
+                }
+                treatmentPlanSelector.SetEnabled(true);
+            }
+        }
+
         public async void Configure()
         {
             if (childNameField.text.Length >= 50)
@@ -31,7 +56,7 @@ namespace Configuration
                 return;
             }
             
-            var dto = new PostConfigureRequestDto
+            var dto = new PostConfigurationsRequestDto
             {
                 childBirthDate = childBirthDateField.SelectedDate.Date,
                 characterId = characterSelector.characters[characterSelector.selectedCharacter].name,

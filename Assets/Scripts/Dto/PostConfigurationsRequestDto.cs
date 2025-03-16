@@ -2,7 +2,7 @@
 
 namespace Dto
 {
-    public class PostConfigureRequestDto
+    public class PostConfigurationsRequestDto
     {
         public string childName;
         public DateTime childBirthDate;
