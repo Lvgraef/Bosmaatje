@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a9150cb0fb660f1429419b71e9a31e0f
+guid: 9cc0ec1c318630e43b20166cb6766443
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7879237852883503345
-    second: Pause-Circle--Streamline-Solar (1)_0
+      213: -3541801897832164053
+    second: cog_silver_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pause-Circle--Streamline-Solar (1)_0
+      name: cog_silver_0
       rect:
         serializedVersion: 2
-        x: 340
-        y: 340
-        width: 3416
-        height: 3416
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0731163be257a290800000000000000
-      internalID: -7879237852883503345
+      spriteID: b25d8ee60fdf8dec0800000000000000
+      internalID: -3541801897832164053
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Pause-Circle--Streamline-Solar (1)_0: -7879237852883503345
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
