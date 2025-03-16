@@ -20,6 +20,17 @@ namespace Configuration
 
         public async void Configure()
         {
+            if (childNameField.text.Length >= 50)
+            {
+                statusText.text = "De naam van het kind moet minder dan 50 karakters lang zijn.";
+                return;
+            }
+            if (primaryDoctorNameField.text.Length >= 50)
+            {
+                statusText.text = "De naam van de arts moet minder dan 50 karakters lang zijn.";
+                return;
+            }
+            
             var dto = new PostConfigureRequestDto
             {
                 childBirthDate = childBirthDateField.SelectedDate.Date,
