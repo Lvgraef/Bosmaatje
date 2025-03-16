@@ -1,9 +1,11 @@
-﻿using ApiClient;
+﻿using System;
+using ApiClient;
 using Dto;
 using TMPro;
 using UI.Dates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Util;
 
 namespace Configuration
@@ -17,6 +19,26 @@ namespace Configuration
         public CharacterSelector characterSelector;
         public RadioButton treatmentPlanSelector;
         public DatePicker treatmentStartDateField;
+        public GameObject dateOfBirthBlocker;
+        public GameObject childNameBlocker;
+
+        private async void Start()
+        {
+            if (await ConfigurationApiClient.GetConfiguration() != null)
+            {
+                childNameField.interactable = true;
+                dateOfBirthBlocker.SetActive(true);
+                childNameBlocker.SetActive(true);
+                treatmentPlanSelector.SetEnabled(false);
+            }
+            else
+            {
+                childNameField.interactable = false;
+                dateOfBirthBlocker.SetActive(false);
+                childNameBlocker.SetActive(false);
+                treatmentPlanSelector.SetEnabled(true);
+            }
+        }
 
         public async void Configure()
         {
@@ -31,7 +53,7 @@ namespace Configuration
                 return;
             }
             
-            var dto = new PostConfigureRequestDto
+            var dto = new PostConfigurationsRequestDto
             {
                 childBirthDate = childBirthDateField.SelectedDate.Date,
                 characterId = characterSelector.characters[characterSelector.selectedCharacter].name,

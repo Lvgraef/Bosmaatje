@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Assets.Dto_s;
+using Dto;
 using TMPro;
 using UnityEngine;
 

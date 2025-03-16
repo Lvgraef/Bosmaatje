@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using ApiClient;
-using Assets.Dto_s;
+using Dto;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

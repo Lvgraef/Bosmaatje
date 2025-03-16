@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Assets.Dto_s;
+﻿using System.Threading.Tasks;
 using Dto;
 using Global;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +9,15 @@ namespace ApiClient
 {
     public static class ConfigurationApiClient
     {
-        public static async Task<bool> Configure(PostConfigureRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
+        [ItemCanBeNull]
+        public static async Task<GetConfigurationsRequestDto> GetConfiguration()
+        {
+            var url = $"{ApiUtil.BaseUrl}/configurations";
+            var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
+            return response == "HTTP/1.1 404 Not Found" ? null : JsonUtility.FromJson<GetConfigurationsRequestDto>(response);
+        }
+        
+        public static async Task<bool> Configure(PostConfigurationsRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
         {
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var json = JsonUtility.ToJson(postRegisterRequestDto);
@@ -30,7 +37,7 @@ namespace ApiClient
 
         public static async Task<bool> PutFirstTreatment(PutTreatmentRequestDto putTreatmentRequestDto, TextMeshProUGUI statusText)
         {
-            var url = $"{ApiUtil.BaseUrl}/configurations?treatment=0";
+            var url = $"{ApiUtil.BaseUrl}/treatments?treatment=0";
             
             var json = JsonUtility.ToJson(putTreatmentRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "PUT", json, UserSingleton.Instance.AccessToken);
