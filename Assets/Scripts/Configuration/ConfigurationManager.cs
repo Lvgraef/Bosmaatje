@@ -47,7 +47,7 @@ namespace Configuration
                     date = treatmentStartDateField.SelectedDate.Date
                 }, statusText))
             {
-                await SceneManager.LoadSceneAsync("Scenes/introduction");
+                await SceneManager.LoadSceneAsync("Scenes/Introduction");
             }
         }
     }

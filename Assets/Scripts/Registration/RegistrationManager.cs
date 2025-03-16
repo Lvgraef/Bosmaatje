@@ -27,8 +27,7 @@ namespace Registration
 
             if (success)
             {
-                //todo load next scene
-                await SceneManager.LoadSceneAsync("Scenes/Login");
+                await SceneManager.LoadSceneAsync("Scenes/Welcome");
             }
         }
         
