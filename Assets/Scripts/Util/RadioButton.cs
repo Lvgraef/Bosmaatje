@@ -22,7 +22,7 @@ namespace Util
         {
             foreach (var componentsInChild in GetComponentsInChildren<Button>())
             {
-                componentsInChild.interactable = enabled;
+                componentsInChild.interactable = enable;
             }
         }
     }

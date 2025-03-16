@@ -19,26 +19,23 @@ namespace Configuration
         public CharacterSelector characterSelector;
         public RadioButton treatmentPlanSelector;
         public DatePicker treatmentStartDateField;
+        public GameObject dateOfBirthBlocker;
+        public GameObject childNameBlocker;
 
         private async void Start()
         {
-            if (true)//await ConfigurationApiClient.GetConfiguration() != null)
+            if (await ConfigurationApiClient.GetConfiguration() != null)
             {
                 childNameField.interactable = true;
-                foreach (var componentsInChild in childBirthDateField.transform.GetComponentsInChildren<Button>())
-                {
-                    componentsInChild.interactable = false;
-                }
-
+                dateOfBirthBlocker.SetActive(true);
+                childNameBlocker.SetActive(true);
                 treatmentPlanSelector.SetEnabled(false);
             }
             else
             {
                 childNameField.interactable = false;
-                foreach (var componentsInChild in childBirthDateField.transform.GetComponentsInChildren<Button>())
-                {
-                    componentsInChild.interactable = true;
-                }
+                dateOfBirthBlocker.SetActive(false);
+                childNameBlocker.SetActive(false);
                 treatmentPlanSelector.SetEnabled(true);
             }
         }
