@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace Global
 {
-    public class SetAndGetUserPreferences : MonoBehaviour
+    public class SettingsSingleton : MonoBehaviour
     {
-        public static SetAndGetUserPreferences instance { get; private set; }
+        public static SettingsSingleton Instance { get; private set; }
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
+            // Destroy this object if we already have a singleton configured
+            if (Instance != null)
             {
                 Destroy(gameObject);
+                return;
             }
+	
+            Instance = this;
+            DontDestroyOnLoad(this);
         }
 
         private void Start()
