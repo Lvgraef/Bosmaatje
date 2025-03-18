@@ -13,7 +13,7 @@ namespace ApiClient
         public static async Task<GetConfigurationsRequestDto> GetConfiguration()
         {
             var url = $"{ApiUtil.BaseUrl}/configurations";
-            var response = await ApiUtil.PerformApiCall(url, "GET", token: "dasdf");
+            var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
             if (response == "Cannot connect to destination host") return null;
             return response == "HTTP/1.1 404 Not Found" ? null : JsonUtility.FromJson<GetConfigurationsRequestDto>(response);
         }
