@@ -54,24 +54,13 @@ namespace Settings
         {
             SettingsSingleton.Instance.SetPrefSoundOn(_isSoundOn);
             SettingsSingleton.Instance.SetPrefSoundVolume(_volumeOfSound);
+            Destroy(gameObject);
         }
 
         public void ToConfigurationscreenOnButtonClick()
         {
-            SaveOnButtonClick();// ik twijfel of we nu wel of niet de save moeten aanroepen
-            this.gameObject.SetActive(false);
+            SaveOnButtonClick();
             SceneManager.LoadScene("Configuration");
-        }
-
-        public void OnCloseButtonClick()
-        {
-            this.gameObject.SetActive(false);
-        }
-
-        public void OnOpenButtonClick()
-        {
-            SetValuesSettingsManager();
-            this.gameObject.SetActive(true);
         }
 
         private void CheckVolumeSetImage(float volume)

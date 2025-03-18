@@ -1018,6 +1018,7 @@ GameObject:
   - component: {fileID: 955038625}
   - component: {fileID: 955038624}
   - component: {fileID: 955038627}
+  - component: {fileID: 955038628}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1070,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1274107915}
+  m_Material: {fileID: 1495724785}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1139,7 +1140,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 955038625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955038628}
+        m_TargetAssemblyTypeName: Settings.OpenSettingsButton, Assembly-CSharp
+        m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &955038628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955038622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25519eebf1954a66a0281e9103b1bf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsPanel: {fileID: 6688595321009407879, guid: 8a67aa8f74c1bd9499ac9197dcbde21b, type: 3}
+  canvas: {fileID: 208740895}
 --- !u!1 &1029203025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1439,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263130942}
   m_CullTransparentMesh: 1
---- !u!21 &1274107915
+--- !u!21 &1495724785
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
