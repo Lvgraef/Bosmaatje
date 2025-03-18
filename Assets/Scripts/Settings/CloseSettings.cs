@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class CloseSettings : MonoBehaviour
+namespace Settings
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void CloseOnButtonClick(GameObject gameObject)
+    public class CloseSettings : MonoBehaviour
     {
-        gameObject.SetActive(false);
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        public void CloseOnButtonClick(GameObject gameObject)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -232,8 +232,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4881727235001147834}
-        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+      - m_Target: {fileID: 117012197187915619}
+        m_TargetAssemblyTypeName: Settings.SettingsManager, Assembly-CSharp
         m_MethodName: ToConfigurationscreenOnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -502,8 +502,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4881727235001147834}
-        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+      - m_Target: {fileID: 117012197187915619}
+        m_TargetAssemblyTypeName: Settings.SettingsManager, Assembly-CSharp
         m_MethodName: SaveOnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4881727235001147834}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChangeSoundHandler, Assembly-CSharp
         m_MethodName: OnSoundButtonClick
         m_Mode: 1
@@ -787,7 +787,7 @@ MonoBehaviour:
         m_MethodName: CloseOnButtonClick
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5474595758599860086}
+          m_ObjectArgument: {fileID: 6688595321009407879}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -853,7 +853,6 @@ GameObject:
   - component: {fileID: 5662349468069112788}
   - component: {fileID: 4089286971402520420}
   - component: {fileID: 5246040307732156443}
-  - component: {fileID: 4881727235001147834}
   m_Layer: 5
   m_Name: SettingsPopup-panel
   m_TagString: Untagged
@@ -924,24 +923,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4881727235001147834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5474595758599860086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77160a0fc1c7c8d4597ec1fa4c757a81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderbutton: {fileID: 5154598133377256020}
-  slider: {fileID: 3125030240386092246}
-  soundOff: {fileID: 1703505111, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
-  soundOnlow: {fileID: 330567297, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
-  soundOnmedium: {fileID: 1285977027, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
-  soundOnhigh: {fileID: -708054083, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
 --- !u!1 &5916693649742307704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1220,7 @@ GameObject:
   - component: {fileID: 5599411190019055298}
   - component: {fileID: 4442221505465675744}
   - component: {fileID: 1257800962519372005}
+  - component: {fileID: 117012197187915619}
   m_Layer: 5
   m_Name: SettingsPopup-panel
   m_TagString: Untagged
@@ -1287,6 +1269,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eaeb98d9e453194f80c4b2a104c1e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &117012197187915619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688595321009407879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77160a0fc1c7c8d4597ec1fa4c757a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderbutton: {fileID: 5154598133377256020}
+  slider: {fileID: 3125030240386092246}
+  soundOff: {fileID: 1703505111, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
+  soundOnlow: {fileID: 330567297, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
+  soundOnmedium: {fileID: 1285977027, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
+  soundOnhigh: {fileID: -708054083, guid: 596eed0a35e8d3a42aa986a599ee3b59, type: 3}
 --- !u!1 &6757410077322332805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1588,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4881727235001147834}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ChangeSoundHandler, Assembly-CSharp
         m_MethodName: OnSliderValueChanged
         m_Mode: 0
