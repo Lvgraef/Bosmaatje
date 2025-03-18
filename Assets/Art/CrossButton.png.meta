@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fb4e211b5fca448489d24f51c463abb6
+guid: ce25b5f641a733b4682ed07255550f53
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7879237852883503345
-    second: Pause-Circle--Streamline-Solar (1)_0
+      213: -7258556737429038025
+    second: CrossButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pause-Circle--Streamline-Solar (1)_0
+      name: CrossButton_0
       rect:
         serializedVersion: 2
-        x: 340
-        y: 340
-        width: 3416
-        height: 3416
+        x: 5
+        y: 7
+        width: 438
+        height: 438
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0731163be257a290800000000000000
-      internalID: -7879237852883503345
+      spriteID: 73c1683da1d644b90800000000000000
+      internalID: -7258556737429038025
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pause-Circle--Streamline-Solar (1)_0: -7879237852883503345
+      CrossButton_0: -7258556737429038025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

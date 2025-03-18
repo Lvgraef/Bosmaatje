@@ -1,0 +1,781 @@
+fileFormatVersion: 2
+guid: 596eed0a35e8d3a42aa986a599ee3b59
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2704375746946730089
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_0
+  - first:
+      213: -720735740866030024
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_1
+  - first:
+      213: 7614690388988677971
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_2
+  - first:
+      213: -4596314962264823488
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_3
+  - first:
+      213: 8897955534538238419
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_4
+  - first:
+      213: -1936457761093396767
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_5
+  - first:
+      213: 4803072215634844084
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_6
+  - first:
+      213: 182788766003402029
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_7
+  - first:
+      213: 7129871175574284828
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_8
+  - first:
+      213: 1538436897881526628
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_9
+  - first:
+      213: 4321081346247712149
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_10
+  - first:
+      213: 2019881633267617230
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_11
+  - first:
+      213: 3839889941254045094
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_12
+  - first:
+      213: 4038332508789242805
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_13
+  - first:
+      213: 4241623225982396602
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_14
+  - first:
+      213: 7935017625207853334
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_15
+  - first:
+      213: 7879491564137502972
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_16
+  - first:
+      213: -8904964602660577314
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_17
+  - first:
+      213: -7425221594894358125
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_18
+  - first:
+      213: -3350238726433783207
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_19
+  - first:
+      213: -8871111606524855622
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_20
+  - first:
+      213: 2656755837799045579
+    second: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 229
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797fe082690287ad0800000000000000
+      internalID: -2704375746946730089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 242
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83690cc89ae6ff5f0800000000000000
+      internalID: -720735740866030024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 229
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f404e7090dca960800000000000000
+      internalID: 7614690388988677971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 243
+        width: 21
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0496466e4eb9630c0800000000000000
+      internalID: -4596314962264823488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 229
+        width: 53
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d96f5f4a63eb7b70800000000000000
+      internalID: 8897955534538238419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 243
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e6da731de15025e0800000000000000
+      internalID: -1936457761093396767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 230
+        width: 26
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9967b7bb0f7a240800000000000000
+      internalID: 4803072215634844084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 229
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25909a0a65698200800000000000000
+      internalID: 182788766003402029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 243
+        width: 19
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ae66afe0462f260800000000000000
+      internalID: 7129871175574284828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 230
+        width: 26
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46115972530a95510800000000000000
+      internalID: 1538436897881526628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 216
+        width: 32
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d59a0279097fb30800000000000000
+      internalID: 4321081346247712149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 80
+        width: 60
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd8047c4af080c10800000000000000
+      internalID: 2019881633267617230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 96
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6adfa059e870a4530800000000000000
+      internalID: 3839889941254045094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 80
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb7b4f450a0b0830800000000000000
+      internalID: 4038332508789242805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 98
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab82ab7d9d54dda30800000000000000
+      internalID: 4241623225982396602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 80
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6115af41d78de1e60800000000000000
+      internalID: 7935017625207853334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 98
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf85a1b84d3995d60800000000000000
+      internalID: 7879491564137502972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 85
+        width: 26
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf1df8dfd53b6480800000000000000
+      internalID: -8904964602660577314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 80
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39923c9cc4054f890800000000000000
+      internalID: -7425221594894358125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 98
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952482ee0af8181d0800000000000000
+      internalID: -3350238726433783207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 85
+        width: 26
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ababd3abefa73e480800000000000000
+      internalID: -8871111606524855622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 72
+        width: 32
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc915febb51bed420800000000000000
+      internalID: 2656755837799045579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 205
+        width: 132
+        height: 125
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca6fac7f5004f2439f2a876717014d4
+      internalID: -708054083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 204
+        width: 117
+        height: 126
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde8f18c092c6d54996a4cc55a2b2ce0
+      internalID: 1285977027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_1
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 205
+        width: 95
+        height: 124
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f22d4a5183bc9149bebac3babca2959
+      internalID: 330567297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 204
+        width: 122
+        height: 125
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04428b2254cb84b499229aa4fa0ccc9b
+      internalID: 1703505111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0fc04575bb3bf694183c9e973ef82392
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_0: 1703505111
+      SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_1: 330567297
+      SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_2: 1285977027
+      SpritesheetSpeakerVolume_LicenceReference_vecteezy.com_3: -708054083
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_0: -2704375746946730089
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_1: -720735740866030024
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_10: 4321081346247712149
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_11: 2019881633267617230
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_12: 3839889941254045094
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_13: 4038332508789242805
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_14: 4241623225982396602
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_15: 7935017625207853334
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_16: 7879491564137502972
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_17: -8904964602660577314
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_18: -7425221594894358125
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_19: -3350238726433783207
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_2: 7614690388988677971
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_20: -8871111606524855622
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_21: 2656755837799045579
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_3: -4596314962264823488
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_4: 8897955534538238419
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_5: -1936457761093396767
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_6: 4803072215634844084
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_7: 182788766003402029
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_8: 7129871175574284828
+      vecteezy_speaker-volume-outline-icon-collection_55165281-removebg-preview_9: 1538436897881526628
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -75,4 +75,11 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# specific assets
+Assets/Scenes/werkomgeving.unity
+Assets/Scenes/werkomgeving.unity.meta
+
+# Exclude YouTube Player package (gerdinand)
+Packages/com.ibicha.youtube-player/
+
 # End of https://www.toptal.com/developers/gitignore/api/unity

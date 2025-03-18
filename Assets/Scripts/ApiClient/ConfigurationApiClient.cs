@@ -14,6 +14,7 @@ namespace ApiClient
         {
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
+            if (response == "Cannot connect to destination host") return null;
             return response == "HTTP/1.1 404 Not Found" ? null : JsonUtility.FromJson<GetConfigurationsRequestDto>(response);
         }
         
@@ -22,7 +23,7 @@ namespace ApiClient
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var json = JsonUtility.ToJson(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json, UserSingleton.Instance.AccessToken);
-            
+
             //todo
             switch (response)
             {
