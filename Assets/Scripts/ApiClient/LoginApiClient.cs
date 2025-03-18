@@ -29,6 +29,8 @@ namespace ApiClient
                     statusMessage.text = "Cannot connect to server";
                     return false;
             }
+            
+            statusMessage.text = "Logged in!";
 
             var postLoginResponseDto = JsonUtility.FromJson<PostLoginResponseDto>(response);
 

@@ -1,8 +1,8 @@
 ﻿namespace Dto
 {
-    public  class PostRegisterRequestDto
+    public class PostRegisterRequestDto
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string email;
+        public string password;
     }
 }

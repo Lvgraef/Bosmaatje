@@ -9,12 +9,15 @@ namespace ApiClient
     {
         public static async Task<bool> Register(PostRegisterRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
         {
-            var url = $"{ApiUtil.BaseUrl}/auth/register";
+            var url = $"{ApiUtil.BaseUrl}/account/register";
             var json = JsonUtility.ToJson(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json);
             
             switch (response)
             {
+                case "HTTP/1.1 401 Unauthorized":
+                    statusText.text = "Unauthorized";
+                    return false;
                 case "HTTP/1.1 400 Bad Request":
                     statusText.text = "User already exists";
                     return false;
