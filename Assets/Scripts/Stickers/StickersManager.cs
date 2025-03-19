@@ -1,15 +1,20 @@
 using System;
 using Assets.Scripts.Dto;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
-using static Assets.Scripts.Dto.StickersDto;
+using UnityEngine.UI;
+//using static Assets.Scripts.Dto.StickersDto;
 
 public class StickersManager : MonoBehaviour
 {
 
-    //private GameObject _button = null;
-    //private int _stickerNumber = 0;
-    StickersSingleton StickersSing = StickersSingleton.Instance;
+    public GameObject panel;
+
+    public RectTransform content;
+    public GameObject stickerPrefab;
+
+    //StickersSingleton StickersSing = StickersSingleton.Instance;
 
     private static bool isInitialized = false;
 
@@ -21,35 +26,44 @@ public class StickersManager : MonoBehaviour
         }
 
         isInitialized = true;
+
+
+        for (int i = 1; i <= CountStickerAssets(); i++)
+        {
+            GameObject instStickerObj = Instantiate(stickerPrefab, content);
+            Button instSticker = instStickerObj.GetComponent<Button>();
+
+            instSticker.onClick.AddListener(() => StickerOnButtonClick(instSticker, i));
+
+
+            instSticker.image.sprite = Resources.Load<Sprite>("Stickers/sticker-" + i);
+        }
     }
 
 
-    public void StickerOnButtonClick(GameObject button, int stickerid, int gridnumber)
+
+
+    public void StickerOnButtonClick(Button button, int stickerid) // sticker id is overbodig?
     {
         if (button != null || stickerid == 0)
         {
+            Debug.LogError("StickerOnButtonClick: button, stickerid or gridnumber is null");
             return;
         }
 
-        StickerDto sticker = StickersSing.GetStickersDto().stickers[gridnumber];
+        // speel animatie voor die button
 
-        if (sticker.isAlreadyUnpacked)
-        {
-            return;
-            // animatie of een geluidje
-        }
-        else if (sticker.Date < DateTime.Now)
-        {
-            sticker.isAlreadyUnpacked = true;
-            // animatie of een geluidje
-        }
-        else
-        {
-            // animatie of een geluidje, dat het nog niet unlocked is
-
-        }
-
+        //stuur door wat het id is
     }
 
 
+    private static int CountStickerAssets()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Resources/Stickers" });
+        int assetCount = guids.Length;
+        Debug.Log("assetCount: " + assetCount);
+        return assetCount;
+    }
+
 }
+
