@@ -43,17 +43,15 @@ public class StickersManager : MonoBehaviour
 
 
 
-    public void StickerOnButtonClick(Button button, int stickerid) // sticker id is overbodig?
+    public void StickerOnButtonClick(Button button, int stickerid) // button is overbodig?
     {
         if (button != null || stickerid == 0)
         {
-            Debug.LogError("StickerOnButtonClick: button, stickerid or gridnumber is null");
+            Debug.LogWarning("StickerOnButtonClick: button, stickerid or gridnumber is null");
             return;
         }
 
-        // speel animatie voor die button
-
-        //stuur door wat het id is
+        //stuur door wat het id is, en haal het op met "Resources.Load<Sprite>("Stickers/sticker-" + stickerid);"
     }
 
 
