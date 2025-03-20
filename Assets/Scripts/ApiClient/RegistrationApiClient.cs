@@ -12,7 +12,8 @@ namespace ApiClient
             var url = $"{ApiUtil.BaseUrl}/account/register";
             var json = JsonUtility.ToJson(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json);
-            
+
+            statusText.color = Color.red;
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
@@ -25,6 +26,7 @@ namespace ApiClient
                     statusText.text = "Cannot connect to server";
                     return false;
                 default:
+                    statusText.color = Color.green;
                     statusText.text = "Registered successfully!";
                     return true;
             }
