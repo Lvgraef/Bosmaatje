@@ -13,10 +13,14 @@ namespace Treatment
         
         public TextMeshProUGUI treatmentName;
         public TextMeshProUGUI treatmentDescription;
+        public TMP_InputField doctorName;
+        public GameObject editMode;
         public GameObject dateSelectButton;
         public Image treatmentImage;
         public GameObject previousButton;
         public GameObject nextButton;
+        public GameObject dateBlocker;
+        public GameObject doctorNameBlocker;
         public DatePicker treatmentDate;
         private int _currentPage;
         private bool _isCompleted;
@@ -25,9 +29,12 @@ namespace Treatment
         [CanBeNull] private string _stickerId;
         private bool _canEdit;
 
-        public void Initialize(string treatmentName, string[] description, string imagePath, string videoPath, DateTime? date, [CanBeNull] string stickerId)
+        public void Initialize(string treatmentName, string[] description, string imagePath, string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
         {
+            this.doctorName.text = doctorName;
             dateSelectButton.SetActive(false);
+            doctorNameBlocker.SetActive(true);
+            dateBlocker.SetActive(true);
             _videoPath = videoPath;
             if (date != null)
             {
@@ -35,13 +42,13 @@ namespace Treatment
             }
             this.treatmentName.text = treatmentName;
             _stickerId = stickerId;
-            treatmentImage.sprite = Resources.Load<Sprite>( imagePath);
+            treatmentImage.sprite = Resources.Load<Sprite>(imagePath);
             _description = description;
             _currentPage = 0;
             UpdateDescription();
         }
 
-        public void UpdateDescription()
+        private void UpdateDescription()
         {
             treatmentDescription.text = _description[_currentPage];
             previousButton.SetActive(_currentPage > 0);
@@ -73,6 +80,10 @@ namespace Treatment
         public void EditTreatment()
         {
             _canEdit = !_canEdit;
+            dateSelectButton.SetActive(_canEdit);
+            doctorNameBlocker.SetActive(!_canEdit);
+            dateBlocker.SetActive(!_canEdit);
+            editMode.SetActive(_canEdit);
         }
 
         public void PutSticker()

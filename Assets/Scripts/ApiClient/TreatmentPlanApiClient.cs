@@ -10,9 +10,9 @@ namespace ApiClient
     public static class TreatmentPlanApiClient
     {
         [ItemCanBeNull]
-        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, string treatmentPlanId)
+        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, string treatmentPlanName)
         {
-            var url = $"{ApiUtil.BaseUrl}/treatments?treatmentPlanId={treatmentPlanId}";
+            var url = $"{ApiUtil.BaseUrl}/treatments?treatmentPlanName={treatmentPlanName}";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
             
             switch (response)
@@ -23,8 +23,14 @@ namespace ApiClient
                 case "Cannot connect to destination host":
                     statusText.text = "Cannot connect to server";
                     return null;
+                case "HTTP/1.1 400 Bad Request":
+                    statusText.text = "Bad request";
+                    return null;
+                case "HTTP/1.1 500 Internal Server Error":
+                    statusText.text = "Something went wrong :(";
+                    return null;
                 default:
-                    statusText.text = "Registered successfully!";
+                    statusText.text = "Got treatments!";
                     return JsonConvert.DeserializeObject<GetTreatmentRequestDto[]>(response);
             }
         }

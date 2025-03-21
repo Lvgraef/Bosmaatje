@@ -7,8 +7,8 @@ namespace Dto
         public Guid treatmentId;
         public string treatmentName;
         public string doctorName;
-        public string imageUri;
-        public string videoUri;
+        public string imagePath;
+        public string videoPath;
         public DateTime? date;
         public int order;
         public string stickerId;
