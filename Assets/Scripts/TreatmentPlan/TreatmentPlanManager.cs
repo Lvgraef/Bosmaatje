@@ -23,7 +23,7 @@ namespace TreatmentPlan
         public void OpenTreatment(int index)
         {
             var treatment = Instantiate(treatmentPrefab.gameObject, canvas);
-            treatment.GetComponent<TreatmentManager>().Initialize(Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
+            treatment.GetComponent<TreatmentManager>().Initialize(Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
         }
     }
 }

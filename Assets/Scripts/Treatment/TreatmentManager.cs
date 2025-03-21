@@ -1,4 +1,5 @@
 ﻿using System;
+using ApiClient;
 using Dto;
 using JetBrains.Annotations;
 using TMPro;
@@ -21,16 +22,24 @@ namespace Treatment
         public GameObject nextButton;
         public GameObject dateBlocker;
         public GameObject doctorNameBlocker;
+        public GameObject video;
         public DatePicker treatmentDate;
+        public GameObject videoButton;
         private int _currentPage;
         private bool _isCompleted;
         private string[] _description;
-        private string _videoPath;
+        [CanBeNull] private string _videoPath;
         [CanBeNull] private string _stickerId;
+        private Guid _id;
         private bool _canEdit;
 
-        public void Initialize(string treatmentName, string[] description, string imagePath, string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
+        public void Initialize(Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
         {
+            _id = id;
+            if (videoPath == null)
+            {
+                videoButton.SetActive(false);
+            }
             this.doctorName.text = doctorName;
             dateSelectButton.SetActive(false);
             doctorNameBlocker.SetActive(true);
@@ -77,8 +86,17 @@ namespace Treatment
             _isCompleted = true;
         }
 
-        public void EditTreatment()
+        public async void EditTreatment()
         {
+            if (_canEdit)
+            {
+                await TreatmentPlanApiClient.PutTreatment(_id, new PutTreatmentRequestDto
+                {
+                    date = treatmentDate.SelectedDate.HasValue ? treatmentDate.SelectedDate.Date : null,
+                    doctorName = doctorName.text
+                });
+            }
+            
             _canEdit = !_canEdit;
             dateSelectButton.SetActive(_canEdit);
             doctorNameBlocker.SetActive(!_canEdit);
@@ -91,9 +109,11 @@ namespace Treatment
             throw new NotImplementedException();
         }
 
-        public void ShowVideo()
+        public async void ShowVideo()
         {
-            throw new NotImplementedException();
+            var vid = await InstantiateAsync(video, transform.parent);
+            vid[0].GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
+            vid[0].GetComponent<VideoManager>().SetVideo(_videoPath);
         }
     }
 }

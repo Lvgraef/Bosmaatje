@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Dto;
 using Global;
 using JetBrains.Annotations;
@@ -33,6 +34,21 @@ namespace ApiClient
                     statusText.text = "Got treatments!";
                     return JsonConvert.DeserializeObject<GetTreatmentRequestDto[]>(response);
             }
+        }
+
+        public static async Task<bool> PutTreatment(Guid treatmentId, PutTreatmentRequestDto dto)
+        {
+            var url = $"{ApiUtil.BaseUrl}/treatments?treatmentId={treatmentId}";
+            var response = await ApiUtil.PerformApiCall(url, "PUT", JsonConvert.SerializeObject(dto), UserSingleton.Instance.AccessToken);
+
+            return response switch
+            {
+                "HTTP/1.1 401 Unauthorized" => false,
+                "Cannot connect to destination host" => false,
+                "HTTP/1.1 400 Bad Request" => false,
+                "HTTP/1.1 500 Internal Server Error" => false,
+                _ => true
+            };
         }
     }
 }
