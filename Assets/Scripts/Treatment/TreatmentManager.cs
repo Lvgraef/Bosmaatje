@@ -113,7 +113,7 @@ namespace Treatment
         {
             var vid = await InstantiateAsync(video, transform.parent);
             vid[0].GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
-            vid[0].GetComponent<VideoManager>().SetVideo(_videoPath);
+            vid[0].GetComponent<VideoManager>().Initialize(_videoPath, treatmentName.text);
         }
     }
 }

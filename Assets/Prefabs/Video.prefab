@@ -924,6 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 7561863077970065659}
+  title: {fileID: 5912298151072558548}
 --- !u!1 &7092584873164757660
 GameObject:
   m_ObjectHideFlags: 0

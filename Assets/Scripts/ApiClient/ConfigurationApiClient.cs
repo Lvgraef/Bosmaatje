@@ -55,7 +55,7 @@ namespace ApiClient
                     statusText.text = "Cannot connect to server";
                     return false;
                 default:
-                    statusText.text = "!";
+                    statusText.text = "Configured!";
                     return true;
             }
         }

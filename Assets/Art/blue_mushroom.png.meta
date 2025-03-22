@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 083980b9750cb3e499a1213f72251f1b
+guid: 7f649c8a820b6d84bb58d22dea7739b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1062070996187582193
-    second: Selection_27_0
+      213: -4794171562112382150
+    second: pixel_art_image_Blue_mushroom__0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Selection_27_0
+      name: pixel_art_image_Blue_mushroom__0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 152
-        height: 116
+        x: 34
+        y: 17
+        width: 432
+        height: 453
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fe8106a1fb3dbe00800000000000000
-      internalID: 1062070996187582193
+      spriteID: a3b03086d5ea77db0800000000000000
+      internalID: -4794171562112382150
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Selection_27_0: 1062070996187582193
+      pixel_art_image_Blue_mushroom__0: -4794171562112382150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

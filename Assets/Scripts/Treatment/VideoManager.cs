@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Video;
 
 namespace Treatment
@@ -6,15 +7,17 @@ namespace Treatment
     public class VideoManager : MonoBehaviour
     {
         public VideoPlayer videoPlayer;
+        public TextMeshProUGUI title;
+
+        public void Initialize(string path, string title)
+        {
+            videoPlayer.clip = Resources.Load<VideoClip>(path);
+            this.title.text = title;
+        }
         
         public void Close()
         {
             Destroy(gameObject);
-        }
-
-        public void SetVideo(string path)
-        {
-            videoPlayer.clip = Resources.Load<VideoClip>(path);
         }
     }
 }

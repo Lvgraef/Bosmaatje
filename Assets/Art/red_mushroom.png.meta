@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: c42ca83c15ff08447abc89d68d6440ca
+guid: 971edfbd41525ce4ca22e8cafa049087
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2956491225003502968
-    second: Selection_26_0
-  - first:
-      213: 1008941278238031755
-    second: Selection_26_1
+      213: 7339492268332075471
+    second: red_mushroom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Selection_26_0
+      name: red_mushroom_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 108
-        height: 116
+        x: 50
+        y: 28
+        width: 407
+        height: 435
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8825b1025ee68f6d0800000000000000
-      internalID: -2956491225003502968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Selection_26_1
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 7
-        width: 41
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b8f3b983fba700e00800000000000000
-      internalID: 1008941278238031755
+      spriteID: fc9c8ade45d1bd560800000000000000
+      internalID: 7339492268332075471
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0ee599f927261b34daa30b8da3edcab6
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -172,9 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Selection_26_0: -2956491225003502968
-      Selection_26_1: 1008941278238031755
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
