@@ -42,5 +42,7 @@ namespace Global
             Instance = this;
             DontDestroyOnLoad(this);
         }
+
+
     }
 }
