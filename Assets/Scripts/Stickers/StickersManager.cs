@@ -1,9 +1,7 @@
-using System;
-using Assets.Scripts.Dto;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+
 //using static Assets.Scripts.Dto.StickersDto;
 
 public class StickersManager : MonoBehaviour
