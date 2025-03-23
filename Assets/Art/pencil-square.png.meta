@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 90129d923b0febb44a16538cd528df3f
+guid: 948124dbc1b57bf49841f11ca0eaf6a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4552219762976899737
-    second: th-removebg-preview (1)_0
+      213: -4769689534324152696
+    second: pencil-square_0
+  - first:
+      213: 32730185603179886
+    second: pencil-square_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: th-removebg-preview (1)_0
+      name: pencil-square_0
       rect:
         serializedVersion: 2
-        x: 179
-        y: 184
-        width: 142
-        height: 143
+        x: 3
+        y: 3
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76dbf388e3443d0c0800000000000000
-      internalID: -4552219762976899737
+      spriteID: 886e5b1b3a8aecdb0800000000000000
+      internalID: -4769689534324152696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencil-square_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 48
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e656f4e2ee7447000800000000000000
+      internalID: 32730185603179886
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      th-removebg-preview (1)_0: -4552219762976899737
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

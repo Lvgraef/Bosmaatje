@@ -548,6 +548,7 @@ GameObject:
   - component: {fileID: 490667426}
   - component: {fileID: 490667425}
   - component: {fileID: 490667424}
+  - component: {fileID: 490667427}
   m_Layer: 5
   m_Name: EnterButton
   m_TagString: Untagged
@@ -618,7 +619,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 490667425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 490667427}
+        m_TargetAssemblyTypeName: Introduction.NextButton, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &490667425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +670,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490667422}
   m_CullTransparentMesh: 1
+--- !u!114 &490667427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490667422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d2f099a419a3646b457d70d89a003f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &570127562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1495724785}
+  m_Material: {fileID: 1291830351}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1439,7 +1464,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263130942}
   m_CullTransparentMesh: 1
---- !u!21 &1495724785
+--- !u!21 &1291830351
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0

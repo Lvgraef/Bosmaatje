@@ -2,6 +2,7 @@
 using Dto;
 using Global;
 using JetBrains.Annotations;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 
@@ -21,26 +22,30 @@ namespace ApiClient
         public static async Task<bool> Configure(PostConfigurationsRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
         {
             var url = $"{ApiUtil.BaseUrl}/configurations";
-            var json = JsonUtility.ToJson(postRegisterRequestDto);
+            var json = JsonConvert.SerializeObject(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json, UserSingleton.Instance.AccessToken);
 
-            //todo
             switch (response)
             {
                 case "Cannot connect to destination host":
                     statusText.text = "Cannot connect to server";
                     return false;
+                case "HTTP/1.1 409 Conflict":
+                    statusText.text = "Conflict";
+                    return false;
                 default:
-                    statusText.text = "!";
+                    statusText.text = "Success!";
                     return true;
             }
         }
 
-        public static async Task<bool> PutFirstTreatment(PutTreatmentRequestDto putTreatmentRequestDto, TextMeshProUGUI statusText)
+        public static async Task<bool> PutFirstTreatment(PutTreatmentRequestDto putTreatmentRequestDto, TextMeshProUGUI statusText, string treatmentPlanName)
         {
-            var url = $"{ApiUtil.BaseUrl}/treatments?treatment=0";
+            var treatments = await TreatmentPlanApiClient.GetTreatments(statusText, treatmentPlanName);
             
-            var json = JsonUtility.ToJson(putTreatmentRequestDto);
+            var url = $"{ApiUtil.BaseUrl}/treatments?treatmentId={treatments![0].treatmentId}&treatmentPlanName={treatmentPlanName}";
+            
+            var json = JsonConvert.SerializeObject(putTreatmentRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "PUT", json, UserSingleton.Instance.AccessToken);
             
             //todo
@@ -50,7 +55,7 @@ namespace ApiClient
                     statusText.text = "Cannot connect to server";
                     return false;
                 default:
-                    statusText.text = "!";
+                    statusText.text = "Configured!";
                     return true;
             }
         }
