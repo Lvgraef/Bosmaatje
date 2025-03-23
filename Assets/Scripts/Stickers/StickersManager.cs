@@ -1,65 +1,56 @@
+using System;
+using ApiClient;
+using Dto;
+using Treatment;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-//using static Assets.Scripts.Dto.StickersDto;
-
-public class StickersManager : MonoBehaviour
+namespace Stickers
 {
-
-    public GameObject panel;
-
-    public RectTransform content;
-    public GameObject stickerPrefab;
-
-    //StickersSingleton StickersSing = StickersSingleton.Instance;
-
-    private static bool isInitialized = false;
-
-    private void Start()
+    public class StickersManager : MonoBehaviour
     {
-        if (isInitialized)
-        {
-            return;
+        public TreatmentManager Treatment { get; set; }
+        public GameObject panel;
+
+        public RectTransform content;
+        public GameObject stickerPrefab;
+    
+        private static bool isInitialized = false;
+
+        private void Start()
+        { 
+            for (int i = 1; i <= CountStickerAssets(); i++)
+            {
+                GameObject instStickerObj = Instantiate(stickerPrefab, content);
+                Button instSticker = instStickerObj.GetComponent<Button>();
+
+                var finalI = i;
+                instSticker.onClick.AddListener(() => StickerOnButtonClick(instSticker, finalI));
+
+
+                instSticker.image.sprite = Resources.Load<Sprite>("Stickers/sticker-" + i);
+            }
         }
 
-        isInitialized = true;
 
 
-        for (int i = 1; i <= CountStickerAssets(); i++)
+
+        public async void StickerOnButtonClick(Button button, int stickerid) // button is overbodig?
         {
-            GameObject instStickerObj = Instantiate(stickerPrefab, content);
-            Button instSticker = instStickerObj.GetComponent<Button>();
-
-            instSticker.onClick.AddListener(() => StickerOnButtonClick(instSticker, i));
-
-
-            instSticker.image.sprite = Resources.Load<Sprite>("Stickers/sticker-" + i);
-        }
-    }
-
-
-
-
-    public void StickerOnButtonClick(Button button, int stickerid) // button is overbodig?
-    {
-        if (button != null || stickerid == 0)
-        {
-            Debug.LogWarning("StickerOnButtonClick: button, stickerid or gridnumber is null");
-            return;
+            await Treatment.PutSticker(stickerid);
+            Destroy(gameObject);
         }
 
-        //stuur door wat het id is, en haal het op met "Resources.Load<Sprite>("Stickers/sticker-" + stickerid);"
+
+        private static int CountStickerAssets()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Resources/Stickers" });
+            int assetCount = guids.Length;
+            Debug.Log("assetCount: " + assetCount);
+            return assetCount;
+        }
+
     }
-
-
-    private static int CountStickerAssets()
-    {
-        string[] guids = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Resources/Stickers" });
-        int assetCount = guids.Length;
-        Debug.Log("assetCount: " + assetCount);
-        return assetCount;
-    }
-
 }
 
