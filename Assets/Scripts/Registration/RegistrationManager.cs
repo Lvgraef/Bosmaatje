@@ -30,6 +30,11 @@ namespace Registration
 
             if (success)
             {
+                await LoginApiClient.Login(errorText, new PostLoginRequestDto
+                {
+                    email = emailInputField.text.ToLower(),
+                    password = passwordInputField.text
+                });
                 await SceneManager.LoadSceneAsync("Scenes/Welcome");
             }
         }
