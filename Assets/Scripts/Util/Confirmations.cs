@@ -11,8 +11,17 @@ namespace Util
 {
     public static class Confirmations
     {
-
         public static void CreateConfirmationPopup(Action MethodByDiscart, Action MethodBySaveFirst, string text, CanvasGroup FreezeWhileConfirm)
+        {
+            // Gebruik de default tekst als deze niet wordt opgegeven
+            string defaultDenytext = "wegdoen";
+            string defaultConfirmText = "opslaan";
+
+            // Call de originele methode met de default tekst
+            CreateConfirmationPopup(MethodByDiscart, MethodBySaveFirst, text, FreezeWhileConfirm, defaultDenytext, defaultConfirmText);
+        }
+
+        public static void CreateConfirmationPopup(Action MethodByDeny, Action MethodByConfirm, string popupMessage, CanvasGroup FreezeWhileConfirm, string denyMessage, string confirmMessage)
         {
             // Freeze the game while the confirmation is active
             FreezeWhileConfirm.interactable = false;
@@ -37,7 +46,7 @@ namespace Util
             GameObject textGO = new GameObject("TextGo");
             TextMeshProUGUI textui = textGO.AddComponent<TextMeshProUGUI>();
             textui.alignment = TextAlignmentOptions.Center;
-            textui.text = text;
+            textui.text = popupMessage;
             textui.color = Color.black;
 
             // Set Parent and Position for Text
@@ -47,8 +56,8 @@ namespace Util
             textRect.anchoredPosition = Vector2.zero;
 
             // Create Buttons
-            GameObject buttonSave = CreateButton("SaveButton", new Vector2(-150, -200), false);
-            GameObject buttonDiscart = CreateButton("DiscartButton", new Vector2(150, -200), true);
+            GameObject buttonSave = CreateButton("SaveButton", new Vector2(-150, -200), false, denyMessage, confirmMessage);
+            GameObject buttonDiscart = CreateButton("DiscartButton", new Vector2(150, -200), true, denyMessage, confirmMessage);
             buttonSave.transform.SetParent(canvasGO.transform, false);
             buttonDiscart.transform.SetParent(canvasGO.transform, false);
 
@@ -56,7 +65,7 @@ namespace Util
             Button saveButton = buttonSave.GetComponent<Button>();
             saveButton.onClick.AddListener(() =>
             {
-                MethodBySaveFirst();
+                MethodByConfirm();
                 GameObject.Destroy(canvasGO);
                 FreezeWhileConfirm.interactable = true;
             });
@@ -65,14 +74,14 @@ namespace Util
 
             discartButton.onClick.AddListener(() =>
             {
-                MethodByDiscart();
+                MethodByDeny();
                 GameObject.Destroy(canvasGO);
                 FreezeWhileConfirm.interactable = true;
             });
 
         }
 
-        private static GameObject CreateButton(string name, Vector2 position, bool isDiscart)
+        private static GameObject CreateButton(string name, Vector2 position, bool isDiscart, string denyMessage, string confirmMessage)
         {
             GameObject buttonGO = new GameObject(name);
             Button button = buttonGO.AddComponent<Button>();
@@ -85,7 +94,7 @@ namespace Util
 
             //textGO.transform.position = new Vector3(0, 0, 0);
 
-            tmp.text = isDiscart ? "wegdoen" : "opslaan";
+            tmp.text = isDiscart ? denyMessage : confirmMessage;
             tmp.alignment = TextAlignmentOptions.Center;
             tmp.color = Color.black;
 

@@ -80,7 +80,8 @@ public class DiaryPickerManager : MonoBehaviour
             new DateTime(2025, 3, 5),
             new DateTime(2025, 3, 12),
             new DateTime(2025, 3, 18),
-            new DateTime(2025, 3, 21)
+            new DateTime(2025, 3, 23),
+            new DateTime(2025, 3, 24)
 };
 
         //_filledDates = result.date.OrderBy(date => date).ToArray();
@@ -120,8 +121,9 @@ public class DiaryPickerManager : MonoBehaviour
         foreach (var bar in _bars)
         {
             bool exists = Array.Exists(_filledDates, date => date == CurrentDate);
-            bool changeable = CurrentDate >= DateTime.Now.AddDays(-2);
-            FillBar(bar, CurrentDate, exists, changeable);
+            //bool isOldDate = CurrentDate >= DateTime.Now.AddDays(-2);
+            bool isPreviewByDefault = CurrentDate < DateTime.Now.AddDays(-1) || CurrentDate > DateTime.Now.AddDays(1);
+            FillBar(bar, CurrentDate, exists, isPreviewByDefault);
             CurrentDate = CurrentDate.AddDays(1);
         }
     }
@@ -155,7 +157,7 @@ public class DiaryPickerManager : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void FillBar(GameObject bar, DateTime date, bool isExistend, bool isModifiable)
+    private void FillBar(GameObject bar, DateTime date, bool isExistend, bool isPreviewByDefault)
     {
         Button openButton = bar.GetComponentInChildren<Button>();
         Image openButtonImage = openButton.transform.GetChild(0).GetComponent<Image>(); // Aannemende dat de Image de eerste child is
@@ -165,50 +167,54 @@ public class DiaryPickerManager : MonoBehaviour
         dateText.text = $"{date.ToString("dd/MM/yyyy")} ({DayOfWeekText})";
 
         bool isFuture = date > DateTime.Now.AddDays(1);
+        openButton.interactable = !isFuture;
 
         if (isExistend)
         {
-            if (isModifiable)
+            if (isPreviewByDefault)
+            {
+                openButtonImage.sprite = spriteDiaryEyeView;
+                openButton.image.color = Color.green;
+                openButton.onClick.RemoveAllListeners();
+                openButton.onClick.AddListener(() =>
+                {
+                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bekijken en is al bestaand
+                });
+            }
+            else
             {
                 openButtonImage.sprite = spriteDiaryPencilEdit;
                 openButton.image.color = Color.green;
                 openButton.onClick.RemoveAllListeners();
                 openButton.onClick.AddListener(() =>
                 {
-                    OpenDiary(date, true, true); // Open de diary met de mogelijkheid om te bewerken en is al bestaand
-                });
-            }
-            else
-            {
-                openButtonImage.sprite = spriteDiaryEyeView;
-                openButton.image.color = Color.blue;
-                openButton.onClick.RemoveAllListeners();
-                openButton.onClick.AddListener(() =>
-                {
-                    OpenDiary(date, false, true); // Open de diary zonder de mogelijkheid op te bewerken en is al bestaand
+                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bewerken en is al bestaand
                 });
             }
         }
         else
         {
-            if(isModifiable)
+            if(isPreviewByDefault)
             {
-                openButton.image.color = Color.yellow;
-                openButtonImage.sprite = spriteDiaryWrite;
+                openButtonImage.sprite = spriteDiaryEmpty;
+                openButton.image.color = Color.green;
                 openButton.onClick.AddListener(() =>
                 {
-                    OpenDiary(date, true, false); // Open de diary met de mogelijkheid om te bewerken en is nog niet bestaand
+                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bekijken en is nog niet bestaand
                 });
             }
             else
             {
-                openButton.image.color = Color.red;
-                openButtonImage.sprite = spriteDiaryEmpty;
-                openButton.interactable = false;
-            }
+                openButtonImage.sprite = spriteDiaryWrite;
+                openButton.image.color = Color.green;
+                openButton.onClick.AddListener(() =>
+                {
+                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bewerken en is nog niet bestaand
+                });
+        }
         }
 
-        openButton.interactable = !isFuture;// Als de datum in de toekomst ligt, kan je er niet op klikken
+        // Als de datum in de toekomst ligt, kan je er niet op klikken
         DateTime firstDate = _filledDates[0];
         if (date < firstDate)
         {
@@ -216,14 +222,15 @@ public class DiaryPickerManager : MonoBehaviour
         }
     }
 
-    private void OpenDiary(DateTime date, bool isEditable, bool isExistend)
+
+    private void OpenDiary(DateTime date, bool isPreviewByDefault, bool isExistend)
     {
         Debug.Log("we openen de WriterDiary");
         this.gameObject.GetComponent<CanvasGroup>().interactable = false;
         this.gameObject.SetActive(false);
         DiaryWriter.SetActive(true);
 
-        DiaryWriter.GetComponent<DiaryWriterManager>().OpenDiary(date, isEditable, isExistend);
+        DiaryWriter.GetComponent<DiaryWriterManager>().OpenDiary(date, isPreviewByDefault, isExistend);
     }
 
     private string GetAbreviationFromDayOfTheWeek(DateTime date)
