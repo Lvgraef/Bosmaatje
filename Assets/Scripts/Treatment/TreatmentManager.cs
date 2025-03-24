@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
 using ApiClient;
 using Dto;
 using JetBrains.Annotations;
+using Stickers;
 using TMPro;
 using UI.Dates;
 using UnityEngine;
@@ -14,6 +16,9 @@ namespace Treatment
         
         public TextMeshProUGUI treatmentName;
         public TextMeshProUGUI treatmentDescription;
+        public StickersManager stickersPopup;
+        public Image stickerImage;
+        public TextMeshProUGUI stickerText;
         public TMP_InputField doctorName;
         public GameObject editMode;
         public GameObject dateSelectButton;
@@ -55,6 +60,11 @@ namespace Treatment
             _description = description;
             _currentPage = 0;
             UpdateDescription();
+            if (_stickerId != null)
+            {
+                stickerText.gameObject.SetActive(false);
+                stickerImage.sprite = Resources.Load<Sprite>(_stickerId);
+            }
         }
 
         private void UpdateDescription()
@@ -104,9 +114,22 @@ namespace Treatment
             editMode.SetActive(_canEdit);
         }
 
-        public void PutSticker()
+        public async void OpenStickers()
         {
-            throw new NotImplementedException();
+            var sticker = await InstantiateAsync(stickersPopup);
+            sticker[0].GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0); 
+            sticker[0].GetComponent<StickersManager>().Treatment = this;
+        }
+        
+        public async Task PutSticker(int stickerId)
+        {
+            _stickerId = "Stickers/sticker-" + stickerId;
+            await TreatmentPlanApiClient.PutTreatment(_id, new PutTreatmentRequestDto
+            {
+                stickerId = _stickerId
+            });
+            stickerText.gameObject.SetActive(false);
+            stickerImage.sprite = Resources.Load<Sprite>(_stickerId);
         }
 
         public async void ShowVideo()
