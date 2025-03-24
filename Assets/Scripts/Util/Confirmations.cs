@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,11 +34,10 @@ namespace Util
             rectTransform.anchoredPosition = Vector2.zero;
 
             // Create Text
-            GameObject textGO = new GameObject("Text");
-            Text textui = textGO.AddComponent<Text>();
+            GameObject textGO = new GameObject("TextGo");
+            TextMeshProUGUI textui = textGO.AddComponent<TextMeshProUGUI>();
+            textui.alignment = TextAlignmentOptions.Center;
             textui.text = text;
-            textui.alignment = TextAnchor.MiddleCenter;
-            textui.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
             textui.color = Color.black;
 
             // Set Parent and Position for Text
@@ -80,12 +80,14 @@ namespace Util
             buttonImage.color = isDiscart ? Color.red : Color.green;
 
             // Create Button Text
-            GameObject textGO = new GameObject("Text");
-            Text text = textGO.AddComponent<Text>();
-            text.text = isDiscart ? "wegdoen" : "opslaan";
-            text.alignment = TextAnchor.MiddleCenter;
-            text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            text.color = Color.black;
+            GameObject textGO = new GameObject("TextGO");
+            TextMeshProUGUI tmp = textGO.AddComponent<TextMeshProUGUI>();
+
+            //textGO.transform.position = new Vector3(0, 0, 0);
+
+            tmp.text = isDiscart ? "wegdoen" : "opslaan";
+            tmp.alignment = TextAlignmentOptions.Center;
+            tmp.color = Color.black;
 
             // Set Parent and Position
             textGO.transform.SetParent(buttonGO.transform, false);

@@ -14,7 +14,7 @@ public class DiaryWriterManager : MonoBehaviour
     public GameObject writeDiaryPopup;
     public GameObject pickDiaryPopup;
     public TMP_Text textDate;
-    public TMP_InputField TextContent;
+    public TMP_InputField TextContentField;
     public GameObject ConfirmPopup;
 
     public Button buttonSave;
@@ -48,7 +48,7 @@ public class DiaryWriterManager : MonoBehaviour
 
     public async void SaveOnButtonClick()
     {
-        _diaryContent = TextContent.text;
+        _diaryContent = TextContentField.text;
 
         if (_isExistend)
         {
@@ -64,12 +64,12 @@ public class DiaryWriterManager : MonoBehaviour
 
     public void GoBackOnButtonClick()
     {
-        if (_diaryContent != TextContent.text)
+        if (_diaryContent != TextContentField.text)
         {
             Confirmations.CreateConfirmationPopup(DiscardAll, SaveAllFist, "nog niet alles is opgeslagen, wil je het nog opslaan?", writeDiaryPopup.GetComponent<CanvasGroup>());
 
 
-            ConfirmPopup.gameObject.SetActive(true);
+            //ConfirmPopup.gameObject.SetActive(true);
         }
         else
         {
@@ -85,16 +85,29 @@ public class DiaryWriterManager : MonoBehaviour
     private void SaveAllFist()
     {
         SaveOnButtonClick();
-        writeDiaryPopup.SetActive(false);
-        pickDiaryPopup.GetComponent<CanvasGroup>().interactable = true;
-        pickDiaryPopup.SetActive(true);
+        ConfirmPopupClose();
     }
 
     private void DiscardAll()
     {
+        ConfirmPopupClose();
+    }
+
+
+    private void ConfirmPopupClose() {
         writeDiaryPopup.SetActive(false);
         pickDiaryPopup.GetComponent<CanvasGroup>().interactable = true;
         pickDiaryPopup.SetActive(true);
+        EmptyDiaryWriterManagerVariables();
+    }
+
+    private void EmptyDiaryWriterManagerVariables()
+    {
+        _diaryDate = new DateTime();
+        _isEditable = false;
+        _isExistend = false;
+        _diaryContent = "";
+        TextContentField.text = _diaryContent;
     }
 
     private async void setupDiary()
@@ -105,16 +118,16 @@ public class DiaryWriterManager : MonoBehaviour
         {
             GetSpecificDiaryContentRequestDto getContentDto = new GetSpecificDiaryContentRequestDto { date = _diaryDate };
 
-            // GetSpecificDiaryContentResponseDto respons = await DiaryApiClient.GetSpecificDiaryContent(getContentDto);
+            //GetSpecificDiaryContentResponseDto respons = await DiaryApiClient.GetSpecificDiaryContent(getContentDto);
 
             GetSpecificDiaryContentResponseDto respons = new GetSpecificDiaryContentResponseDto { content = "En dit is de algeschreven testContent" };
             _diaryContent = respons.content;
 
-            TextContent.text = _diaryContent;
+            TextContentField.text = _diaryContent;
         }
 
         buttonSave.interactable = _isEditable;
-
+        TextContentField.interactable = _isEditable;
 
         writeDiaryPopup.SetActive(true);
     }
