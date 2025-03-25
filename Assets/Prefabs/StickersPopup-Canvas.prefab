@@ -421,7 +421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6967ff15170b3c6408920d9fce2930f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 529580806507976304}
   content: {fileID: 2090433179410394477}
   stickerPrefab: {fileID: 8679678869857530067, guid: 73f9dc886745c90479b636fe39005604, type: 3}
 --- !u!1 &3612950006231851432
@@ -512,6 +511,7 @@ GameObject:
   - component: {fileID: 5174626391836164814}
   - component: {fileID: 6162905132344276717}
   - component: {fileID: 396927696025886254}
+  - component: {fileID: 5022619772115668054}
   m_Layer: 5
   m_Name: Close-TR-Button
   m_TagString: Untagged
@@ -633,6 +633,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5022619772115668054}
+        m_TargetAssemblyTypeName: Global.AudioPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 12825280ddb85c84bb57b4b88e1f8f53, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &396927696025886254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +655,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68ebb04b1c151d2478b6f81cfe5c7706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5022619772115668054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750747269641723732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7b57d834f147cca0a1b26c81e316a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6101433556446016911
