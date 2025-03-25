@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using ApiClient;
 using Dto;
+using Planning;
 using TMPro;
 using Treatment;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace TreatmentPlan
@@ -12,6 +14,7 @@ namespace TreatmentPlan
     {
         public TextMeshProUGUI statusText;
         public TreatmentManager treatmentPrefab;
+        [FormerlySerializedAs("calendarPrefab")] public GameObject planningPrefab;
         public Transform canvas;
         public List<Image> pos;
         public GetConfigurationsRequestDto Configuration { get; set; }
@@ -22,6 +25,12 @@ namespace TreatmentPlan
             Configuration = await ConfigurationApiClient.GetConfiguration();
             Treatments = await TreatmentPlanApiClient.GetTreatments(statusText, Configuration?.treatmentPlanName);
             Progress();
+        }
+
+        public void OpenPlanning()
+        {
+            var planning = Instantiate(planningPrefab, canvas);
+            planning.GetComponent<PlanningManager>().Initialize(Treatments);
         }
 
         private void Progress()
