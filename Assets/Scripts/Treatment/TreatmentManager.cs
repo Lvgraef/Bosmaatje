@@ -74,8 +74,16 @@ namespace Treatment
             nextButton.SetActive(_currentPage < _description.Length - 1);
         }
 
-        public void Close()
+        public async void Close()
         {
+            if (_canEdit)
+            {
+                await TreatmentPlanApiClient.PutTreatment(_id, new PutTreatmentRequestDto
+                {
+                    date = treatmentDate.SelectedDate.HasValue ? treatmentDate.SelectedDate.Date : null,
+                    doctorName = doctorName.text
+                });
+            }
             Destroy(gameObject);
         }
         
@@ -89,11 +97,6 @@ namespace Treatment
         {
             _currentPage--;
             UpdateDescription();
-        }
-        
-        public void CompleteTreatment()
-        {
-            _isCompleted = true;
         }
 
         public async void EditTreatment()
@@ -116,6 +119,15 @@ namespace Treatment
 
         public async void OpenStickers()
         {
+            if (_canEdit)
+            {
+                await TreatmentPlanApiClient.PutTreatment(_id, new PutTreatmentRequestDto
+                {
+                    date = treatmentDate.SelectedDate.HasValue ? treatmentDate.SelectedDate.Date : null,
+                    doctorName = doctorName.text
+                });
+            }
+
             var sticker = await InstantiateAsync(stickersPopup);
             sticker[0].GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0); 
             sticker[0].GetComponent<StickersManager>().Treatment = this;
