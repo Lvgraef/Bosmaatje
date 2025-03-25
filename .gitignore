@@ -78,6 +78,8 @@ crashlytics-build.properties
 # specific assets
 Assets/Scenes/werkomgeving.unity
 Assets/Scenes/werkomgeving.unity.meta
+Assets/Scenes/Diary.unity
+Assets/Scenes/Diary.unity.meta
 
 # Exclude YouTube Player package (gerdinand)
 Packages/com.ibicha.youtube-player/
