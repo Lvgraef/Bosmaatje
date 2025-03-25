@@ -31,25 +31,24 @@ namespace Global
 
         private async void Start()
         {
-            GetDiaryDataRequestDto succes = await DiaryApiClient.DaysInDiary();
+            List<DiaryReadDto> succes = await DiaryApiClient.DaysInDiary();
 
-            if (succes != null)
+            if (succes != null && succes.Count > 0)
             {
-                _diaryReads = succes.Diaries;
+                _diaryReads = succes;
             }
-            else if (_diaryReads == null)
+            else
             {
-                PostDiaryContentRequestDto requestDto = new PostDiaryContentRequestDto { content = "Welcome in je nieuwe dagboek!", date = DateTime.Now.Date };
+                PostDiaryContentRequestDto requestDto = new PostDiaryContentRequestDto { content = "Welkom in je nieuwe dagboek! \n je kan hieronder opschrijven wat je \n -gedaan heb op de dag \n - nog wilt gaan doen op de dag \n -alle leuke en minder leuke ervaringen \n -vragen voor de doker \n \n en nog veel meer!", date = DateTime.Now.Date };
                 await DiaryApiClient.PostDiaryContent(requestDto);
-            }
-            if (_diaryReads == null)
-            {
-                _diaryReads = new List<DiaryReadDto>();
+
+                _diaryReads = new List<DiaryReadDto> { new DiaryReadDto { date = DateTime.Now.Date, content = "Welkom in je nieuwe dagboek!" } };
             }
         }
 
+
         public List<DiaryReadDto> GetDiaryData() => _diaryReads;
         public void AddDiaryData(DiaryReadDto diaryReadDto) => _diaryReads.Add(diaryReadDto);
-        public void UpdateDiaryData(DiaryReadDto diaryReadDto) => _diaryReads[_diaryReads.FindIndex(x => x.date == diaryReadDto.date)] = diaryReadDto;
+        public void UpdateDiaryData(DiaryReadDto diaryReadDto) => _diaryReads[_diaryReads.FindIndex(diary => diary.date == diaryReadDto.date)] = diaryReadDto;
     }
 }

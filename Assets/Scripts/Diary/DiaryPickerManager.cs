@@ -36,25 +36,19 @@ public class DiaryPickerManager : MonoBehaviour
     public GameObject Bar6;
     public GameObject Bar7;
 
+    private GameObject[] _bars = new GameObject[7];
+
     private static DateTime[] _filledDates;
     private static int _sumOfDates;
-
-    private GameObject[] _bars;
     private int _weekNum = 0;
 
 
 
-    async void Start()
+    void Start()
     {
-        _bars = new GameObject[7] { Bar1, Bar2, Bar3, Bar4, Bar5, Bar6, Bar7 };
-
-
-
-        InitializeDiaryPicker();
-
-
 
     }
+
 
     public void Fill7DiaryDays(int weekNum)
     {
@@ -79,8 +73,13 @@ public class DiaryPickerManager : MonoBehaviour
             bool exists = Array.Exists(_filledDates, date => date == CurrentDate);
             //bool isOldDate = CurrentDate >= DateTime.Now.AddDays(-2);
             bool isPreviewByDefault = CurrentDate < DateTime.Now.AddDays(-1) || CurrentDate > DateTime.Now.AddDays(1);
+            Debug.Log($"Vullen week {_weekNum} met datum {CurrentDate}");
+
+
             FillBar(bar, CurrentDate, exists, isPreviewByDefault);
             CurrentDate = CurrentDate.AddDays(1);
+
+
         }
     }
 
@@ -111,6 +110,14 @@ public class DiaryPickerManager : MonoBehaviour
     public void OpenOnButtonClick()
     {
         this.gameObject.SetActive(true);
+        this.gameObject.GetComponent<CanvasGroup>().interactable = true;
+
+        //if (_bars == null || _bars.Length == 0)
+        //{
+        //    _bars = new GameObject[] { Bar1, Bar2, Bar3, Bar4, Bar5, Bar6, Bar7 };
+        //    Debug.Log(" _bars is nu handmatig geïnitialiseerd in OpenOnButtonClick().");
+        //}
+
         InitializeDiaryPicker();
     }
 
@@ -121,6 +128,9 @@ public class DiaryPickerManager : MonoBehaviour
 
     private void FillBar(GameObject bar, DateTime date, bool isExistend, bool isPreviewByDefault)
     {
+
+        Debug.Log($"Bar {bar.name}, Date: {date}, Exists: {isExistend}, Preview: {isPreviewByDefault}");
+
         Button openButton = bar.GetComponentInChildren<Button>();
         Image openButtonImage = openButton.transform.GetChild(0).GetComponent<Image>(); // Aannemende dat de Image de eerste child is
         TMP_Text dateText = bar.GetComponentInChildren<TMP_Text>();
@@ -174,6 +184,7 @@ public class DiaryPickerManager : MonoBehaviour
                     OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bewerken en is nog niet bestaand
                 });
         }
+
         }
 
         // Als de datum in de toekomst ligt, kan je er niet op klikken
@@ -192,7 +203,16 @@ public class DiaryPickerManager : MonoBehaviour
             return;
         }
 
-        _filledDates = result.Select(item => item.date).ToArray();
+        _bars[0] = Bar1;
+        _bars[1] = Bar2;
+        _bars[2] = Bar3;
+        _bars[3] = Bar4;
+        _bars[4] = Bar5;
+        _bars[5] = Bar6;
+        _bars[6] = Bar7;
+
+        //_filledDates = result.Select(diary => DateTime.ParseExact(diary.date, "MM/dd/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).ToArray();
+        _filledDates = result.Select(diary => diary.date).ToArray();
 
         _filledDates = _filledDates.OrderBy(date => date).ToArray();
 
@@ -205,7 +225,14 @@ public class DiaryPickerManager : MonoBehaviour
         DateTime firstSunday = firstDate.AddDays(-(int)firstDate.DayOfWeek);
         _weekNum = (DateTime.Now - firstSunday).Days / 7;
 
+
+        Debug.Log($"Aantal data items: {result?.Count ?? 0}");
+        Debug.Log($"_filledDates lengte: {_filledDates?.Length ?? 0}");
+
+
         Fill7DiaryDays(_weekNum);
+        Debug.Log($"WeekNum bij openen: {_weekNum}");
+
     }
 
 

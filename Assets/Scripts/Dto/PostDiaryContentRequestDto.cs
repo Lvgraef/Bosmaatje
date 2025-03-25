@@ -8,7 +8,7 @@ namespace Dto
 {
     public class PostDiaryContentRequestDto
     {
+        public DateTime date;
         public string content;
-        public DateTime date; // mischien hiervoor onze eigen Data type gebruiken
     }
 }

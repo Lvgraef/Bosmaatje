@@ -7,6 +7,7 @@ using ApiClient;
 using Dto;
 using UnityEngine;
 using Util;
+using Global;
 
 namespace Diary
 {
@@ -25,17 +26,31 @@ namespace Diary
         public async override void HandleSave()
         {
 
-            string _diaryContent = _diaryWriter.GetContentFieldText().text;
+            string diaryContent = _diaryWriter.GetContentFieldText().text;
+            _diaryWriter.SetDiaryContent(diaryContent);
 
             if (_diaryWriter.GetIsExistend())
             {
-                PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate(), content = _diaryContent };
+                PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent };
+                Debug.Log("de put content dto is: " +putContentDto.content + " " + putContentDto.date);
                 bool response = await DiaryApiClient.PutDiaryContent(putContentDto);
+                Debug.Log("we hebben een put gedaan en  de response is: " + response);
+
+                if (response){
+                    DiarySingleton.Instance.UpdateDiaryData(new DiaryReadDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent });
+                }
             }
             else
             {
-                PostDiaryContentRequestDto postContentDto = new PostDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate(), content = _diaryContent };
+                PostDiaryContentRequestDto postContentDto = new PostDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent };
+                Debug.Log("de post content dto is: " + postContentDto.date + " " + postContentDto.content);
                 bool response = await DiaryApiClient.PostDiaryContent(postContentDto);
+                Debug.Log("we hebben een post gedaan en  de response is: " + response);
+                if (response)
+                {
+                    _diaryWriter.SetIsExistend(true);
+                    DiarySingleton.Instance.AddDiaryData(new DiaryReadDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent });
+                }
             }
         }
         

@@ -37,7 +37,7 @@ public class DiaryWriterManager : MonoBehaviour
         isExistend = existend;
 
         currentMode = isPreviewByDefault ? new PreviewMode(this) : new EditMode(this);
-
+        Debug.Log("we zijn alles aan het inladen");
         SetupDiary();
     }
 
@@ -82,12 +82,19 @@ public class DiaryWriterManager : MonoBehaviour
         {
             LoadExistingDiaryContent();
         }
+        else
+        {
+            EmptyContentField();
+        }
+       
 
+        Debug.Log(currentMode.ToString());
         currentMode.Setup();
     }
 
     private void LoadExistingDiaryContent()
     {
+        //string content = DiarySingleton.Instance.GetDiaryData().Find(item => DateTime.ParseExact(item.date, "MM/dd/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture) == diaryDate).content;
         string content = DiarySingleton.Instance.GetDiaryData().Find(item => item.date == diaryDate).content;
 
         diaryContent = content;
@@ -147,6 +154,7 @@ public class DiaryWriterManager : MonoBehaviour
 
     public DateTime GetDiaryDate() => diaryDate;
     public string GetDiaryContent() => diaryContent;
+    public string SetDiaryContent(string content) => diaryContent = content;
 
     public TMP_InputField GetContentFieldText() => textContentField;
 }

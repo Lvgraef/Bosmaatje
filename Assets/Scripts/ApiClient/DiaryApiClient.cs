@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 using Dto;
 using Global;
 using UnityEngine;
+using Newtonsoft.Json;
 
 namespace ApiClient
 {
     public static class DiaryApiClient
     {
-        public static async Task<GetDiaryDataRequestDto> DaysInDiary()
+        public static async Task<List<DiaryReadDto>> DaysInDiary()
         {
-            var url = $"{ApiUtil.BaseUrl}/diary";
+            var url = $"{ApiUtil.BaseUrl}/diaries";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
             if (response == "Cannot connect to destination host") return null;
-            return JsonUtility.FromJson<GetDiaryDataRequestDto>(response);
+            return JsonConvert.DeserializeObject<List<DiaryReadDto>>(response);
         }
 
         //public static async Task<GetSpecificDiaryContentResponseDto> GetSpecificDiaryContent(GetSpecificDiaryContentRequestDto DiaryDto)
@@ -29,25 +30,30 @@ namespace ApiClient
 
         public static async Task<bool> PutDiaryContent(PutDiaryContentRequestDto diaryDto)
         {
-            var url = $"{ApiUtil.BaseUrl}/diary";
-            string json = JsonUtility.ToJson(diaryDto);
-            var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken, jsonData: json);
+            var url = $"{ApiUtil.BaseUrl}/diaries";
+            var json = JsonConvert.SerializeObject(diaryDto);
+            Debug.Log(json);
+            var response = await ApiUtil.PerformApiCall(url, "PUT", token: UserSingleton.Instance.AccessToken, jsonData: json);
 
-            if (response == "No content") return true;
+            Debug.Log(response);
+
 
             if (response == "Cannot connect to destination host") return false;
-            return false;
+            return true;
         }
 
         public static async Task<bool> PostDiaryContent(PostDiaryContentRequestDto diaryDto)
         {
-            var url = $"{ApiUtil.BaseUrl}/diary";
-            var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
-            var json = JsonUtility.ToJson(diaryDto);
-            if (response == "Created") return true;
+            var url = $"{ApiUtil.BaseUrl}/diaries";
+            var json = JsonConvert.SerializeObject(diaryDto);
+            Debug.Log(json);
+            var response = await ApiUtil.PerformApiCall(url, "POST", token: UserSingleton.Instance.AccessToken, jsonData: json);
+                
+
+            Debug.Log(response);
 
             if (response == "Cannot connect to destination host") return false;
-            return false;
+            return true;
         }
     }
 }
