@@ -8,7 +8,6 @@ namespace Dto
 {
     public class PutDiaryContentRequestDto
     {
-        public DateTime date;
         public string content;
     }
 }

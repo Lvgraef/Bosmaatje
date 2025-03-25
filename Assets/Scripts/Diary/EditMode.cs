@@ -31,9 +31,9 @@ namespace Diary
 
             if (_diaryWriter.GetIsExistend())
             {
-                PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent };
-                Debug.Log("de put content dto is: " +putContentDto.content + " " + putContentDto.date);
-                bool response = await DiaryApiClient.PutDiaryContent(putContentDto);
+                PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { content = diaryContent };
+                Debug.Log("de put content dto is: " +putContentDto.content + " " + _diaryWriter.GetDiaryDate());
+                bool response = await DiaryApiClient.PutDiaryContent(putContentDto, _diaryWriter.GetDiaryDate());
                 Debug.Log("we hebben een put gedaan en  de response is: " + response);
 
                 if (response){

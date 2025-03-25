@@ -49,6 +49,11 @@ public class DiaryPickerManager : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        InitializeDiaryPicker();
+    }
+
 
     public void Fill7DiaryDays(int weekNum)
     {
@@ -270,4 +275,6 @@ public class DiaryPickerManager : MonoBehaviour
                 return "";
         }
     }
+
+    public void GetInitializeDiaryPicker() => InitializeDiaryPicker();
 }

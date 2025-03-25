@@ -28,9 +28,9 @@ namespace ApiClient
         //    return JsonUtility.FromJson<GetSpecificDiaryContentResponseDto>(response);
         //} 
 
-        public static async Task<bool> PutDiaryContent(PutDiaryContentRequestDto diaryDto)
+        public static async Task<bool> PutDiaryContent(PutDiaryContentRequestDto diaryDto, DateTime date)
         {
-            var url = $"{ApiUtil.BaseUrl}/diaries";
+            var url = $"{ApiUtil.BaseUrl}/diaries?date={date.Date}";
             var json = JsonConvert.SerializeObject(diaryDto);
             Debug.Log(json);
             var response = await ApiUtil.PerformApiCall(url, "PUT", token: UserSingleton.Instance.AccessToken, jsonData: json);
