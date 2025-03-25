@@ -20,7 +20,7 @@ namespace TreatmentPlan
         public GetConfigurationsRequestDto Configuration { get; set; }
         public GetTreatmentRequestDto[] Treatments { get; set; }
 
-        private async void Start()
+        public async void Start()
         {
             Configuration = await ConfigurationApiClient.GetConfiguration();
             Treatments = await TreatmentPlanApiClient.GetTreatments(statusText, Configuration?.treatmentPlanName);
@@ -43,9 +43,9 @@ namespace TreatmentPlan
             int completion = 0;
             for (var i = Treatments!.Length - 1; i >= 0; i--)
             {
-                if (Treatments[i].isCompleted)
+                if (Treatments[i].stickerId != null)
                 {
-                    completion = i;
+                    completion = i + 1;
                     break;
                 }
             }
@@ -57,7 +57,7 @@ namespace TreatmentPlan
         public void OpenTreatment(int index)
         {
             var treatment = Instantiate(treatmentPrefab.gameObject, canvas);
-            treatment.GetComponent<TreatmentManager>().Initialize(Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
+            treatment.GetComponent<TreatmentManager>().Initialize(this, Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
         }
     }
 }
