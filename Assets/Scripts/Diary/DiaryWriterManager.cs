@@ -6,6 +6,7 @@ using Diary;
 using ApiClient;
 using Dto;
 using Util;
+using Global;
 
 public class DiaryWriterManager : MonoBehaviour
 {
@@ -85,16 +86,12 @@ public class DiaryWriterManager : MonoBehaviour
         currentMode.Setup();
     }
 
-    private async void LoadExistingDiaryContent()
+    private void LoadExistingDiaryContent()
     {
-        //GetSpecificDiaryContentRequestDto getContentDto = new GetSpecificDiaryContentRequestDto { date = _diaryDate };
-        //GetSpecificDiaryContentResponseDto respons = await DiaryApiClient.GetSpecificDiaryContent(getContentDto);
+        string content = DiarySingleton.Instance.GetDiaryData().Find(item => item.date == diaryDate).content;
 
-
-        // Voorbeeld test data
-        GetSpecificDiaryContentResponseDto response = new GetSpecificDiaryContentResponseDto { content = "This is already written content." };
-        diaryContent = response.content;
-        textContentField.text = diaryContent;
+        diaryContent = content;
+        textContentField.text = content;
     }
 
     private void ConfirmPopupGoBack()

@@ -29,13 +29,13 @@ namespace Diary
 
             if (_diaryWriter.GetIsExistend())
             {
-                PutSpecificDiaryContentRequestDto putContentDto = new PutSpecificDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate(), content = _diaryContent };
-                bool response = await DiaryApiClient.PutSpecificDiaryContent(putContentDto);
+                PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate(), content = _diaryContent };
+                bool response = await DiaryApiClient.PutDiaryContent(putContentDto);
             }
             else
             {
-                PostSpecificDiaryContentRequestDto postContentDto = new PostSpecificDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate(), content = _diaryContent };
-                bool response = await DiaryApiClient.PostSpecificDiaryContent(postContentDto);
+                PostDiaryContentRequestDto postContentDto = new PostDiaryContentRequestDto { date = _diaryWriter.GetDiaryDate(), content = _diaryContent };
+                bool response = await DiaryApiClient.PostDiaryContent(postContentDto);
             }
         }
         

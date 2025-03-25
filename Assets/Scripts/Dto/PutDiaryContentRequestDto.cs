@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-    public class PutSpecificDiaryContentRequestDto
+    public class PutDiaryContentRequestDto
     {
+        public DateTime date;
         public string content;
-        public DateTime date; // mischien hiervoor onze eigen Data type gebruiken 
     }
 }

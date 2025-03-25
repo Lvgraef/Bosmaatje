@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-    public class PostSpecificDiaryContentRequestDto
+    public class PostDiaryContentRequestDto
     {
         public string content;
         public DateTime date; // mischien hiervoor onze eigen Data type gebruiken

@@ -21,7 +21,7 @@ namespace Diary
 
         public override void HandleSave()
         {
-            Debug.WriteLine("Preview mode, cannot save");// save knop zou niet zichtbaar moeten zijn
+            Debug.WriteLine("Preview mode, cannot save, save button should have been invissible");// save knop zou niet zichtbaar moeten zijn
         }
 
         public override void HandleGoBack()

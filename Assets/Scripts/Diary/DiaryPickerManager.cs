@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using Unity.Burst.Intrinsics;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.InputSystem;
+using Global;
 
 public class DiaryPickerManager : MonoBehaviour
 {
@@ -47,57 +48,12 @@ public class DiaryPickerManager : MonoBehaviour
     {
         _bars = new GameObject[7] { Bar1, Bar2, Bar3, Bar4, Bar5, Bar6, Bar7 };
 
-        //var result = await DiaryApiClient.DaysInDiary();
-        //if (result == null || result.date.Length == 0)
-        //{
-        //    return;
-        //}
+
+
+        InitializeDiaryPicker();
 
 
 
-        _filledDates = new DateTime[]
-        {
-            // December 2024
-            new DateTime(2024, 12, 5),
-            new DateTime(2024, 12, 12),
-            new DateTime(2024, 12, 19),
-            new DateTime(2024, 12, 25),
-
-            // Januari 2025
-            new DateTime(2025, 1, 3),
-            new DateTime(2025, 1, 9),
-            new DateTime(2025, 1, 15),
-            new DateTime(2025, 1, 22),
-            new DateTime(2025, 1, 28),
-
-            // Februari 2025
-            new DateTime(2025, 2, 2),
-            new DateTime(2025, 2, 10),
-            new DateTime(2025, 2, 18),
-            new DateTime(2025, 2, 25),
-
-            // Maart 2025 (tot gisteren)
-            new DateTime(2025, 3, 5),
-            new DateTime(2025, 3, 12),
-            new DateTime(2025, 3, 18),
-            new DateTime(2025, 3, 23),
-            new DateTime(2025, 3, 24)
-};
-
-        //_filledDates = result.date.OrderBy(date => date).ToArray();
-
-        _filledDates = _filledDates.OrderBy(date => date).ToArray();
-
-        DateTime firstDate = _filledDates[0];
-        DateTime lastDate = _filledDates[^1];
-
-
-        _sumOfDates = (lastDate - firstDate).Days + 1;
-
-        DateTime firstSunday = firstDate.AddDays(-(int)firstDate.DayOfWeek);
-        _weekNum = (DateTime.Now - firstSunday).Days / 7;
-
-        Fill7DiaryDays(_weekNum);
     }
 
     public void Fill7DiaryDays(int weekNum)
@@ -150,6 +106,12 @@ public class DiaryPickerManager : MonoBehaviour
         {
             Fill7DiaryDays(_weekNum);
         }
+    }
+
+    public void OpenOnButtonClick()
+    {
+        this.gameObject.SetActive(true);
+        InitializeDiaryPicker();
     }
 
     public void CloseOnButtonClick()
@@ -220,6 +182,30 @@ public class DiaryPickerManager : MonoBehaviour
         {
             openButton.interactable = false;
         }
+    }
+
+    private void InitializeDiaryPicker()
+    {
+        List<DiaryReadDto> result = DiarySingleton.Instance.GetDiaryData();
+        if (result == null || result.Count == 0)
+        {
+            return;
+        }
+
+        _filledDates = result.Select(item => item.date).ToArray();
+
+        _filledDates = _filledDates.OrderBy(date => date).ToArray();
+
+        DateTime firstDate = _filledDates[0];
+        DateTime lastDate = _filledDates[^1];
+
+
+        _sumOfDates = (lastDate - firstDate).Days + 1;
+
+        DateTime firstSunday = firstDate.AddDays(-(int)firstDate.DayOfWeek);
+        _weekNum = (DateTime.Now - firstSunday).Days / 7;
+
+        Fill7DiaryDays(_weekNum);
     }
 
 

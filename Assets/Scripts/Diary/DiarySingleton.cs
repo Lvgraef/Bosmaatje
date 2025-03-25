@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dto
+namespace Assets.Scripts.Diary
 {
-    public  class GetDiaryDatesRequestDto
+    public class DiarySingleton
     {
-        public DateTime[] date;
+        public static DiarySingleton instance;
+
     }
 }
