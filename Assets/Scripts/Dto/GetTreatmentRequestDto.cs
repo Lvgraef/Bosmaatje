@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JetBrains.Annotations;
 
-namespace Assets.Scripts.Dto
+namespace Dto
 {
     public class GetTreatmentRequestDto
     {
-        public string treatmentId;
+        public Guid treatmentId;
         public string treatmentName;
-        public string treatmentUrl;
-        public DateTime treatmentDate;
-        public int treatmentOrder;
-        public string DoctorName;
-        public bool isStickerOpened;
-        public int stickerId;
+        public string doctorName;
+        public string imagePath;
+        [CanBeNull] public string videoPath;
+        public DateTime? date;
+        public int order;
+        public string stickerId;
+        public string[] description;
+        public bool isCompleted;
     }
 }

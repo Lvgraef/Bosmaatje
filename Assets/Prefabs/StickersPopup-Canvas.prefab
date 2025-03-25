@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 8070104471412755701}
   - component: {fileID: 2475710048220240193}
   - component: {fileID: 2217275387931460094}
-  - component: {fileID: 4869721142502564598}
   m_Layer: 5
   m_Name: StickersPopup-panel
   m_TagString: Untagged
@@ -170,21 +169,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4869721142502564598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529580806507976304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6967ff15170b3c6408920d9fce2930f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 529580806507976304}
-  content: {fileID: 2090433179410394477}
-  stickerPrefab: {fileID: 8679678869857530067, guid: 73f9dc886745c90479b636fe39005604, type: 3}
 --- !u!1 &2199236918837753840
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +317,7 @@ GameObject:
   - component: {fileID: 6959619216850651032}
   - component: {fileID: 8761367699854252131}
   - component: {fileID: 1512066268867249154}
+  - component: {fileID: 2574399639007448402}
   m_Layer: 5
   m_Name: StickersPopup-Canvas
   m_TagString: Untagged
@@ -424,6 +409,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2574399639007448402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513566232096654244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6967ff15170b3c6408920d9fce2930f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 529580806507976304}
+  content: {fileID: 2090433179410394477}
+  stickerPrefab: {fileID: 8679678869857530067, guid: 73f9dc886745c90479b636fe39005604, type: 3}
 --- !u!1 &3612950006231851432
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
         m_MethodName: CloseOnButtonClick
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 529580806507976304}
+          m_ObjectArgument: {fileID: 3513566232096654244}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 2090433179410394477}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1

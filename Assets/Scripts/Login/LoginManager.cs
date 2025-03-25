@@ -26,14 +26,12 @@ namespace Login
                     password = passwordField.text
                 }))
             {
-                //todo load next scene
-                await SceneManager.LoadSceneAsync("Scenes/Login");
+                await SceneManager.LoadSceneAsync("Scenes/TreatmentPlan");
             }
         }
         
         public async void Register()
         {
-            //todo
             await SceneManager.LoadSceneAsync("Scenes/Registration");
         }
     }

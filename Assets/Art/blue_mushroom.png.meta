@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 90129d923b0febb44a16538cd528df3f
+guid: 7f649c8a820b6d84bb58d22dea7739b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4552219762976899737
-    second: th-removebg-preview (1)_0
+      213: -4794171562112382150
+    second: pixel_art_image_Blue_mushroom__0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: th-removebg-preview (1)_0
+      name: pixel_art_image_Blue_mushroom__0
       rect:
         serializedVersion: 2
-        x: 179
-        y: 184
-        width: 142
-        height: 143
+        x: 34
+        y: 17
+        width: 432
+        height: 453
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76dbf388e3443d0c0800000000000000
-      internalID: -4552219762976899737
+      spriteID: a3b03086d5ea77db0800000000000000
+      internalID: -4794171562112382150
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      th-removebg-preview (1)_0: -4552219762976899737
+      pixel_art_image_Blue_mushroom__0: -4794171562112382150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

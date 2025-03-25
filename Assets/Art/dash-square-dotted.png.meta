@@ -1,0 +1,249 @@
+fileFormatVersion: 2
+guid: 143871a0ab91b2740add0c50500a442e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2886627661851706043
+    second: dash-square-dotted_0
+  - first:
+      213: -4794084663269055523
+    second: dash-square-dotted_1
+  - first:
+      213: -1883121664570155815
+    second: dash-square-dotted_2
+  - first:
+      213: 8579754613706366660
+    second: dash-square-dotted_3
+  - first:
+      213: -7665229270950491728
+    second: dash-square-dotted_4
+  - first:
+      213: -2354973857810397587
+    second: dash-square-dotted_5
+  - first:
+      213: -6676647318513711239
+    second: dash-square-dotted_6
+  - first:
+      213: 7563268484316448911
+    second: dash-square-dotted_7
+  - first:
+      213: 3389705440567720493
+    second: dash-square-dotted_8
+  - first:
+      213: 2590068456236081255
+    second: dash-square-dotted_9
+  - first:
+      213: 1190546462769466566
+    second: dash-square-dotted_10
+  - first:
+      213: 1988421537309991381
+    second: dash-square-dotted_11
+  - first:
+      213: -3500987295991916800
+    second: dash-square-dotted_12
+  - first:
+      213: 4363504112609898179
+    second: dash-square-dotted_13
+  - first:
+      213: -7652114118978892399
+    second: dash-square-dotted_14
+  - first:
+      213: 8824881237653858
+    second: dash-square-dotted_15
+  - first:
+      213: 2161341335061376197
+    second: dash-square-dotted_16
+  - first:
+      213: 3842246548775941953
+    second: dash-square-dotted_17
+  - first:
+      213: 5215965991197629925
+    second: dash-square-dotted_18
+  - first:
+      213: 127715449379184732
+    second: dash-square-dotted_19
+  - first:
+      213: -7813258337705750184
+    second: dash-square-dotted_20
+  - first:
+      213: 6999564501603078964
+    second: dash-square-dotted_21
+  - first:
+      213: -4837625992286873994
+    second: dash-square-dotted_22
+  - first:
+      213: 1817587761006976569
+    second: dash-square-dotted_23
+  - first:
+      213: -2473026133984179163
+    second: dash-square-dotted_24
+  - first:
+      213: -2633927386021163082
+    second: dash-square-dotted_25
+  - first:
+      213: -2855563732923062545
+    second: dash-square-dotted_26
+  - first:
+      213: 611131663315624244
+    second: dash-square-dotted_27
+  - first:
+      213: -8712350909039965044
+    second: dash-square-dotted_28
+  - first:
+      213: -1415967605941474055
+    second: dash-square-dotted_29
+  - first:
+      213: -4390050527241642453
+    second: dash-square-dotted_30
+  - first:
+      213: -8626137613480753556
+    second: dash-square-dotted_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dash-square-dotted_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76065e5c985c1f320800000000000000
+      internalID: 2590068456236081255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7514d9de61004c442ba38052ef1784e6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dash-square-dotted_9: 2590068456236081255
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

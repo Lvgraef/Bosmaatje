@@ -24,18 +24,19 @@ namespace Configuration
 
         private async void Start()
         {
-            if (await ConfigurationApiClient.GetConfiguration() != null)
+            var config = await ConfigurationApiClient.GetConfiguration();
+            if (config == null)
             {
                 childNameField.interactable = true;
-                dateOfBirthBlocker.SetActive(true);
-                childNameBlocker.SetActive(true);
-                treatmentPlanSelector.SetEnabled(false);
+                dateOfBirthBlocker.SetActive(false);
+                childNameBlocker.SetActive(false);
+                treatmentPlanSelector.SetEnabled(true);
             }
             else
             {
                 childNameField.interactable = false;
-                dateOfBirthBlocker.SetActive(false);
-                childNameBlocker.SetActive(false);
+                dateOfBirthBlocker.SetActive(true);
+                childNameBlocker.SetActive(true);
                 treatmentPlanSelector.SetEnabled(true);
             }
         }
@@ -52,6 +53,23 @@ namespace Configuration
                 statusText.text = "De naam van de arts moet minder dan 50 karakters lang zijn.";
                 return;
             }
+
+            if (string.IsNullOrEmpty(childNameField.text))
+            {
+                statusText.text = "Vul de naam van het kind in.";
+                return;
+            }
+            if (string.IsNullOrEmpty(primaryDoctorNameField.text))
+            {
+                statusText.text = "Vul de naam van de arts in.";
+                return;
+            }
+
+            if (!childBirthDateField.SelectedDate.HasValue)
+            {
+                statusText.text = "Vul de geboortedatum van het kind in.";
+                return;
+            }
             
             var dto = new PostConfigurationsRequestDto
             {
@@ -63,11 +81,18 @@ namespace Configuration
             };
 
             if (!await ConfigurationApiClient.Configure(dto, statusText)) return;
-            
-            if (await ConfigurationApiClient.PutFirstTreatment(new PutTreatmentRequestDto
+
+            if (treatmentStartDateField.SelectedDate.HasValue)
+            {
+                if (await ConfigurationApiClient.PutFirstTreatment(new PutTreatmentRequestDto
+                    {
+                        date = treatmentStartDateField.SelectedDate.Date
+                    }, statusText, treatmentPlanSelector.selectedButton == 0 ? "Hospitalization" : "NoHospitalization"))
                 {
-                    date = treatmentStartDateField.SelectedDate.Date
-                }, statusText))
+                    await SceneManager.LoadSceneAsync("Scenes/Introduction");
+                }
+            }
+            else
             {
                 await SceneManager.LoadSceneAsync("Scenes/Introduction");
             }

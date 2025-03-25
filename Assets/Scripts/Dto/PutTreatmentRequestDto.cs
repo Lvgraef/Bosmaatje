@@ -7,5 +7,6 @@ namespace Dto
     {
         [CanBeNull] public string doctorName;
         public DateTime? date;
+        [CanBeNull] public string stickerId;
     }
 }
