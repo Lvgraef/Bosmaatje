@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9cc0ec1c318630e43b20166cb6766443
+guid: bd8c4a05de7a3d941a25a95793a59341
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3541801897832164053
-    second: cog_silver_0
+      213: -2481873844309925518
+    second: gear 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cog_silver_0
+      name: gear 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 47
+        y: 47
+        width: 418
+        height: 418
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b25d8ee60fdf8dec0800000000000000
-      internalID: -3541801897832164053
+      spriteID: 271e29c53ec9e8dd0800000000000000
+      internalID: -2481873844309925518
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cog_silver_0: -3541801897832164053
+      gear 1_0: -2481873844309925518
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
