@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ApiClient;
 using Dto;
+using Messages;
 using Planning;
 using TMPro;
 using Treatment;
@@ -19,6 +20,7 @@ namespace TreatmentPlan
         public List<Image> pos;
         public GetConfigurationsRequestDto Configuration { get; set; }
         public GetTreatmentRequestDto[] Treatments { get; set; }
+        public Message message;
 
         public async void Start()
         {
@@ -58,6 +60,7 @@ namespace TreatmentPlan
         {
             var treatment = Instantiate(treatmentPrefab.gameObject, canvas);
             treatment.GetComponent<TreatmentManager>().Initialize(this, Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
+            message.OpenRandom();
         }
     }
 }

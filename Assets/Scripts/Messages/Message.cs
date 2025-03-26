@@ -15,6 +15,11 @@ namespace Messages
             typeText.text = message.Type;
             messageText.text = message.Message;
         }
+
+        public void Close()
+        {
+            Destroy(gameObject);
+        }
     }
     
     public class MessageData
