@@ -94,7 +94,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -525,7 +525,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -534,7 +534,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SalamanderMagicalTail_0: -4725423457179127207
+      SalamanderMagicalTail_1: 606987283227660711
+      SalamanderMagicalTail_10: -6413758873135119066
+      SalamanderMagicalTail_11: -341919136832307907
+      SalamanderMagicalTail_12: -2554834558651985112
+      SalamanderMagicalTail_13: 7502441599905144022
+      SalamanderMagicalTail_14: 2017877734980405826
+      SalamanderMagicalTail_15: -3043204385153757459
+      SalamanderMagicalTail_16: -1310058131431337549
+      SalamanderMagicalTail_2: 5475973598956245394
+      SalamanderMagicalTail_3: -637662627663362135
+      SalamanderMagicalTail_4: 6196236145248245329
+      SalamanderMagicalTail_5: 5292439074855336212
+      SalamanderMagicalTail_6: 1926466046749276377
+      SalamanderMagicalTail_7: -4964228556101752173
+      SalamanderMagicalTail_8: 2226114469005363171
+      SalamanderMagicalTail_9: -2600904203135184340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

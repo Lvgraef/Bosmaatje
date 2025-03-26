@@ -61,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WizardWoodenStaffCrystal_0: 6123267496825592025
+      WizardWoodenStaffCrystal_1: 2712644284992519107
+      WizardWoodenStaffCrystal_2: -6677159049067188181
+      WizardWoodenStaffCrystal_3: 4522593228612553535
+      WizardWoodenStaffCrystal_4: -3937939272392667306
+      WizardWoodenStaffCrystal_5: 5231775705678380707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
