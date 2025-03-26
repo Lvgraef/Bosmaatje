@@ -9,11 +9,13 @@ namespace Messages
         public TextMeshProUGUI typeText;
         public TextMeshProUGUI messageText;
         
-        public void OpenRandom()
+        public void OpenRandom(Transform canvas)
         {
+            var messageObj = Instantiate(gameObject, canvas);
             var message = MessageData.Messages[Random.Range(0, MessageData.Messages.Count)];
-            typeText.text = message.Type;
-            messageText.text = message.Message;
+            var messageScript = messageObj.GetComponent<Message>();
+            messageScript.typeText.text = message.Type;
+            messageScript.messageText.text = message.Message;
         }
 
         public void Close()

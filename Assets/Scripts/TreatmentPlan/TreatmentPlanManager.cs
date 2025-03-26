@@ -60,7 +60,7 @@ namespace TreatmentPlan
         {
             var treatment = Instantiate(treatmentPrefab.gameObject, canvas);
             treatment.GetComponent<TreatmentManager>().Initialize(this, Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
-            message.OpenRandom();
+            message.OpenRandom(canvas);
         }
     }
 }
