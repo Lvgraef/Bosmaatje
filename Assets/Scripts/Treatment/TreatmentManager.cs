@@ -5,6 +5,7 @@ using Dto;
 using JetBrains.Annotations;
 using Stickers;
 using TMPro;
+using TreatmentPlan;
 using UI.Dates;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,9 +38,11 @@ namespace Treatment
         [CanBeNull] private string _stickerId;
         private Guid _id;
         private bool _canEdit;
+        private TreatmentPlanManager _manager;
 
-        public void Initialize(Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
+        public void Initialize(TreatmentPlanManager manager, Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
         {
+            _manager = manager;
             _id = id;
             if (videoPath == null)
             {
@@ -84,6 +87,7 @@ namespace Treatment
                     doctorName = doctorName.text
                 });
             }
+            _manager.Start();
             Destroy(gameObject);
         }
         
