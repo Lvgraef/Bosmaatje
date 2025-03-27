@@ -55,6 +55,21 @@ namespace Configuration
                 childNameField.interactable = false;
                 dateOfBirthBlocker.SetActive(true);
                 childNameBlocker.SetActive(true);
+                
+                childNameField.text = config.childName;
+                childBirthDateField.SelectedDate = config.childBirthDate;
+                primaryDoctorNameField.text = config.primaryDoctorName;
+                characterSelector.SetCharacter(config.characterId);
+                treatmentPlanSelector.SelectButton(config.treatmentPlanName switch
+                {
+                    null => -1,
+                    "Hospitalization" => 0,
+                    _ => 1
+                });
+                if (_treatments[0].date != null)
+                {
+                    treatmentStartDateField.SelectedDate = _treatments[0].date.Value;
+                }
             }
         }
 
@@ -87,23 +102,43 @@ namespace Configuration
                 statusText.text = "Vul de geboortedatum van het kind in.";
                 return;
             }
-            
-            var dto = new PostConfigurationsRequestDto
+
+            var config = await ConfigurationApiClient.GetConfiguration();
+            if (config == null)
             {
-                childBirthDate = childBirthDateField.SelectedDate.Date,
-                characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
-                childName = childNameField.text,
-                primaryDoctorName = primaryDoctorNameField.text,
-                treatmentPlanName = treatmentPlanSelector.selectedButton switch
+                var dto = new PostConfigurationsRequestDto
                 {
-                    -1 => null,
-                    0 => "Hospitalization",
-                    _ => "NoHospitalization"
-                }
-            };
+                    childBirthDate = childBirthDateField.SelectedDate.Date,
+                    characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
+                    childName = childNameField.text,
+                    primaryDoctorName = primaryDoctorNameField.text,
+                    treatmentPlanName = treatmentPlanSelector.selectedButton switch
+                    {
+                        -1 => null,
+                        0 => "Hospitalization",
+                        _ => "NoHospitalization"
+                    }
+                };
 
-            if (!await ConfigurationApiClient.Configure(dto, statusText)) return;
-
+                if (!await ConfigurationApiClient.Configure(dto, statusText)) return;
+            }
+            else
+            {
+                var dto = new PutConfigurationRequestDto
+                {
+                    characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
+                    primaryDoctorName = primaryDoctorNameField.text,
+                    treatmentPlanName = treatmentPlanSelector.selectedButton switch
+                    {
+                        -1 => null,
+                        0 => "Hospitalization",
+                        _ => "NoHospitalization"
+                    }
+                };
+                
+                if (!await ConfigurationApiClient.UpdateConfigure(dto, statusText)) return;
+            }
+            
             if (treatmentStartDateField.SelectedDate.HasValue)
             {
                 if (await ConfigurationApiClient.PutFirstTreatment(new PutTreatmentRequestDto

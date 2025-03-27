@@ -21,7 +21,9 @@ namespace TreatmentPlan
         public Transform canvas;
         public List<Image> pos;
         public GetConfigurationsRequestDto Configuration { get; set; }
-        [ItemCanBeNull] public GetTreatmentRequestDto[] Treatments { get; set; }
+
+        [ItemCanBeNull]
+        public GetTreatmentRequestDto[] Treatments { get; set; } = { null, null, null, null, null, null };
         public GameObject treatmentUnavailable;
         public Message message;
 
@@ -31,7 +33,7 @@ namespace TreatmentPlan
             var treatments = await TreatmentPlanApiClient.GetTreatments(statusText, Configuration?.treatmentPlanName);
             for (var i = 0; i < 6; i++)
             {
-                Treatments[i] = treatments?.SingleOrDefault(treatment => treatment.order == i);
+                Treatments![i] = treatments?.SingleOrDefault(treatment => treatment.order == i);
             }
             Progress();
         }
@@ -67,7 +69,8 @@ namespace TreatmentPlan
         {
             if (Treatments[index] == null)
             {
-                Instantiate(treatmentUnavailable, canvas);
+                var unavailable = Instantiate(treatmentUnavailable, canvas);
+                unavailable.GetComponent<RectTransform>().localPosition = Vector3.zero;
                 return;
             }
             var treatment = Instantiate(treatmentPrefab.gameObject, canvas);

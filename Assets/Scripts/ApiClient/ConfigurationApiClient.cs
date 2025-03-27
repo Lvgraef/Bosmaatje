@@ -39,6 +39,27 @@ namespace ApiClient
             }
         }
 
+        public static async Task<bool> UpdateConfigure(PutConfigurationRequestDto putConfigurationRequestDto,
+            TextMeshProUGUI statusText)
+        {
+            var url = $"{ApiUtil.BaseUrl}/configurations";
+            var json = JsonConvert.SerializeObject(putConfigurationRequestDto);
+            var response = await ApiUtil.PerformApiCall(url, "PUT", json, UserSingleton.Instance.AccessToken);
+            
+            switch (response)
+            {
+                case "Cannot connect to destination host":
+                    statusText.text = "Cannot connect to server";
+                    return false;
+                case "HTTP/1.1 404 Not Found":
+                    statusText.text = "Not Found";
+                    return false;
+                default:
+                    statusText.text = "Success!";
+                    return true;
+            }
+        }
+
         public static async Task<bool> PutFirstTreatment(PutTreatmentRequestDto putTreatmentRequestDto, TextMeshProUGUI statusText, string treatmentPlanName)
         {
             var treatments = await TreatmentPlanApiClient.GetTreatments(statusText, treatmentPlanName);

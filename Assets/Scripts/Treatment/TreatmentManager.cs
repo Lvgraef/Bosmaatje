@@ -91,9 +91,10 @@ namespace Treatment
                 });
             }
             _manager.Start();
-            if (_order == 2)
+            if (_order == 2 && _stickerId != null && _manager.Treatments[3] == null)
             {
-                await InstantiateAsync(config, transform.parent);
+                var conf = await InstantiateAsync(config, transform.parent);
+                conf[0].GetComponent<RectTransform>().localPosition = Vector3.zero;
             }
             Destroy(gameObject);
         }
