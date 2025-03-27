@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dto;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Planning
         public List<TextMeshProUGUI> treatmentDates;
         public List<TextMeshProUGUI> treatmentDays;
         
-        public void Initialize(GetTreatmentRequestDto[] treatments)
+        public void Initialize([ItemCanBeNull] GetTreatmentRequestDto[] treatments)
         {
             for (var i = 0; i < treatments.Length; i++)
             {

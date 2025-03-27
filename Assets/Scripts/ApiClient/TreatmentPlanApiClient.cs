@@ -11,7 +11,7 @@ namespace ApiClient
     public static class TreatmentPlanApiClient
     {
         [ItemCanBeNull]
-        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, string treatmentPlanName)
+        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, [CanBeNull] string treatmentPlanName)
         {
             var url = $"{ApiUtil.BaseUrl}/treatments?treatmentPlanName={treatmentPlanName}";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);

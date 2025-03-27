@@ -31,6 +31,7 @@ namespace Treatment
         public GameObject video;
         public DatePicker treatmentDate;
         public GameObject videoButton;
+        public GameObject config;
         private int _currentPage;
         private bool _isCompleted;
         private string[] _description;
@@ -39,9 +40,11 @@ namespace Treatment
         private Guid _id;
         private bool _canEdit;
         private TreatmentPlanManager _manager;
+        private int _order;
 
-        public void Initialize(TreatmentPlanManager manager, Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
+        public void Initialize(int order, TreatmentPlanManager manager, Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
         {
+            _order = order;
             _manager = manager;
             _id = id;
             if (videoPath == null)
@@ -88,6 +91,10 @@ namespace Treatment
                 });
             }
             _manager.Start();
+            if (_order == 2)
+            {
+                await InstantiateAsync(config, transform.parent);
+            }
             Destroy(gameObject);
         }
         

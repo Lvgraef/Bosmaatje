@@ -2,6 +2,7 @@
 using ApiClient;
 using Dto;
 using TMPro;
+using TreatmentPlan;
 using UI.Dates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,23 +22,39 @@ namespace Configuration
         public DatePicker treatmentStartDateField;
         public GameObject dateOfBirthBlocker;
         public GameObject childNameBlocker;
-
+        public GameObject treatmentText;
+        private GetTreatmentRequestDto[] _treatments;
+        
         private async void Start()
         {
+            _treatments = await TreatmentPlanApiClient.GetTreatments(statusText, null);
+            int completion = 0;
+            for (var i = _treatments!.Length - 1; i >= 0; i--)
+            {
+                if (_treatments[i]?.stickerId != null)
+                {
+                    completion = i;
+                    break;
+                }
+            }
+            if (completion >= 2)
+            {
+                treatmentPlanSelector.SetEnabled(true);
+                treatmentText.SetActive(false);
+            }
+            
             var config = await ConfigurationApiClient.GetConfiguration();
             if (config == null)
             {
                 childNameField.interactable = true;
                 dateOfBirthBlocker.SetActive(false);
                 childNameBlocker.SetActive(false);
-                treatmentPlanSelector.SetEnabled(true);
             }
             else
             {
                 childNameField.interactable = false;
                 dateOfBirthBlocker.SetActive(true);
                 childNameBlocker.SetActive(true);
-                treatmentPlanSelector.SetEnabled(true);
             }
         }
 
@@ -77,7 +94,12 @@ namespace Configuration
                 characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
                 childName = childNameField.text,
                 primaryDoctorName = primaryDoctorNameField.text,
-                treatmentPlanName = treatmentPlanSelector.selectedButton == 0 ? "Hospitalization" : "NoHospitalization"
+                treatmentPlanName = treatmentPlanSelector.selectedButton switch
+                {
+                    -1 => null,
+                    0 => "Hospitalization",
+                    _ => "NoHospitalization"
+                }
             };
 
             if (!await ConfigurationApiClient.Configure(dto, statusText)) return;

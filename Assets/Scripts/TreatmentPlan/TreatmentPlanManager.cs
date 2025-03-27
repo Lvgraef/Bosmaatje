@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ApiClient;
 using Dto;
+using JetBrains.Annotations;
 using Messages;
 using Planning;
 using TMPro;
@@ -19,13 +21,18 @@ namespace TreatmentPlan
         public Transform canvas;
         public List<Image> pos;
         public GetConfigurationsRequestDto Configuration { get; set; }
-        public GetTreatmentRequestDto[] Treatments { get; set; }
+        [ItemCanBeNull] public GetTreatmentRequestDto[] Treatments { get; set; }
+        public GameObject treatmentUnavailable;
         public Message message;
 
         public async void Start()
         {
             Configuration = await ConfigurationApiClient.GetConfiguration();
-            Treatments = await TreatmentPlanApiClient.GetTreatments(statusText, Configuration?.treatmentPlanName);
+            var treatments = await TreatmentPlanApiClient.GetTreatments(statusText, Configuration?.treatmentPlanName);
+            for (var i = 0; i < 6; i++)
+            {
+                Treatments[i] = treatments?.SingleOrDefault(treatment => treatment.order == i);
+            }
             Progress();
         }
 
@@ -45,7 +52,7 @@ namespace TreatmentPlan
             int completion = 0;
             for (var i = Treatments!.Length - 1; i >= 0; i--)
             {
-                if (Treatments[i].stickerId != null)
+                if (Treatments[i]?.stickerId != null)
                 {
                     completion = i + 1;
                     break;
@@ -58,8 +65,13 @@ namespace TreatmentPlan
 
         public void OpenTreatment(int index)
         {
+            if (Treatments[index] == null)
+            {
+                Instantiate(treatmentUnavailable, canvas);
+                return;
+            }
             var treatment = Instantiate(treatmentPrefab.gameObject, canvas);
-            treatment.GetComponent<TreatmentManager>().Initialize(this, Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
+            treatment.GetComponent<TreatmentManager>().Initialize(Treatments[index].order, this, Treatments[index].treatmentId, Treatments[index].treatmentName, Treatments[index].description, Treatments[index].imagePath, Treatments[index].videoPath, Treatments[index].date, Treatments[index].stickerId, Configuration.primaryDoctorName);
             message.OpenRandom(canvas);
         }
     }
