@@ -7,6 +7,7 @@ using ApiClient;
 using Dto;
 using Util;
 using Global;
+using Unity.VisualScripting;
 
 public class DiaryWriterManager : MonoBehaviour
 {
@@ -16,9 +17,16 @@ public class DiaryWriterManager : MonoBehaviour
     public TMP_Text textDate;
     public TMP_InputField textContentField;
     public Button ClearText;
+    public RawImage BackgroundText;
+    public RawImage BackgroundImages;
 
     public Button buttonSave;
-    public Button buttonSwitchToEditMode;
+    public Button buttonTopBarSwitchMode;
+    public Button buttonButtomMiddleSwitchMode;
+
+    public Sprite PreviewTextSprite;
+    public Sprite EditTextSprite;
+    public Sprite ImageSprite;
 
     // Diary data
     private static DateTime diaryDate;
@@ -38,12 +46,12 @@ public class DiaryWriterManager : MonoBehaviour
 
         currentMode = isPreviewByDefault ? new PreviewMode(this) : new EditMode(this);
         Debug.Log("we zijn alles aan het inladen");
-        SetupDiary();
+        SetupDiary(isExistend);
     }
 
-    public void SaveOnButtonClick()
+    public void SaveUpdaterOnButtonClick()
     {
-        currentMode.HandleSave();
+        currentMode.HandleSaveUpdater();
     }
 
     public void GoBackOnButtonClick()
@@ -67,20 +75,36 @@ public class DiaryWriterManager : MonoBehaviour
         Confirmations.CreateConfirmationPopup(EmptyContentField, nothing, "Weet je zeker dat je de tekst wilt legen?", writeDiaryPopup.GetComponent<CanvasGroup>(), "Legen", "Sparen");
     }
 
-    public void SwitchToEditModeOnButtonClick()
+    //public void SwitchToEditModeOnButtonClick()
+    //{
+    //    currentMode = new EditMode(this);
+    //    currentMode.Setup();
+    //}
+
+    public void SwitchModeTopBarOnButtonClick()
     {
-        currentMode = new EditMode(this);
+        currentMode.HandleTopBarSwitchMode();
+    }
+
+    public void SwitchModeBottomMiddleOnButtonClick()
+    {
+        currentMode.HandleButtomMiddleSwitchMode();
+    }
+
+    public void SwitchMode(DiaryMode diaryMode)
+    {
+        currentMode = diaryMode;
         currentMode.Setup();
     }
 
     // Private Methods
-    private void SetupDiary()
+    private void SetupDiary(bool diaryDoesExist)
     {
         textDate.text = diaryDate.ToString("dd/MM/yyyy");
 
-        if (isExistend)
+        if (diaryDoesExist)
         {
-            LoadExistingDiaryContent();
+            LoadExistingDiaryContent(diaryDate);
         }
         else
         {
@@ -92,10 +116,9 @@ public class DiaryWriterManager : MonoBehaviour
         currentMode.Setup();
     }
 
-    private void LoadExistingDiaryContent()
+    private void LoadExistingDiaryContent(DateTime DateToLoad)
     {
-        //string content = DiarySingleton.Instance.GetDiaryData().Find(item => DateTime.ParseExact(item.date, "MM/dd/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture) == diaryDate).content;
-        string content = DiarySingleton.Instance.GetDiaryData().Find(item => item.date == diaryDate).content;
+        string content = DiarySingleton.Instance.GetDiaryData().Find(item => item.date == DateToLoad).content;
 
         diaryContent = content;
         textContentField.text = content;
@@ -138,13 +161,13 @@ public class DiaryWriterManager : MonoBehaviour
     // Handling methods
     private void SaveAllFirstBeforeClose()
     {
-        SaveOnButtonClick();
+        SaveUpdaterOnButtonClick();
         ConfirmPopupClose();
     }
 
     private void SaveAllFirstBeforeGoBack()
     {
-        SaveOnButtonClick();
+        SaveUpdaterOnButtonClick();
         ConfirmPopupGoBack();
     }
 

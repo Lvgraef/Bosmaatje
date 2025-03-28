@@ -13,6 +13,7 @@ using Unity.Burst.Intrinsics;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using UnityEngine.InputSystem;
 using Global;
+using UnityEngine.U2D;
 
 public class DiaryPickerManager : MonoBehaviour
 {
@@ -24,9 +25,9 @@ public class DiaryPickerManager : MonoBehaviour
     public GameObject DiaryWriter;
 
     public Sprite spriteDiaryPencilEdit;
-    public Sprite spriteDiaryWrite;
+    //public Sprite spriteDiaryWrite;
     public Sprite spriteDiaryEyeView;
-    public Sprite spriteDiaryEmpty;
+    //public Sprite spriteDiaryEmpty;
 
     public GameObject Bar1;
     public GameObject Bar2;
@@ -133,9 +134,6 @@ public class DiaryPickerManager : MonoBehaviour
 
     private void FillBar(GameObject bar, DateTime date, bool isExistend, bool isPreviewByDefault)
     {
-
-        Debug.Log($"Bar {bar.name}, Date: {date}, Exists: {isExistend}, Preview: {isPreviewByDefault}");
-
         Button openButton = bar.GetComponentInChildren<Button>();
         Image openButtonImage = openButton.transform.GetChild(0).GetComponent<Image>(); // Aannemende dat de Image de eerste child is
         TMP_Text dateText = bar.GetComponentInChildren<TMP_Text>();
@@ -143,62 +141,20 @@ public class DiaryPickerManager : MonoBehaviour
         string DayOfWeekText = GetAbreviationFromDayOfTheWeek(date);
         dateText.text = $"{date.ToString("dd/MM/yyyy")} ({DayOfWeekText})";
 
-        bool isFuture = date > DateTime.Now.AddDays(1);
-        openButton.interactable = !isFuture;
+        bool isAfterLastFuture = date > DateTime.Now.AddDays(1);
+        bool isBeforeFirstDate = date < _filledDates[0];
+        openButton.interactable = !(isAfterLastFuture || isBeforeFirstDate);
 
-        if (isExistend)
-        {
-            if (isPreviewByDefault)
-            {
-                openButtonImage.sprite = spriteDiaryEyeView;
-                openButton.image.color = Color.green;
-                openButton.onClick.RemoveAllListeners();
-                openButton.onClick.AddListener(() =>
-                {
-                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bekijken en is al bestaand
-                });
-            }
-            else
-            {
-                openButtonImage.sprite = spriteDiaryPencilEdit;
-                openButton.image.color = Color.green;
-                openButton.onClick.RemoveAllListeners();
-                openButton.onClick.AddListener(() =>
-                {
-                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bewerken en is al bestaand
-                });
-            }
-        }
-        else
-        {
-            if(isPreviewByDefault)
-            {
-                openButtonImage.sprite = spriteDiaryEmpty;
-                openButton.image.color = Color.green;
-                openButton.onClick.AddListener(() =>
-                {
-                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bekijken en is nog niet bestaand
-                });
-            }
-            else
-            {
-                openButtonImage.sprite = spriteDiaryWrite;
-                openButton.image.color = Color.green;
-                openButton.onClick.AddListener(() =>
-                {
-                    OpenDiary(date, isPreviewByDefault, isExistend); // Open de diary en je kan het bewerken en is nog niet bestaand
-                });
-        }
+        openButtonImage.sprite = GetSprite(isExistend, isPreviewByDefault);
 
-        }
-
-        // Als de datum in de toekomst ligt, kan je er niet op klikken
-        DateTime firstDate = _filledDates[0];
-        if (date < firstDate)
-        {
-            openButton.interactable = false;
-        }
+        openButton.image.color = Color.green;
+        openButton.onClick.RemoveAllListeners();
+        openButton.onClick.AddListener(() => OpenDiary(date, isPreviewByDefault, isExistend));
     }
+
+    private Sprite GetSprite(bool isExistend, bool isPreviewByDefault)
+        => (isExistend && isPreviewByDefault) ? spriteDiaryEyeView : spriteDiaryPencilEdit;
+
 
     private void InitializeDiaryPicker()
     {
@@ -216,10 +172,40 @@ public class DiaryPickerManager : MonoBehaviour
         _bars[5] = Bar6;
         _bars[6] = Bar7;
 
-        //_filledDates = result.Select(diary => DateTime.ParseExact(diary.date, "MM/dd/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).ToArray();
         _filledDates = result.Select(diary => diary.date).ToArray();
 
         _filledDates = _filledDates.OrderBy(date => date).ToArray();
+        //
+
+        // fot testing only
+        //_filledDates = new DateTime[]
+        //    {
+        //        new DateTime(2025, 01, 03),
+        //        new DateTime(2025, 01, 07),
+        //        new DateTime(2025, 01, 10),
+        //        new DateTime(2025, 01, 15),
+        //        new DateTime(2025, 01, 18),   
+        //        new DateTime(2025, 01, 22),
+        //        new DateTime(2025, 01, 25),
+        //        new DateTime(2025, 01, 29),
+        //        new DateTime(2025, 02, 02),
+        //        new DateTime(2025, 02, 06),
+        //        new DateTime(2025, 02, 09),
+        //        new DateTime(2025, 02, 13),
+        //        new DateTime(2025, 02, 16),
+        //        new DateTime(2025, 02, 19),
+        //        new DateTime(2025, 02, 22),
+        //        new DateTime(2025, 02, 25),
+        //        new DateTime(2025, 03, 01),
+        //        new DateTime(2025, 03, 05),
+        //        new DateTime(2025, 03, 08),
+        //        new DateTime(2025, 03, 11),
+        //        new DateTime(2025, 03, 14),
+        //        new DateTime(2025, 03, 18),
+        //        new DateTime(2025, 03, 21),
+        //        new DateTime(2025, 03, 24),
+        //    };
+
 
         DateTime firstDate = _filledDates[0];
         DateTime lastDate = _filledDates[^1];
@@ -231,7 +217,7 @@ public class DiaryPickerManager : MonoBehaviour
         _weekNum = (DateTime.Now - firstSunday).Days / 7;
 
 
-        Debug.Log($"Aantal data items: {result?.Count ?? 0}");
+        //Debug.Log($"Aantal data items: {result?.Count ?? 0}");
         Debug.Log($"_filledDates lengte: {_filledDates?.Length ?? 0}");
 
 
@@ -276,5 +262,5 @@ public class DiaryPickerManager : MonoBehaviour
         }
     }
 
-    public void GetInitializeDiaryPicker() => InitializeDiaryPicker();
+    //public void GetInitializeDiaryPicker() => InitializeDiaryPicker();
 }

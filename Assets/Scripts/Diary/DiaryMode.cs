@@ -16,9 +16,14 @@ namespace Diary
         }
 
         public abstract void Setup();
-        public abstract void HandleSave();
+        public abstract void HandleSaveUpdater();
         public abstract void HandleGoBack();
         public abstract void HandleClose();
+
+        public abstract void HandleTopBarSwitchMode();
+
+        public abstract void HandleButtomMiddleSwitchMode();
+
     }
 
 }

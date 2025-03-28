@@ -39,10 +39,11 @@ namespace Global
             }
             else
             {
-                PostDiaryContentRequestDto requestDto = new PostDiaryContentRequestDto { content = "Welkom in je nieuwe dagboek! \n je kan hieronder opschrijven wat je \n -gedaan heb op de dag \n - nog wilt gaan doen op de dag \n -alle leuke en minder leuke ervaringen \n -vragen voor de doker \n \n en nog veel meer!", date = DateTime.Now.Date };
+                string _content = "Welkom in je nieuwe dagboek! \n je kan hieronder opschrijven wat je \n -gedaan heb op de dag \n - nog wilt gaan doen op de dag \n -alle leuke en minder leuke ervaringen \n -vragen voor de doker \n \n en nog veel meer!";
+                PostDiaryContentRequestDto requestDto = new PostDiaryContentRequestDto { content = _content, date = DateTime.Now.Date };
                 await DiaryApiClient.PostDiaryContent(requestDto);
 
-                _diaryReads = new List<DiaryReadDto> { new DiaryReadDto { date = DateTime.Now.Date, content = "Welkom in je nieuwe dagboek!" } };
+                _diaryReads = new List<DiaryReadDto> { new DiaryReadDto { date = DateTime.Now.Date, content = _content } };
             }
         }
 
