@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2e3bc2f9e1fb9f142bc8971a35f865a1
+guid: f23a549828b896c48853671d17170eeb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8683669369157306362
-    second: standing_deer_0
+      213: 3620092053759799476
+    second: standing_deer (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: standing_deer_0
+      name: standing_deer (2)_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 30
-        height: 32
+        x: 0
+        y: 0
+        width: 31
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af7cf8f7847928870800000000000000
-      internalID: 8683669369157306362
+      spriteID: 4b03196fa862d3230800000000000000
+      internalID: 3620092053759799476
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      standing_deer_0: 8683669369157306362
+      standing_deer (2)_0: 3620092053759799476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

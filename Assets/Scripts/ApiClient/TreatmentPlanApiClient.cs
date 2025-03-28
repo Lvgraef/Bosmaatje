@@ -5,16 +5,19 @@ using Global;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using TMPro;
+using UnityEngine;
 
 namespace ApiClient
 {
     public static class TreatmentPlanApiClient
     {
         [ItemCanBeNull]
-        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, string treatmentPlanName)
+        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, [CanBeNull] string treatmentPlanName)
         {
             var url = $"{ApiUtil.BaseUrl}/treatments?treatmentPlanName={treatmentPlanName}";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
+            
+            statusText.color = Color.red;
             
             switch (response)
             {
@@ -31,6 +34,7 @@ namespace ApiClient
                     statusText.text = "Something went wrong :(";
                     return null;
                 default:
+                    statusText.color = Color.green;
                     statusText.text = "Got treatments!";
                     return JsonConvert.DeserializeObject<GetTreatmentRequestDto[]>(response);
             }

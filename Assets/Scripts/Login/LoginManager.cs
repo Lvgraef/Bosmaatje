@@ -26,7 +26,7 @@ namespace Login
                     password = passwordField.text
                 }))
             {
-                await SceneManager.LoadSceneAsync("Scenes/werkomgeving");
+                await SceneManager.LoadSceneAsync("Scenes/TreatmentPlan");
             }
         }
         

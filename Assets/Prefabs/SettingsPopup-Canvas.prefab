@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7757345583093204580}
   - component: {fileID: 3096077660816367655}
   - component: {fileID: 5120549505960878662}
+
   m_Layer: 5
   m_Name: SaveButton
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.050980393, g: 0.16862746, b: 0.1254902, a: 1}
+
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

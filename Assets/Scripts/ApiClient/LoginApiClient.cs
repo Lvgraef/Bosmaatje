@@ -10,11 +10,14 @@ namespace ApiClient
     {
         public static async Task<bool> Login(TextMeshProUGUI statusMessage, PostLoginRequestDto request)
         {
+            statusMessage.color = Color.yellow;
             statusMessage.text = "Loading...";
         
             var response = await ApiUtil.PerformApiCall($"{ApiUtil.BaseUrl}/account/login", "Post",
                 JsonUtility.ToJson(request));
 
+            statusMessage.color = Color.red;
+            
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
@@ -29,7 +32,8 @@ namespace ApiClient
                     statusMessage.text = "Cannot connect to server";
                     return false;
             }
-            
+            statusMessage.color = Color.green;
+
             statusMessage.text = "Logged in!";
 
             var postLoginResponseDto = JsonUtility.FromJson<PostLoginResponseDto>(response);

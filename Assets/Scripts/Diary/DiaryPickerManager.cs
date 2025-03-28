@@ -29,7 +29,7 @@ public class DiaryPickerManager : MonoBehaviour
     public Sprite spriteDiaryEyeView;
     //public Sprite spriteDiaryEmpty;
 
-    public GameObject Bar1;
+    public GameObject Bar1;//
     public GameObject Bar2;
     public GameObject Bar3;
     public GameObject Bar4;

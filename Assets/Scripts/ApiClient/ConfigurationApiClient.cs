@@ -4,6 +4,7 @@ using Global;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 namespace ApiClient
@@ -24,7 +25,8 @@ namespace ApiClient
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var json = JsonConvert.SerializeObject(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json, UserSingleton.Instance.AccessToken);
-
+            
+            statusText.color = Color.red;
             switch (response)
             {
                 case "Cannot connect to destination host":
@@ -32,6 +34,28 @@ namespace ApiClient
                     return false;
                 case "HTTP/1.1 409 Conflict":
                     statusText.text = "Conflict";
+                    return false;
+                default:
+                    statusText.color = Color.green;
+                    statusText.text = "Success!";
+                    return true;
+            }
+        }
+
+        public static async Task<bool> UpdateConfigure(PutConfigurationRequestDto putConfigurationRequestDto,
+            TextMeshProUGUI statusText)
+        {
+            var url = $"{ApiUtil.BaseUrl}/configurations";
+            var json = JsonConvert.SerializeObject(putConfigurationRequestDto);
+            var response = await ApiUtil.PerformApiCall(url, "PUT", json, UserSingleton.Instance.AccessToken);
+            
+            switch (response)
+            {
+                case "Cannot connect to destination host":
+                    statusText.text = "Cannot connect to server";
+                    return false;
+                case "HTTP/1.1 404 Not Found":
+                    statusText.text = "Not Found";
                     return false;
                 default:
                     statusText.text = "Success!";

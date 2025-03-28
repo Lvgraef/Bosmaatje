@@ -14,6 +14,5 @@ namespace Dto
         public int order;
         public string stickerId;
         public string[] description;
-        public bool isCompleted;
     }
 }

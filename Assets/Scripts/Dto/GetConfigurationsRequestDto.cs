@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace Dto
 {
@@ -9,6 +10,6 @@ namespace Dto
         public DateTime childBirthDate;
         public string primaryDoctorName;
         public string characterId;
-        public string treatmentPlanName;
+        [CanBeNull] public string treatmentPlanName;
     }
 }

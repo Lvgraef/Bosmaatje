@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dto;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -12,10 +13,17 @@ namespace Planning
         public List<TextMeshProUGUI> treatmentDates;
         public List<TextMeshProUGUI> treatmentDays;
         
-        public void Initialize(GetTreatmentRequestDto[] treatments)
+        public void Initialize([ItemCanBeNull] GetTreatmentRequestDto[] treatments)
         {
             for (var i = 0; i < treatments.Length; i++)
             {
+                if (treatments [i] == null)
+                {
+                    treatmentNames[i].text = "Geen behandeling";
+                    treatmentDates[i].text = "Geen datum";
+                    treatmentDays[i].text = "Geen datum";
+                    continue;
+                }
                 treatmentNames[i].text = treatments[i].treatmentName;
                 treatmentDates[i].text = treatments[i].date?.ToString("dd/MM/yyyy") ?? "Geen datum";
                 if (treatments[i].date != null)
@@ -26,7 +34,7 @@ namespace Planning
                     }
                     else
                     {
-                        treatmentDays[i].text = "Nog " + (treatments[i].date - DateTime.Now).Value.Days + " Dagen";
+                        treatmentDays[i].text = "Nog " + (treatments[i].date - DateTime.Now + TimeSpan.FromDays(1)).Value.Days + " Dag(en)";
                     }
                 }
                 else

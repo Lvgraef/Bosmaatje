@@ -1,6 +1,3 @@
-using System;
-using ApiClient;
-using Dto;
 using Treatment;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +8,6 @@ namespace Stickers
     public class StickersManager : MonoBehaviour
     {
         public TreatmentManager Treatment { get; set; }
-        public GameObject panel;
 
         public RectTransform content;
         public GameObject stickerPrefab;
@@ -32,9 +28,6 @@ namespace Stickers
                 instSticker.image.sprite = Resources.Load<Sprite>("Stickers/sticker-" + i);
             }
         }
-
-
-
 
         public async void StickerOnButtonClick(Button button, int stickerid) // button is overbodig?
         {
