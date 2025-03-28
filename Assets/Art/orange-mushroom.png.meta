@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 595e305f5df62bb41ba7c8277fdbdc22
+guid: 1ad40ee0fb603fb47833d5159328f6d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4118061770098717622
-    second: pathbg_0
+      213: 103782095571152320
+    second: orange-mushroom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pathbg_0
+      name: orange-mushroom_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 114
+        y: 1
+        width: 862
+        height: 975
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4c462673a4b9d6c0800000000000000
-      internalID: -4118061770098717622
+      spriteID: 0cd609c1445b07100800000000000000
+      internalID: 103782095571152320
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      pathbg_0: -4118061770098717622
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
