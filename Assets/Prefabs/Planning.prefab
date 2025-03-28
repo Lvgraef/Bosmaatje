@@ -2385,6 +2385,7 @@ GameObject:
   - component: {fileID: 2170149517552146827}
   - component: {fileID: 712447348196441718}
   - component: {fileID: 6295372350262238893}
+  - component: {fileID: 1765613646808007841}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -2506,6 +2507,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1765613646808007841}
+        m_TargetAssemblyTypeName: Global.AudioPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 12825280ddb85c84bb57b4b88e1f8f53, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6295372350262238893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2516,6 +2529,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68ebb04b1c151d2478b6f81cfe5c7706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1765613646808007841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564375936210195561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7b57d834f147cca0a1b26c81e316a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5621712793687101074
