@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7e44ab03455bb544b4db9eec261cd15
+guid: f84669b087f59894abd4c758f024a28f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5838861214289660067
-    second: grazing_deer (1)_0
+      213: -6571785909788224671
+    second: Thumbnail Image a 9 year old boy in conversation with the doctor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grazing_deer (1)_0
+      name: Thumbnail Image a 9 year old boy in conversation with the doctor_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 30
-        height: 22
+        y: 0
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d57757549a238fea0800000000000000
-      internalID: -5838861214289660067
+      spriteID: 163d72ba8835cc4a0800000000000000
+      internalID: -6571785909788224671
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grazing_deer (1)_0: -5838861214289660067
+      Thumbnail Image a 9 year old boy in conversation with the doctor_0: -6571785909788224671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -4,6 +4,7 @@ using Global;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 namespace ApiClient
@@ -24,7 +25,8 @@ namespace ApiClient
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var json = JsonConvert.SerializeObject(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json, UserSingleton.Instance.AccessToken);
-
+            
+            statusText.color = Color.red;
             switch (response)
             {
                 case "Cannot connect to destination host":
@@ -34,6 +36,7 @@ namespace ApiClient
                     statusText.text = "Conflict";
                     return false;
                 default:
+                    statusText.color = Color.green;
                     statusText.text = "Success!";
                     return true;
             }
