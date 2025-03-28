@@ -234,6 +234,8 @@ public class DiaryPickerManager : MonoBehaviour
         this.gameObject.SetActive(false);
         DiaryWriter.SetActive(true);
 
+        isPreviewByDefault = false;// omdat we deze functionaliteit niet meer willen hebben.
+
         DiaryWriter.GetComponent<DiaryWriterManager>().OpenDiary(date, isPreviewByDefault, isExistend);
     }
 

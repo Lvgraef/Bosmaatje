@@ -26,7 +26,7 @@ namespace Diary
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Upload";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "dagboek tekst";
-            _diaryWriter.buttonTopBarSwitchMode.image.sprite = _diaryWriter.PreviewTextSprite;
+            _diaryWriter.buttonTopBarSwitchMode.image.sprite = _diaryWriter.EditTextSprite;
         }
 
         public override void HandleSaveUpdater()
@@ -47,12 +47,12 @@ namespace Diary
 
         public override void HandleTopBarSwitchMode()
         {
-            _diaryWriter.SwitchMode(new PreviewMode(_diaryWriter));
+            _diaryWriter.SwitchMode(new EditMode(_diaryWriter));
         }
 
         public override void HandleButtomMiddleSwitchMode()//
         {
-            _diaryWriter.SwitchMode(new PreviewMode(_diaryWriter));
+            _diaryWriter.SwitchMode(new EditMode(_diaryWriter));
         }
     }
 
