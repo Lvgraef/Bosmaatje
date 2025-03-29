@@ -26,12 +26,12 @@ namespace TreatmentPlan
         public List<Image> pos;
         public List<TextMeshProUGUI> treatmentNames;
         public List<TextMeshProUGUI> timeLeft;
-        public GetConfigurationsRequestDto Configuration { get; set; }
+        public GetConfigurationsResponseDto Configuration { get; set; }
         public GameObject mushroomA;
         public GameObject mushroomB;
 
         [ItemCanBeNull]
-        public GetTreatmentRequestDto[] Treatments { get; set; } = { null, null, null, null, null, null };
+        public GetTreatmentResponseDto[] Treatments { get; set; } = { null, null, null, null, null, null };
 
         public GameObject treatmentUnavailable;
         public Message message;

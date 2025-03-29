@@ -12,7 +12,7 @@ namespace ApiClient
     public static class TreatmentPlanApiClient
     {
         [ItemCanBeNull]
-        public static async Task<GetTreatmentRequestDto[]> GetTreatments(TextMeshProUGUI statusText, [CanBeNull] string treatmentPlanName)
+        public static async Task<GetTreatmentResponseDto[]> GetTreatments(TextMeshProUGUI statusText, [CanBeNull] string treatmentPlanName)
         {
             var url = $"{ApiUtil.BaseUrl}/treatments?treatmentPlanName={treatmentPlanName}";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
@@ -36,7 +36,7 @@ namespace ApiClient
                 default:
                     statusText.color = Color.green;
                     statusText.text = "Got treatments!";
-                    return JsonConvert.DeserializeObject<GetTreatmentRequestDto[]>(response);
+                    return JsonConvert.DeserializeObject<GetTreatmentResponseDto[]>(response);
             }
         }
 

@@ -12,12 +12,12 @@ namespace ApiClient
     public static class ConfigurationApiClient
     {
         [ItemCanBeNull]
-        public static async Task<GetConfigurationsRequestDto> GetConfiguration()
+        public static async Task<GetConfigurationsResponseDto> GetConfiguration()
         {
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
             if (response == "Cannot connect to destination host") return null;
-            return response == "HTTP/1.1 404 Not Found" ? null : JsonUtility.FromJson<GetConfigurationsRequestDto>(response);
+            return response == "HTTP/1.1 404 Not Found" ? null : JsonUtility.FromJson<GetConfigurationsResponseDto>(response);
         }
         
         public static async Task<bool> Configure(PostConfigurationsRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
