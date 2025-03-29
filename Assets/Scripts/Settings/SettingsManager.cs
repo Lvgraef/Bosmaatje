@@ -1,3 +1,4 @@
+using System.Linq;
 using Global;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,16 +8,10 @@ namespace Settings
 {
     public class SettingsManager : MonoBehaviour
     {
-        private void Start()
-        {
-            SetValuesSettingsManager();
-            sliderbutton.image.sprite = soundOnhigh;
-        }
-
         private float _volumeOfSound = 1;
-        private bool _isSoundOn = true;
+        private bool _isAudioMuted = false;
 
-        public Button sliderbutton;
+        public Button soundbutton;
         public Slider slider;
 
         public Sprite soundOff;
@@ -24,37 +19,48 @@ namespace Settings
         public Sprite soundOnmedium;
         public Sprite soundOnhigh;
 
+        private void OnEnable()
+        {
+            SetValuesSettingsManager();
+            ChangeSoundimage(_volumeOfSound);
+            ChangeSliderValue(_volumeOfSound);
+        }
+
         public void OnSliderValueChanged(float volume)
         {
             AudioListener.volume = volume;
-
-            CheckVolumeSetImage(volume);
             _volumeOfSound = volume;
-            Debug.Log("Volume: " + volume);
+
+            ChangeSoundimage(volume);
         }
 
         public void OnSoundButtonClick()
         {
-            if (sliderbutton.image.sprite == soundOff)
+            if (_isAudioMuted)
             {
-                AudioListener.volume = _volumeOfSound;
-                slider.value = 1;
-                CheckVolumeSetImage(_volumeOfSound);
+                AudioListener.volume = 0;
+
+                _isAudioMuted = false;
+
+                Color fillColor = new Color(13, 43, 32);// dark green
+                ChangeFillColorSlider(fillColor);
             }
             else
             {
-                sliderbutton.image.sprite = soundOff;
-                slider.value = 0;
-                AudioListener.volume = 0;
-                _isSoundOn = false;
+                AudioListener.volume = _volumeOfSound;
+                _isAudioMuted = true;
+
+                Color fillColor = new Color(210, 196, 157);// light brown
+                ChangeFillColorSlider(fillColor);
             }
+            ChangeSoundimage(_volumeOfSound, _isAudioMuted);
+
         }
 
         public void SaveOnButtonClick()
         {
-            SettingsSingleton.Instance.SetPrefSoundOn(_isSoundOn);
+            SettingsSingleton.Instance.SetPrefSoundOn(_isAudioMuted);
             SettingsSingleton.Instance.SetPrefSoundVolume(_volumeOfSound);
-            Destroy(gameObject);
         }
 
         public void ToConfigurationscreenOnButtonClick()
@@ -63,59 +69,70 @@ namespace Settings
             SceneManager.LoadScene("Configuration");
         }
 
-        private void CheckVolumeSetImage(float volume)
+        public void CloseSettingsOnButtonClick()
         {
-            Debug.Log("CheckVolumeSetImage is called");
-            if (volume == 0)
+            gameObject.SetActive(false);
+        }
+
+        public void OpenSettingsOnButtonClick()
+        {
+            gameObject.SetActive(true);
+        }
+
+        private void ChangeSoundimage(float volume, bool makeSoundOff = false)
+        {
+            soundbutton.image.sprite = GetSoundImage(volume, !makeSoundOff);
+        }
+        private void ChangeSliderValue(float volume)
+        {
+            slider.value = volume;
+        }
+        private Sprite GetSoundImage(float volume, bool isSoundOn = true)
+        {
+            if (!isSoundOn || volume <= 0)
             {
-                sliderbutton.image.sprite = soundOff;
-                _isSoundOn = false;
+                return soundOff;
             }
-            else if (volume > 0 && volume <= 0.33)
+
+            volume = Mathf.Clamp01(volume);
+
+            if (volume <= 0.33f)
             {
-                sliderbutton.image.sprite = soundOnlow;
-                _isSoundOn = true;
+                return soundOnlow;
             }
-            else if (volume > 0.33 && volume <= 0.66)
+            else if (volume <= 0.66f)
             {
-                sliderbutton.image.sprite = soundOnmedium;
-                _isSoundOn = true;
+                return soundOnmedium;
             }
-            else if (volume > 0.66 && volume <= 1)
+            else
             {
-                sliderbutton.image.sprite = soundOnhigh;
-                _isSoundOn = true;
+                return soundOnhigh;
             }
         }
+
+
 
         private void SetValuesSettingsManager()
         {
             if (!PlayerPrefs.HasKey("SoundOn"))
             {
-                SettingsSingleton.Instance.SetPrefSoundOn(true);
-                _isSoundOn = true;
+                _isAudioMuted = true;
             }
             if (!PlayerPrefs.HasKey("SoundVolume"))
             {
-                SettingsSingleton.Instance.SetPrefSoundVolume(.5F);
                 _volumeOfSound = .5f;
             }
             _volumeOfSound = SettingsSingleton.Instance.GetPrefSoundVolume();
-            _isSoundOn = SettingsSingleton.Instance.GetPrefSoundOn();
+            _isAudioMuted = SettingsSingleton.Instance.GetPrefSoundOn();
+        }
 
-            Debug.Log("Volume: " + _volumeOfSound);
-            Debug.Log("SoundOn: " + _isSoundOn);
-
-            if (_isSoundOn)
+        private void ChangeFillColorSlider(Color fillColor)
+        {
+            var fill = (slider as UnityEngine.UI.Slider).GetComponentsInChildren<UnityEngine.UI.Image>().FirstOrDefault(t => t.name == "Fill");
+            if (fill != null)
             {
-                slider.value = _volumeOfSound;
-                CheckVolumeSetImage(_volumeOfSound);
+                fill.color = fillColor;
             }
-            else
-            {
-                sliderbutton.image.sprite = soundOff;
-            }
-
         }
     }
 }
