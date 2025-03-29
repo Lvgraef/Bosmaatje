@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 0957d73020484194b8529f542d394aec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4725423457179127207
+    second: SalamanderMagicalTail_0
+  - first:
+      213: 606987283227660711
+    second: SalamanderMagicalTail_1
+  - first:
+      213: 5475973598956245394
+    second: SalamanderMagicalTail_2
+  - first:
+      213: -637662627663362135
+    second: SalamanderMagicalTail_3
+  - first:
+      213: 6196236145248245329
+    second: SalamanderMagicalTail_4
+  - first:
+      213: 5292439074855336212
+    second: SalamanderMagicalTail_5
+  - first:
+      213: 1926466046749276377
+    second: SalamanderMagicalTail_6
+  - first:
+      213: -4964228556101752173
+    second: SalamanderMagicalTail_7
+  - first:
+      213: 2226114469005363171
+    second: SalamanderMagicalTail_8
+  - first:
+      213: -2600904203135184340
+    second: SalamanderMagicalTail_9
+  - first:
+      213: -6413758873135119066
+    second: SalamanderMagicalTail_10
+  - first:
+      213: -341919136832307907
+    second: SalamanderMagicalTail_11
+  - first:
+      213: -2554834558651985112
+    second: SalamanderMagicalTail_12
+  - first:
+      213: 7502441599905144022
+    second: SalamanderMagicalTail_13
+  - first:
+      213: 2017877734980405826
+    second: SalamanderMagicalTail_14
+  - first:
+      213: -3043204385153757459
+    second: SalamanderMagicalTail_15
+  - first:
+      213: -1310058131431337549
+    second: SalamanderMagicalTail_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_0
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 278
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9523a8de66ceb6eb0800000000000000
+      internalID: -4725423457179127207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 273
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1d6f7d7b37c6800800000000000000
+      internalID: 606987283227660711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 278
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291543da9f09efb40800000000000000
+      internalID: 5475973598956245394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 273
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a74597f7319627f0800000000000000
+      internalID: -637662627663362135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_4
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 267
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15615fde1f37df550800000000000000
+      internalID: 6196236145248245329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419362c4c45827940800000000000000
+      internalID: 5292439074855336212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_6
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 262
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d87754a9ae2cba10800000000000000
+      internalID: 1926466046749276377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_7
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 268
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a64b90e648b1bb0800000000000000
+      internalID: -4964228556101752173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_8
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 262
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e70c6aa05fb4ee10800000000000000
+      internalID: 2226114469005363171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_9
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 267
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c229e4d486bb7ebd0800000000000000
+      internalID: -2600904203135184340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 262
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62585c35940cdf6a0800000000000000
+      internalID: -6413758873135119066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_11
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 71
+        width: 187
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3db33b4b52414bf0800000000000000
+      internalID: -341919136832307907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_12
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 251
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82318a741876b8cd0800000000000000
+      internalID: -2554834558651985112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_13
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 245
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc957ea2e60e1860800000000000000
+      internalID: 7502441599905144022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_14
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 223
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a4da9db11f00c10800000000000000
+      internalID: 2017877734980405826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_15
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 200
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deecffb3cbd54c5d0800000000000000
+      internalID: -3043204385153757459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SalamanderMagicalTail_16
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 189
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b15ce8021db1dde0800000000000000
+      internalID: -1310058131431337549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SalamanderMagicalTail_0: -4725423457179127207
+      SalamanderMagicalTail_1: 606987283227660711
+      SalamanderMagicalTail_10: -6413758873135119066
+      SalamanderMagicalTail_11: -341919136832307907
+      SalamanderMagicalTail_12: -2554834558651985112
+      SalamanderMagicalTail_13: 7502441599905144022
+      SalamanderMagicalTail_14: 2017877734980405826
+      SalamanderMagicalTail_15: -3043204385153757459
+      SalamanderMagicalTail_16: -1310058131431337549
+      SalamanderMagicalTail_2: 5475973598956245394
+      SalamanderMagicalTail_3: -637662627663362135
+      SalamanderMagicalTail_4: 6196236145248245329
+      SalamanderMagicalTail_5: 5292439074855336212
+      SalamanderMagicalTail_6: 1926466046749276377
+      SalamanderMagicalTail_7: -4964228556101752173
+      SalamanderMagicalTail_8: 2226114469005363171
+      SalamanderMagicalTail_9: -2600904203135184340
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

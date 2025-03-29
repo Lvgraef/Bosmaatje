@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 7f649c8a820b6d84bb58d22dea7739b5
+guid: 7842f53c46cb6fa47a4024b057d29db2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4794171562112382150
-    second: pixel_art_image_Blue_mushroom__0
+      213: -2003948482763206768
+    second: EmptyDiary_0
+  - first:
+      213: -6462039721495499182
+    second: EmptyDiary_1
+  - first:
+      213: -2429624156673970586
+    second: EmptyDiary_2
+  - first:
+      213: 2644729339792671607
+    second: EmptyDiary_3
+  - first:
+      213: 729739109856715006
+    second: EmptyDiary_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixel_art_image_Blue_mushroom__0
+      name: EmptyDiary_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 17
-        width: 432
-        height: 453
+        x: 0
+        y: 778
+        width: 217
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3b03086d5ea77db0800000000000000
-      internalID: -4794171562112382150
+      spriteID: 09f47b8e87b8034e0800000000000000
+      internalID: -2003948482763206768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmptyDiary_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 708
+        height: 946
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25eebc35c193256a0800000000000000
+      internalID: -6462039721495499182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmptyDiary_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 217
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e6db3c3bd384ed0800000000000000
+      internalID: -2429624156673970586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmptyDiary_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 341
+        width: 216
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77345697257f3b420800000000000000
+      internalID: 2644729339792671607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmptyDiary_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 217
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef028b5aadd802a00800000000000000
+      internalID: 729739109856715006
       vertices: []
       indices: 
       edges: []
@@ -148,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixel_art_image_Blue_mushroom__0: -4794171562112382150
+      EmptyDiary_0: -2003948482763206768
+      EmptyDiary_1: -6462039721495499182
+      EmptyDiary_2: -2429624156673970586
+      EmptyDiary_3: 2644729339792671607
+      EmptyDiary_4: 729739109856715006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
