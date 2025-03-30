@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 6474578705558620027}
   - component: {fileID: 3612486602536869180}
   - component: {fileID: 5931147457800419206}
+  - component: {fileID: 1555104751328601346}
   m_Layer: 5
   m_Name: Plan
   m_TagString: Untagged
@@ -350,6 +351,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1555104751328601346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319651639069034559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10db054c4e7f4e799b1777c938008276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: {fileID: 8309731824844043228}
+  date: {fileID: 6362431990994852660}
+  days: {fileID: 234137668377173274}
 --- !u!1 &5602067214696710480
 GameObject:
   m_ObjectHideFlags: 0

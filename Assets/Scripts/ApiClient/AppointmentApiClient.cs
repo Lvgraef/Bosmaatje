@@ -44,7 +44,7 @@ namespace ApiClient
             TextMeshProUGUI statusText)
         {
             var url = $"{ApiUtil.BaseUrl}/appointments";
-            var response = await ApiUtil.PerformApiCall(url, "PUT", JsonConvert.SerializeObject(dto),
+            var response = await ApiUtil.PerformApiCall(url, "POST", JsonConvert.SerializeObject(dto),
                 UserSingleton.Instance.AccessToken);
 
             statusText.color = Color.red;
@@ -52,20 +52,20 @@ namespace ApiClient
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
-                    statusText.text = "Unauthorized";
+                    statusText.text = "Niet geautoriseerd";
                     return false;
                 case "Cannot connect to destination host":
-                    statusText.text = "Cannot connect to server";
+                    statusText.text = "Kan niet verbinden met de server.";
                     return false;
                 case "HTTP/1.1 400 Bad Request":
                     statusText.text = "Bad request";
                     return false;
                 case "HTTP/1.1 500 Internal Server Error":
-                    statusText.text = "Something went wrong :(";
+                    statusText.text = "Er ging iets niet goed :(";
                     return false;
                 default:
                     statusText.color = Color.green;
-                    statusText.text = "Saved appointment!";
+                    statusText.text = "Afspraak opgeslagen!";
                     return true;
             }
         }

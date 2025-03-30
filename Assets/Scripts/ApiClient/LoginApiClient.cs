@@ -21,20 +21,20 @@ namespace ApiClient
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
-                    statusMessage.text = "Wrong email or password";
+                    statusMessage.text = "Verkeerde email of wachtwoord";
                     Debug.Log("Login failed.");
                     return false;
                 case "HTTP/1.1 500 Internal Server Error":
-                    statusMessage.text = "Something went wrong :( Please try again.";
+                    statusMessage.text = "Er ging iets fout :( Probeer later opnieuw.";
                     Debug.Log("Server Error");
                     return false;
                 case "Cannot connect to destination host":
-                    statusMessage.text = "Cannot connect to server";
+                    statusMessage.text = "Kan niet met server verbinden";
                     return false;
             }
             statusMessage.color = Color.green;
 
-            statusMessage.text = "Logged in!";
+            statusMessage.text = "Ingelogd!";
 
             var postLoginResponseDto = JsonUtility.FromJson<PostLoginResponseDto>(response);
 

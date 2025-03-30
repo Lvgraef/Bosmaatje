@@ -19,7 +19,6 @@ namespace TreatmentPlan
         public TextMeshProUGUI statusText;
         public TreatmentManager treatmentPrefab;
 
-        [FormerlySerializedAs("calendarPrefab")]
         public GameObject planningPrefab;
 
         public Transform canvas;
@@ -29,6 +28,7 @@ namespace TreatmentPlan
         public GetConfigurationsResponseDto Configuration { get; set; }
         public GameObject mushroomA;
         public GameObject mushroomB;
+        public GameObject reminderPrefab;
 
         [ItemCanBeNull]
         public GetTreatmentResponseDto[] Treatments { get; set; } = { null, null, null, null, null, null };
@@ -83,6 +83,7 @@ namespace TreatmentPlan
             }
 
             Progress();
+            Reminders();
         }
 
         public void OpenPlanning()
@@ -91,6 +92,32 @@ namespace TreatmentPlan
             planning.GetComponent<PlanningManager>().Initialize();
         }
 
+        private async void Reminders()
+        {
+            var appointments = (from treatment in Treatments
+                where treatment?.date != null && !(treatment.date < DateTime.Now)
+                select new Appointment { Title = treatment.treatmentName, Date = treatment.date.Value, Custom = false}).ToList();
+
+            var customPlans = await AppointmentApiClient.GetAppointments();
+            if (customPlans != null)
+            {
+                appointments.AddRange(from customPlan in customPlans
+                    where customPlan?.date != null && !(customPlan.date < DateTime.Now)
+                    select new Appointment { Title = customPlan.name, Date = customPlan.date, Custom = true});
+            }
+
+            appointments.Sort((first, second) => first.Date.CompareTo(second.Date));
+            
+            foreach (var appointment in appointments)
+            {
+                if (appointment.Date - DateTime.Now > TimeSpan.FromDays(1)) continue;
+                var reminderObject = Instantiate(reminderPrefab, canvas);
+                var reminder = reminderObject.GetComponent<Reminder>();
+                reminder.name.text = appointment.Title;
+                reminder.date.text = appointment.Date.ToString("dd/MM/yyyy");
+            }
+        }
+        
         private void Progress()
         {
             foreach (var image in pos)

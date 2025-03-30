@@ -49,7 +49,8 @@ namespace Planning
 
         public void Open()
         {
-            
+            var create = Instantiate(createPrefab, transform.parent);
+            Destroy(gameObject);
         }
 
         public void Close()

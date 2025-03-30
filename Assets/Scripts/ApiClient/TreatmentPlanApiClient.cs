@@ -22,20 +22,20 @@ namespace ApiClient
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
-                    statusText.text = "Unauthorized";
+                    statusText.text = "Niet geautoriseerd";
                     return null;
                 case "Cannot connect to destination host":
-                    statusText.text = "Cannot connect to server";
+                    statusText.text = "Kan niet met server verbinden";
                     return null;
                 case "HTTP/1.1 400 Bad Request":
                     statusText.text = "Bad request";
                     return null;
                 case "HTTP/1.1 500 Internal Server Error":
-                    statusText.text = "Something went wrong :(";
+                    statusText.text = "Er ging iets fout :(";
                     return null;
                 default:
                     statusText.color = Color.green;
-                    statusText.text = "Got treatments!";
+                    statusText.text = "Behandelingen opgehaald!";
                     return JsonConvert.DeserializeObject<GetTreatmentResponseDto[]>(response);
             }
         }
