@@ -150,8 +150,8 @@ namespace TreatmentPlan
             }
 
 
-            pos[completion].sprite = sprite;
-            pos[completion].gameObject.SetActive(true);
+            pos[Math.Min(5, completion)].sprite = sprite;
+            pos[Math.Min(5, completion)].gameObject.SetActive(true);
         }
 
         public void OpenTreatment(int index)

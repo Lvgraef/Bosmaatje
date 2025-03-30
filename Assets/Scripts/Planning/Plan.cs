@@ -8,6 +8,7 @@ namespace Planning
     public class Plan : MonoBehaviour
     {
         public PlanningManager PlanningManager { get; set; }
+        public GameObject planningPrefab;
         public Guid AppointmentId { get; set; }
         public TextMeshProUGUI title;
         public TextMeshProUGUI date;

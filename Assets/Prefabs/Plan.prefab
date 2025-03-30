@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10db054c4e7f4e799b1777c938008276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planningPrefab: {fileID: 6540346985660408506, guid: dee71586ef0bf0c42b9dc915115a5824, type: 3}
   title: {fileID: 8309731824844043228}
   date: {fileID: 6362431990994852660}
   days: {fileID: 234137668377173274}

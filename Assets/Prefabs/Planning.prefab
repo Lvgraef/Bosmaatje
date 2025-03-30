@@ -406,8 +406,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3450245089833869525}
   m_HandleRect: {fileID: 4937771060827050506}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.97374684
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1572,6 +1572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4280961649260790122}
   - component: {fileID: 4830865518674406156}
+  - component: {fileID: 4425537272897371876}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1596,7 +1597,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.0000031540187}
-  m_SizeDelta: {x: 0, y: 681.4801}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4830865518674406156
 MonoBehaviour:
@@ -1611,7 +1612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 17
     m_Right: 0
     m_Top: 16
     m_Bottom: 0
@@ -1620,8 +1621,22 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 1196.1, y: 100}
   m_Spacing: {x: 397.04, y: 12.5}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Constraint: 1
+  m_ConstraintCount: 1
+--- !u!114 &4425537272897371876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579324491825465186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &8610252853622985934
 GameObject:
   m_ObjectHideFlags: 0
