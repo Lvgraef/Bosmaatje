@@ -23,7 +23,7 @@ namespace Configuration
         public GameObject dateOfBirthBlocker;
         public GameObject childNameBlocker;
         public GameObject treatmentText;
-        private GetTreatmentRequestDto[] _treatments;
+        private GetTreatmentResponseDto[] _treatments;
         
         private async void Start()
         {
