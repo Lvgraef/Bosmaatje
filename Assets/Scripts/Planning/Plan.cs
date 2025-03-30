@@ -1,14 +1,22 @@
-﻿using TMPro;
-using UnityEditor;
+﻿using System;
+using ApiClient;
+using TMPro;
 using UnityEngine;
 
 namespace Planning
 {
     public class Plan : MonoBehaviour
     {
-        public GUID AppointmentId { get; set; }
+        public PlanningManager PlanningManager { get; set; }
+        public Guid AppointmentId { get; set; }
         public TextMeshProUGUI title;
         public TextMeshProUGUI date;
         public TextMeshProUGUI days;
+
+        public async void Delete()
+        {
+            await AppointmentApiClient.DeleteAppointment(AppointmentId);
+            PlanningManager.Initialize();
+        }
     }
 }

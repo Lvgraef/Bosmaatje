@@ -25,30 +25,19 @@ namespace ApiClient
             };
         }
 
-        public static async Task<bool> DeleteAppointment(Guid appointmentId, TextMeshProUGUI statusText)
+        public static async Task<bool> DeleteAppointment(Guid appointmentId)
         {
             var url = $"{ApiUtil.BaseUrl}/appointments?appointmentId={appointmentId}";
             var response = await ApiUtil.PerformApiCall(url, "DELETE", token: UserSingleton.Instance.AccessToken);
 
-            switch (response)
+            return response switch
             {
-                case "HTTP/1.1 401 Unauthorized":
-                    statusText.text = "Unauthorized";
-                    return false;
-                case "Cannot connect to destination host":
-                    statusText.text = "Cannot connect to server";
-                    return false;
-                case "HTTP/1.1 400 Bad Request":
-                    statusText.text = "Bad request";
-                    return false;
-                case "HTTP/1.1 500 Internal Server Error":
-                    statusText.text = "Something went wrong :(";
-                    return false;
-                default:
-                    statusText.color = Color.green;
-                    statusText.text = "Got treatments!";
-                    return true;
-            }
+                "HTTP/1.1 401 Unauthorized" => false,
+                "Cannot connect to destination host" => false,
+                "HTTP/1.1 400 Bad Request" => false,
+                "HTTP/1.1 500 Internal Server Error" => false,
+                _ => true
+            };
         }
         
         public static async Task<bool> PostAppointment(PostAppointmentRequestDto dto,

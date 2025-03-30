@@ -14,10 +14,14 @@ namespace Planning
         public GameObject planPrefab;
         public GameObject customPlanPrefab;
         public GameObject createPrefab;
+        public TextMeshProUGUI statusText;
         public Transform parent;
 
-        public async void Initialize([ItemCanBeNull] GetTreatmentResponseDto[] treatments)
+        public async void Initialize()
         {
+            var config = await ConfigurationApiClient.GetConfiguration();
+            var treatments = await TreatmentPlanApiClient.GetTreatments(statusText, config?.treatmentPlanName);
+            
             var appointments = (from treatment in treatments
                 where treatment?.date != null && !(treatment.date < DateTime.Now)
                 select new Appointment { Title = treatment.treatmentName, Date = treatment.date.Value, Custom = false}).ToList();
@@ -39,6 +43,7 @@ namespace Planning
                 plan.date.text = appointment.Date.ToString("dd/MM/yyyy");
                 plan.days.text = "Nog " + (appointment.Date - DateTime.Now + TimeSpan.FromDays(1)).Days +
                                  " Dag(en)";
+                plan.PlanningManager = this;
             }
         }
 

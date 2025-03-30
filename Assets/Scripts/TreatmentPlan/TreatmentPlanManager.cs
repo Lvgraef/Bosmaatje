@@ -88,7 +88,7 @@ namespace TreatmentPlan
         public void OpenPlanning()
         {
             var planning = Instantiate(planningPrefab, canvas);
-            planning.GetComponent<PlanningManager>().Initialize(Treatments);
+            planning.GetComponent<PlanningManager>().Initialize();
         }
 
         private void Progress()
