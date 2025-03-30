@@ -21,7 +21,7 @@ namespace ApiClient
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
-                    statusMessage.text = "Verkeerde email of wachtwoord";
+                    statusMessage.text = "Verkeerd email of wachtwoord";
                     Debug.Log("Login failed.");
                     return false;
                 case "HTTP/1.1 500 Internal Server Error":
