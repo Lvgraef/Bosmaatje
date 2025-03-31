@@ -23,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TreatmentPlan.unity
     guid: 05a00090c8368cd4aa2447107dde7656
-  - enabled: 1
-    path: Assets/Scenes/Diary.unity
-    guid: a9fea6c9911684649bf1505a9e20a97f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

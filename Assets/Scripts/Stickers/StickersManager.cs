@@ -45,8 +45,8 @@ namespace Stickers
 
         private static int CountStickerAssets()
         {
-            string[] guids = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Resources/Stickers" });
-            int assetCount = guids.Length;
+            var files = Resources.LoadAll("Stickers");
+            int assetCount = files.Length;
             Debug.Log("assetCount: " + assetCount);
             return assetCount;
         }
