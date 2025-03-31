@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icons8-camera-100_0: 58198607266937775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

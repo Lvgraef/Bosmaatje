@@ -13,6 +13,7 @@ namespace Util
     {
         public static void CreateConfirmationPopup(Action MethodByDiscart, Action MethodBySaveFirst, string text, CanvasGroup FreezeWhileConfirm)
         {
+            Debug.Log("CreateConfirmationPopup");
             // Gebruik de default tekst als deze niet wordt opgegeven
             string defaultDenytext = "wegdoen";
             string defaultConfirmText = "opslaan";
@@ -23,15 +24,21 @@ namespace Util
 
         public static void CreateConfirmationPopup(Action MethodByDeny, Action MethodByConfirm, string popupMessage, CanvasGroup FreezeWhileConfirm, string denyMessage, string confirmMessage)
         {
+            Debug.Log("CreateConfirmationPopup");
             // Freeze the game while the confirmation is active
             FreezeWhileConfirm.interactable = false;
 
             // Create Canvas
             GameObject canvasGO = new GameObject("Canvas");
+
             Canvas canvas = canvasGO.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; // Ensure UI is visible
             canvasGO.AddComponent<CanvasScaler>();
             canvasGO.AddComponent<GraphicRaycaster>();
+
+            // set canvas order to 5:
+            canvas.sortingOrder = 5;
+
             // Create Image
             GameObject imageGO = new GameObject("Image");
             Image image = imageGO.AddComponent<Image>();
@@ -79,6 +86,7 @@ namespace Util
                 FreezeWhileConfirm.interactable = true;
             });
 
+            Debug.Log("CreateConfirmationPopup");
         }
 
         private static GameObject CreateButton(string name, Vector2 position, bool isDiscart, string denyMessage, string confirmMessage)
