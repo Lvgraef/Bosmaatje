@@ -26,11 +26,13 @@ namespace Util
             GameObject canvasGO = new GameObject("Canvas");
             Canvas canvas = canvasGO.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; // Ensure UI is visible
+            canvas.sortingOrder = 5;
             canvasGO.AddComponent<CanvasScaler>();
             canvasGO.AddComponent<GraphicRaycaster>();
             // Create Image
             GameObject imageGO = new GameObject("Image");
             Image image = imageGO.AddComponent<Image>();
+            image.color = new Color(0.4f, 0.29f, 0.23f) ;
             // Set Parent
             imageGO.transform.SetParent(canvasGO.transform, false);
             // Set Image Size
@@ -43,7 +45,7 @@ namespace Util
             TextMeshProUGUI textui = textGO.AddComponent<TextMeshProUGUI>();
             textui.alignment = TextAlignmentOptions.Center;
             textui.text = popupMessage;
-            textui.color = Color.black;
+            textui.color = new Color(210 / 255f, 196/255f, 157/255f);
  
             // Set Parent and Position for Text
             textGO.transform.SetParent(imageGO.transform, false);
