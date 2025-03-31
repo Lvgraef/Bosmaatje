@@ -71,7 +71,8 @@ namespace Registration
 
             if (password != confirmPassword)
             {
-                errorText.text = "De wachtwoorden komen niet overeen"; // deze lijkt somehow niet we werken
+                errorText.text = "De wachtwoorden komen niet overeen";
+                return false;
             }
 
             if (password.Length < 8)
