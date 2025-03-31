@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ApiClient;
+﻿using ApiClient;
 using Dto;
-using UnityEngine;
-using Util;
 using Global;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
+using Util;
 
 namespace Diary
 {
@@ -27,8 +21,6 @@ namespace Diary
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Opslaan";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "Afbeeldingen";
-            _diaryWriter.buttonTopBarSwitchMode.image.sprite = _diaryWriter.ImageSprite;
-
         }
 
         public async override void HandleSaveUpdater()
@@ -69,7 +61,6 @@ namespace Diary
             if (_diaryWriter.GetDiaryContent() != _diaryWriter.GetContentFieldText().text)
             {
                 Confirmations.CreateConfirmationPopup(_diaryWriter.GetConfirmPopupGoBack(), _diaryWriter.GetSaveAllFirstBeforeGoBack(), "nog niet alles is opgeslagen, wil je het nog opslaan?", _diaryWriter.GetComponent<CanvasGroup>());
-
 
                 //ConfirmPopup.gameObject.SetActive(true);
             }
