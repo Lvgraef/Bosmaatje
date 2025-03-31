@@ -43,7 +43,7 @@ namespace Global
                 PostDiaryContentRequestDto requestDto = new PostDiaryContentRequestDto { content = _content, date = DateTime.Now.Date };
                 await DiaryApiClient.PostDiaryContent(requestDto);
 
-                _diaryReads = new List<DiaryReadDto> { new DiaryReadDto { date = DateTime.Now.Date, content = _content } };
+                _diaryReads = new List<DiaryReadDto> { new() { date = DateTime.Now.Date, content = _content } };
             }
         }
 
