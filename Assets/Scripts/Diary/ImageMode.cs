@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
-using UnityEngine.UI;
 
 //using UnityEngine;
 
@@ -25,7 +19,7 @@ namespace Diary
             _diaryWriter.BackgroundImages.gameObject.SetActive(true);
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Upload";
-            _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "dagboek tekst";
+            _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "dagboek";
             _diaryWriter.buttonTopBarSwitchMode.image.sprite = _diaryWriter.EditTextSprite;
         }
 
