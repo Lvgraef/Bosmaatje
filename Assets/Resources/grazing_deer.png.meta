@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f063b8d5e2ed26341b14ff91ef971e45
+guid: d7e44ab03455bb544b4db9eec261cd15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -71761611395953666
-    second: grazing_deer_0
+      213: -5838861214289660067
+    second: grazing_deer (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grazing_deer_0
+      name: grazing_deer (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
+        y: 2
         width: 30
-        height: 20
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efb0c34d13d010ff0800000000000000
-      internalID: -71761611395953666
+      spriteID: d57757549a238fea0800000000000000
+      internalID: -5838861214289660067
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grazing_deer_0: -71761611395953666
+      grazing_deer (1)_0: -5838861214289660067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

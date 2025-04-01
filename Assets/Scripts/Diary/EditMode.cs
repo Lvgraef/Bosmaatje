@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ApiClient;
+﻿using ApiClient;
 using Dto;
+using Global;
+using TMPro;
 using UnityEngine;
 using Util;
-using Global;
 
 namespace Diary
 {
@@ -17,13 +13,17 @@ namespace Diary
 
         public override void Setup()
         {
+            _diaryWriter.GetContentFieldText().gameObject.SetActive(true);
             _diaryWriter.GetContentFieldText().interactable = true;
             _diaryWriter.buttonSave.gameObject.SetActive(true);
             _diaryWriter.ClearText.gameObject.SetActive(true);
-            _diaryWriter.buttonSwitchToEditMode.gameObject.SetActive(false);
+            _diaryWriter.BackgroundImages.gameObject.SetActive(false);
+
+            _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Opslaan";
+            _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "Afbeeldingen";
         }
 
-        public async override void HandleSave()
+        public async override void HandleSaveUpdater()
         {
 
             string diaryContent = _diaryWriter.GetContentFieldText().text;
@@ -32,11 +32,12 @@ namespace Diary
             if (_diaryWriter.GetIsExistend())
             {
                 PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { content = diaryContent };
-                Debug.Log("de put content dto is: " +putContentDto.content + " " + _diaryWriter.GetDiaryDate());
+                Debug.Log("de put content dto is: " + putContentDto.content + " " + _diaryWriter.GetDiaryDate());
                 bool response = await DiaryApiClient.PutDiaryContent(putContentDto, _diaryWriter.GetDiaryDate());
                 Debug.Log("we hebben een put gedaan en  de response is: " + response);
 
-                if (response){
+                if (response)
+                {
                     DiarySingleton.Instance.UpdateDiaryData(new DiaryReadDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent });
                 }
             }
@@ -53,14 +54,13 @@ namespace Diary
                 }
             }
         }
-        
+
 
         public override void HandleGoBack()
         {
             if (_diaryWriter.GetDiaryContent() != _diaryWriter.GetContentFieldText().text)
             {
                 Confirmations.CreateConfirmationPopup(_diaryWriter.GetConfirmPopupGoBack(), _diaryWriter.GetSaveAllFirstBeforeGoBack(), "nog niet alles is opgeslagen, wil je het nog opslaan?", _diaryWriter.GetComponent<CanvasGroup>());
-
 
                 //ConfirmPopup.gameObject.SetActive(true);
             }
@@ -84,6 +84,16 @@ namespace Diary
             {
                 _diaryWriter.GetConfirmPopupClose().Invoke();
             }
+        }
+
+        public override void HandleTopBarSwitchMode()
+        {
+            _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));
+        }
+
+        public override void HandleButtomMiddleSwitchMode()
+        {
+            _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));
         }
     }
 }

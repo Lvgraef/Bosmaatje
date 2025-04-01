@@ -7,7 +7,7 @@ namespace Util
     public class RadioButton : MonoBehaviour
     {
         public List<GameObject> radioButtonSelects;
-        public int selectedButton;
+        public int selectedButton = -1;
         
         public void SelectButton(int index)
         {

@@ -1,6 +1,4 @@
-using System;
-using ApiClient;
-using Dto;
+using Mono.Cecil;
 using Treatment;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +9,6 @@ namespace Stickers
     public class StickersManager : MonoBehaviour
     {
         public TreatmentManager Treatment { get; set; }
-        public GameObject panel;
 
         public RectTransform content;
         public GameObject stickerPrefab;
@@ -33,9 +30,6 @@ namespace Stickers
             }
         }
 
-
-
-
         public async void StickerOnButtonClick(Button button, int stickerid) // button is overbodig?
         {
             await Treatment.PutSticker(stickerid);
@@ -45,8 +39,8 @@ namespace Stickers
 
         private static int CountStickerAssets()
         {
-            string[] guids = AssetDatabase.FindAssets("t:sprite", new[] { "Assets/Resources/Stickers" });
-            int assetCount = guids.Length;
+            var stickers = Resources.LoadAll("Stickers");
+            int assetCount = stickers.Length;
             Debug.Log("assetCount: " + assetCount);
             return assetCount;
         }

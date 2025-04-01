@@ -30,7 +30,8 @@ namespace ApiClient
 
         public static async Task<bool> PutDiaryContent(PutDiaryContentRequestDto diaryDto, DateTime date)
         {
-            var url = $"{ApiUtil.BaseUrl}/diaries?date={date.Date}";
+            var formattedDate = date.ToString("yyyy-MM-dd");
+            var url = $"{ApiUtil.BaseUrl}/diaries?date={formattedDate}";
             var json = JsonConvert.SerializeObject(diaryDto);
             Debug.Log(json);
             var response = await ApiUtil.PerformApiCall(url, "PUT", token: UserSingleton.Instance.AccessToken, jsonData: json);
