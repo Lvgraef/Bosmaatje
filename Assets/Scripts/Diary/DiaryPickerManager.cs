@@ -144,6 +144,12 @@ namespace Diary
             openButton.image.color = Color.green;
             openButton.onClick.RemoveAllListeners();
             openButton.onClick.AddListener(() => OpenDiary(date, isPreviewByDefault, isExistend));
+            
+            bar.GetComponent<DiaryDay>().cameraButton.onClick.AddListener(() =>
+            {
+                var diaryWriter = OpenDiary(date, isPreviewByDefault, isExistend);
+                diaryWriter.SwitchMode(new ImageMode(diaryWriter));
+            });
         }
 
         private Sprite GetSprite(bool isExistend, bool isPreviewByDefault)
@@ -221,7 +227,7 @@ namespace Diary
         }
 
 
-        private void OpenDiary(DateTime date, bool isPreviewByDefault, bool isExistend)
+        private DiaryWriterManager OpenDiary(DateTime date, bool isPreviewByDefault, bool isExistend)
         {
             Debug.Log("we openen de WriterDiary");
             this.gameObject.GetComponent<CanvasGroup>().interactable = false;
@@ -230,7 +236,11 @@ namespace Diary
 
             isPreviewByDefault = false;// omdat we deze functionaliteit niet meer willen hebben.
 
-            DiaryWriter.GetComponent<DiaryWriterManager>().OpenDiary(date, isPreviewByDefault, isExistend);
+            DiaryWriterManager writer = DiaryWriter.GetComponent<DiaryWriterManager>();
+            
+            writer.OpenDiary(date, isPreviewByDefault, isExistend);
+
+            return writer;
         }
 
         private string GetAbreviationFromDayOfTheWeek(DateTime date)

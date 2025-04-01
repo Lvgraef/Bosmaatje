@@ -20,7 +20,6 @@ namespace Diary
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Upload";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "dagboek";
-            _diaryWriter.buttonTopBarSwitchMode.image.sprite = _diaryWriter.EditTextSprite;
         }
 
         public override void HandleSaveUpdater()
