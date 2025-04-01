@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Global;
@@ -7,10 +6,6 @@ using SFB;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Directory = UnityEngine.Windows.Directory;
-using File = UnityEngine.Windows.File;
-using Image = UnityEngine.UI.Image;
 
 //using UnityEngine;
 
@@ -19,7 +14,13 @@ namespace Diary
 {
     public class ImageMode : DiaryMode
     {
-        private List<Texture2D> _images = new();
+        private List<RawImage> _images;
+
+        public void Init(DiaryWriterManager diaryWriter)
+        {
+            _diaryWriter = diaryWriter;
+            _images = new();
+        }
         
         public ImageMode(DiaryWriterManager diaryWriter) : base(diaryWriter)
         {
@@ -44,14 +45,13 @@ namespace Diary
             var paths = StandaloneFileBrowser.OpenFilePanel("Upload images", "", "png", true);
             foreach (var path in paths)
             {
-                _diaryWriter.StartCoroutine(OutputRoutine(new Uri(path).AbsoluteUri, date));
+                OutputRoutine(new Uri(path).AbsoluteUri, date);
             }
         }
 
-        private IEnumerator OutputRoutine(string url, DateTime date)
+        private void OutputRoutine(string url, DateTime date)
         {
             var loader = new WWW(url);
-            yield return loader;
             byte[] png = loader.texture.EncodeToPNG();
             var user = Application.persistentDataPath + "/images/" + UserSingleton.Instance.Name;
             var directory = user + "/" + date.ToString("dd-MM-yyyy");
@@ -78,24 +78,27 @@ namespace Diary
 
         private void ReloadImages(DateTime date)
         {
+            foreach (var image in _images)
+            {
+                Destroy(image.gameObject);
+            }
             string path = Application.persistentDataPath + "/images/" + UserSingleton.Instance.Name + "/" + date.ToString("dd-MM-yyyy");
             if (!Directory.Exists(path)) return;
             var info = new DirectoryInfo(path);
             var files = info.GetFiles();
             foreach (var fileInfo in files)
             {
-                var filePath = fileInfo.DirectoryName;
+                var filePath = fileInfo.FullName;
                 var bytes = File.ReadAllBytes(filePath);
                 var tex = new Texture2D(2, 2);
                 tex.LoadImage(bytes); //..this will auto-resize the texture dimensions.
-                _images.Add(tex);
-            }
-            _diaryWriter.scroll.SetActive(true);
-            foreach (var texture2D in _images)
-            {
                 var gameObject = new GameObject();
                 var image = gameObject.AddComponent<RawImage>();
-                image.texture = texture2D;
+                image.texture = tex;
+                image.transform.SetParent(_diaryWriter.images.transform);
+                //todo set correct size
+                image.rectTransform.sizeDelta = new Vector2(800, 800);
+                _images.Add(image);
             }
         }
 
@@ -108,12 +111,21 @@ namespace Diary
 
         public override void HandleGoBack()
         {
+            
             _diaryWriter.GetConfirmPopupGoBack()
                 .Invoke(); // je zou hier optimaal willen hebebn dat je naar een ander mode gaat als je daar net was, dat is nu nog niet het geval.
+            foreach (var image in _images)
+            {
+                Destroy(image.gameObject);
+            }
         }
 
         public override void HandleClose()
         {
+            foreach (var image in _images)
+            {
+                Destroy(image.gameObject);
+            }
             _diaryWriter.GetConfirmPopupClose().Invoke();
         }
 

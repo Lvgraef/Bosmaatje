@@ -15,7 +15,6 @@ namespace Diary
         public TMP_Text textDate;
         public TMP_InputField textContentField;
         public GameObject images;
-        public GameObject scroll;
         public Button ClearText;
         public RawImage BackgroundText;
         public RawImage BackgroundImages;

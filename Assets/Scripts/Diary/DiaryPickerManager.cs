@@ -142,11 +142,13 @@ namespace Diary
             openButton.image.color = Color.green;
             openButton.onClick.RemoveAllListeners();
             openButton.onClick.AddListener(() => OpenDiary(date, isPreviewByDefault, isExistend));
-            
+            bar.GetComponent<DiaryDay>().cameraButton.onClick.RemoveAllListeners();
             bar.GetComponent<DiaryDay>().cameraButton.onClick.AddListener(() =>
             {
                 var diaryWriter = OpenDiary(date, isPreviewByDefault, isExistend);
-                diaryWriter.SwitchMode(new ImageMode(diaryWriter));
+                var scriptable = ScriptableObject.CreateInstance<ImageMode>();
+                scriptable.Init(diaryWriter);
+                diaryWriter.SwitchMode(scriptable);
             });
         }
 

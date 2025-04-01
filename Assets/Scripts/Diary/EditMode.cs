@@ -21,7 +21,6 @@ namespace Diary
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Opslaan";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "Afbeeldingen";
-            _diaryWriter.scroll.SetActive(false);
 
         }
 
@@ -90,7 +89,9 @@ namespace Diary
 
         public override void HandleButtomMiddleSwitchMode()
         {
-            _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));
+            var inst = CreateInstance<ImageMode>();
+            inst.Init(_diaryWriter);
+            _diaryWriter.SwitchMode(inst);
         }
     }
 }

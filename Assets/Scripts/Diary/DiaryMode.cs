@@ -1,6 +1,8 @@
-﻿namespace Diary
+﻿using UnityEngine;
+
+namespace Diary
 {
-    public abstract class DiaryMode
+    public abstract class DiaryMode : ScriptableObject
     {
         protected DiaryWriterManager _diaryWriter;
 
