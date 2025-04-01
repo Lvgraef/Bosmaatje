@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7f649c8a820b6d84bb58d22dea7739b5
+guid: 015f5a4a35ea6534d888d55ede956442
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4794171562112382150
-    second: pixel_art_image_Blue_mushroom__0
+      213: 4543682100055627313
+    second: WolfBraidedCollar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixel_art_image_Blue_mushroom__0
+      name: WolfBraidedCollar_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 17
-        width: 432
-        height: 453
+        x: 74
+        y: 22
+        width: 248
+        height: 316
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3b03086d5ea77db0800000000000000
-      internalID: -4794171562112382150
+      spriteID: 136dd1aebc66e0f30800000000000000
+      internalID: 4543682100055627313
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pixel_art_image_Blue_mushroom__0: -4794171562112382150
+      WolfBraidedCollar_0: 4543682100055627313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
