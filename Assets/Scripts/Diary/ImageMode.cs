@@ -14,12 +14,10 @@ namespace Diary
 {
     public class ImageMode : DiaryMode
     {
-        private List<RawImage> _images;
 
         public void Init(DiaryWriterManager diaryWriter)
         {
             _diaryWriter = diaryWriter;
-            _images = new();
         }
         
         public ImageMode(DiaryWriterManager diaryWriter) : base(diaryWriter)
@@ -78,9 +76,9 @@ namespace Diary
 
         private void ReloadImages(DateTime date)
         {
-            foreach (var image in _images)
+            foreach (var componentsInChild in _diaryWriter.images.GetComponentsInChildren<RawImage>())
             {
-                Destroy(image.gameObject);
+                Destroy(componentsInChild.gameObject);
             }
             string path = Application.persistentDataPath + "/images/" + UserSingleton.Instance.Name + "/" + date.ToString("dd-MM-yyyy");
             if (!Directory.Exists(path)) return;
@@ -98,7 +96,6 @@ namespace Diary
                 image.transform.SetParent(_diaryWriter.images.transform);
                 //todo set correct size
                 image.rectTransform.sizeDelta = new Vector2(800, 800);
-                _images.Add(image);
             }
         }
 
@@ -111,20 +108,19 @@ namespace Diary
 
         public override void HandleGoBack()
         {
-            
             _diaryWriter.GetConfirmPopupGoBack()
                 .Invoke(); // je zou hier optimaal willen hebebn dat je naar een ander mode gaat als je daar net was, dat is nu nog niet het geval.
-            foreach (var image in _images)
+            foreach (var componentsInChild in _diaryWriter.images.GetComponentsInChildren<RawImage>())
             {
-                Destroy(image.gameObject);
+                Destroy(componentsInChild.gameObject);
             }
         }
 
         public override void HandleClose()
         {
-            foreach (var image in _images)
+            foreach (var componentsInChild in _diaryWriter.images.GetComponentsInChildren<RawImage>())
             {
-                Destroy(image.gameObject);
+                Destroy(componentsInChild.gameObject);
             }
             _diaryWriter.GetConfirmPopupClose().Invoke();
         }
