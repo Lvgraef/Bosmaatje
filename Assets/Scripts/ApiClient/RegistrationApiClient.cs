@@ -17,17 +17,17 @@ namespace ApiClient
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
-                    statusText.text = "Unauthorized";
+                    statusText.text = "Niet geautoriseerd";
                     return false;
                 case "HTTP/1.1 400 Bad Request":
-                    statusText.text = "User already exists";
+                    statusText.text = "Gebruiker bestaat al";
                     return false;
                 case "Cannot connect to destination host":
-                    statusText.text = "Cannot connect to server";
+                    statusText.text = "Kan niet met server verbinden";
                     return false;
                 default:
                     statusText.color = Color.green;
-                    statusText.text = "Registered successfully!";
+                    statusText.text = "Succesvol geregistreerd!";
                     return true;
             }
         }

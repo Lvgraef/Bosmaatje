@@ -5,6 +5,7 @@ using Dto;
 using JetBrains.Annotations;
 using Stickers;
 using TMPro;
+using TreatmentPlan;
 using UI.Dates;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +31,7 @@ namespace Treatment
         public GameObject video;
         public DatePicker treatmentDate;
         public GameObject videoButton;
+        public GameObject config;
         private int _currentPage;
         private bool _isCompleted;
         private string[] _description;
@@ -37,9 +39,13 @@ namespace Treatment
         [CanBeNull] private string _stickerId;
         private Guid _id;
         private bool _canEdit;
+        private TreatmentPlanManager _manager;
+        private int _order;
 
-        public void Initialize(Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
+        public void Initialize(int order, TreatmentPlanManager manager, Guid id, string treatmentName, string[] description, string imagePath, [CanBeNull] string videoPath, DateTime? date, [CanBeNull] string stickerId, string doctorName)
         {
+            _order = order;
+            _manager = manager;
             _id = id;
             if (videoPath == null)
             {
@@ -83,6 +89,12 @@ namespace Treatment
                     date = treatmentDate.SelectedDate.HasValue ? treatmentDate.SelectedDate.Date : null,
                     doctorName = doctorName.text
                 });
+            }
+            _manager.Start();
+            if (_order == 2 && _stickerId != null && _manager.Treatments[3] == null)
+            {
+                var conf = await InstantiateAsync(config, transform.parent);
+                conf[0].GetComponent<RectTransform>().localPosition = Vector3.zero;
             }
             Destroy(gameObject);
         }

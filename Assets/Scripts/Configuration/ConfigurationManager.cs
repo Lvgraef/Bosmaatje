@@ -2,6 +2,7 @@
 using ApiClient;
 using Dto;
 using TMPro;
+using TreatmentPlan;
 using UI.Dates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,23 +22,54 @@ namespace Configuration
         public DatePicker treatmentStartDateField;
         public GameObject dateOfBirthBlocker;
         public GameObject childNameBlocker;
-
+        public GameObject treatmentText;
+        private GetTreatmentResponseDto[] _treatments;
+        
         private async void Start()
         {
+            _treatments = await TreatmentPlanApiClient.GetTreatments(statusText, null);
+            int completion = 0;
+            for (var i = _treatments!.Length - 1; i >= 0; i--)
+            {
+                if (_treatments[i]?.stickerId != null)
+                {
+                    completion = i;
+                    break;
+                }
+            }
+            if (completion >= 2)
+            {
+                treatmentPlanSelector.SetEnabled(true);
+                treatmentText.SetActive(false);
+            }
+            
             var config = await ConfigurationApiClient.GetConfiguration();
             if (config == null)
             {
                 childNameField.interactable = true;
                 dateOfBirthBlocker.SetActive(false);
                 childNameBlocker.SetActive(false);
-                treatmentPlanSelector.SetEnabled(true);
             }
             else
             {
                 childNameField.interactable = false;
                 dateOfBirthBlocker.SetActive(true);
                 childNameBlocker.SetActive(true);
-                treatmentPlanSelector.SetEnabled(true);
+                
+                childNameField.text = config.childName;
+                childBirthDateField.SelectedDate = config.childBirthDate;
+                primaryDoctorNameField.text = config.primaryDoctorName;
+                characterSelector.SetCharacter(config.characterId);
+                treatmentPlanSelector.SelectButton(config.treatmentPlanName switch
+                {
+                    null => -1,
+                    "Hospitalization" => 0,
+                    _ => 1
+                });
+                if (_treatments[0].date != null)
+                {
+                    treatmentStartDateField.SelectedDate = _treatments[0].date.Value;
+                }
             }
         }
 
@@ -70,18 +102,43 @@ namespace Configuration
                 statusText.text = "Vul de geboortedatum van het kind in.";
                 return;
             }
-            
-            var dto = new PostConfigurationsRequestDto
+
+            var config = await ConfigurationApiClient.GetConfiguration();
+            if (config == null)
             {
-                childBirthDate = childBirthDateField.SelectedDate.Date,
-                characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
-                childName = childNameField.text,
-                primaryDoctorName = primaryDoctorNameField.text,
-                treatmentPlanName = treatmentPlanSelector.selectedButton == 0 ? "Hospitalization" : "NoHospitalization"
-            };
+                var dto = new PostConfigurationsRequestDto
+                {
+                    childBirthDate = childBirthDateField.SelectedDate.Date,
+                    characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
+                    childName = childNameField.text,
+                    primaryDoctorName = primaryDoctorNameField.text,
+                    treatmentPlanName = treatmentPlanSelector.selectedButton switch
+                    {
+                        -1 => null,
+                        0 => "Hospitalization",
+                        _ => "NoHospitalization"
+                    }
+                };
 
-            if (!await ConfigurationApiClient.Configure(dto, statusText)) return;
-
+                if (!await ConfigurationApiClient.Configure(dto, statusText)) return;
+            }
+            else
+            {
+                var dto = new PutConfigurationRequestDto
+                {
+                    characterId = characterSelector.characters[characterSelector.selectedCharacter].name,
+                    primaryDoctorName = primaryDoctorNameField.text,
+                    treatmentPlanName = treatmentPlanSelector.selectedButton switch
+                    {
+                        -1 => null,
+                        0 => "Hospitalization",
+                        _ => "NoHospitalization"
+                    }
+                };
+                
+                if (!await ConfigurationApiClient.UpdateConfigure(dto, statusText)) return;
+            }
+            
             if (treatmentStartDateField.SelectedDate.HasValue)
             {
                 if (await ConfigurationApiClient.PutFirstTreatment(new PutTreatmentRequestDto

@@ -10,27 +10,31 @@ namespace ApiClient
     {
         public static async Task<bool> Login(TextMeshProUGUI statusMessage, PostLoginRequestDto request)
         {
+            statusMessage.color = Color.yellow;
             statusMessage.text = "Loading...";
         
             var response = await ApiUtil.PerformApiCall($"{ApiUtil.BaseUrl}/account/login", "Post",
                 JsonUtility.ToJson(request));
 
+            statusMessage.color = Color.red;
+            
             switch (response)
             {
                 case "HTTP/1.1 401 Unauthorized":
-                    statusMessage.text = "Wrong email or password";
+                    statusMessage.text = "Verkeerd email of wachtwoord";
                     Debug.Log("Login failed.");
                     return false;
                 case "HTTP/1.1 500 Internal Server Error":
-                    statusMessage.text = "Something went wrong :( Please try again.";
+                    statusMessage.text = "Er ging iets fout :( Probeer later opnieuw.";
                     Debug.Log("Server Error");
                     return false;
                 case "Cannot connect to destination host":
-                    statusMessage.text = "Cannot connect to server";
+                    statusMessage.text = "Kan niet met server verbinden";
                     return false;
             }
-            
-            statusMessage.text = "Logged in!";
+            statusMessage.color = Color.green;
+
+            statusMessage.text = "Ingelogd!";
 
             var postLoginResponseDto = JsonUtility.FromJson<PostLoginResponseDto>(response);
 

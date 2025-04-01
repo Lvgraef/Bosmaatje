@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Util
@@ -25,6 +26,11 @@ namespace Util
             {
                 characters[i].character.SetActive(i == selectedCharacter);
             }
+        }
+
+        public void SetCharacter(string name)
+        {
+            selectedCharacter = characters.FindIndex(character => character.name == name);
         }
     }
     
