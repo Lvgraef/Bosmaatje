@@ -86,11 +86,6 @@ namespace Diary
             }
         }
 
-        public override void HandleTopBarSwitchMode()
-        {
-            _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));
-        }
-
         public override void HandleButtomMiddleSwitchMode()
         {
             _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));

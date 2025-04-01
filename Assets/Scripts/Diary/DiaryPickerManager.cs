@@ -35,7 +35,7 @@ namespace Diary
 
         private static DateTime[] _filledDates;
         private static int _sumOfDates;
-        private int _weekNum = 0;
+        private int _weekNum;
 
 
 
@@ -101,16 +101,14 @@ namespace Diary
                 Fill7DiaryDays(_weekNum);
                 return;
             }
-            else
-            {
-                Fill7DiaryDays(_weekNum);
-            }
+
+            Fill7DiaryDays(_weekNum);
         }
 
         public void OpenOnButtonClick()
         {
-            this.gameObject.SetActive(true);
-            this.gameObject.GetComponent<CanvasGroup>().interactable = true;
+            gameObject.SetActive(true);
+            gameObject.GetComponent<CanvasGroup>().interactable = true;
 
             //if (_bars == null || _bars.Length == 0)
             //{
@@ -123,7 +121,7 @@ namespace Diary
 
         public void CloseOnButtonClick()
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         private void FillBar(GameObject bar, DateTime date, bool isExistend, bool isPreviewByDefault)
@@ -230,15 +228,13 @@ namespace Diary
         private DiaryWriterManager OpenDiary(DateTime date, bool isPreviewByDefault, bool isExistend)
         {
             Debug.Log("we openen de WriterDiary");
-            this.gameObject.GetComponent<CanvasGroup>().interactable = false;
-            this.gameObject.SetActive(false);
+            gameObject.GetComponent<CanvasGroup>().interactable = false;
+            gameObject.SetActive(false);
             DiaryWriter.SetActive(true);
-
-            isPreviewByDefault = false;// omdat we deze functionaliteit niet meer willen hebben.
-
+            
             DiaryWriterManager writer = DiaryWriter.GetComponent<DiaryWriterManager>();
             
-            writer.OpenDiary(date, isPreviewByDefault, isExistend);
+            writer.OpenDiary(date, isExistend);
 
             return writer;
         }

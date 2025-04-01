@@ -14,6 +14,8 @@ namespace Diary
         public GameObject pickDiaryPopup;
         public TMP_Text textDate;
         public TMP_InputField textContentField;
+        public GameObject images;
+        public GameObject scroll;
         public Button ClearText;
         public RawImage BackgroundText;
         public RawImage BackgroundImages;
@@ -36,13 +38,12 @@ namespace Diary
         private DiaryMode currentMode;
 
         // Public Methods
-        public void OpenDiary(DateTime date, bool previewByDefault, bool existend)
+        public void OpenDiary(DateTime date, bool existend)
         {
             diaryDate = date;
-            isPreviewByDefault = previewByDefault;
             isExistend = existend;
 
-            currentMode = isPreviewByDefault ? new PreviewMode(this) : new EditMode(this);
+            currentMode = new EditMode(this);
             Debug.Log("we zijn alles aan het inladen");
             SetupDiary(isExistend);
         }
@@ -78,12 +79,7 @@ namespace Diary
         //    currentMode = new EditMode(this);
         //    currentMode.Setup();
         //}
-
-        public void SwitchModeTopBarOnButtonClick()
-        {
-            currentMode.HandleTopBarSwitchMode();
-        }
-
+        
         public void SwitchModeBottomMiddleOnButtonClick()
         {
             currentMode.HandleButtomMiddleSwitchMode();
