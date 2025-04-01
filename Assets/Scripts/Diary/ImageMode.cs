@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Global;
 using SFB;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Directory = UnityEngine.Windows.Directory;
 using File = UnityEngine.Windows.File;
 using Image = UnityEngine.UI.Image;
 
@@ -32,6 +34,7 @@ namespace Diary
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Upload";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "dagboek";
+            ReloadImages(_diaryWriter.GetDiaryDate());
         }
 
         #region Image upload
@@ -50,7 +53,23 @@ namespace Diary
             var loader = new WWW(url);
             yield return loader;
             byte[] png = loader.texture.EncodeToPNG();
-            string path = Application.persistentDataPath + "/images/" + date.ToString("dd-MM-yyyy") + Guid.NewGuid() + ".png";
+            var user = Application.persistentDataPath + "/images/" + UserSingleton.Instance.Name;
+            var directory = user + "/" + date.ToString("dd-MM-yyyy");
+            string path = directory + "/" + Guid.NewGuid() + ".png";
+            
+            if (!Directory.Exists(Application.persistentDataPath + "/images/")) {
+                Directory.CreateDirectory(Application.persistentDataPath + "/images/");
+            }
+
+            if (!Directory.Exists(user))
+            {
+                Directory.CreateDirectory(user);
+            }
+            
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
             Debug.Log(path);
             File.WriteAllBytes(path, png);
         }
@@ -59,7 +78,8 @@ namespace Diary
 
         private void ReloadImages(DateTime date)
         {
-            string path = Application.persistentDataPath + "/images/" + date.ToString("dd-MM-yyyy");
+            string path = Application.persistentDataPath + "/images/" + UserSingleton.Instance.Name + "/" + date.ToString("dd-MM-yyyy");
+            if (!Directory.Exists(path)) return;
             var info = new DirectoryInfo(path);
             var files = info.GetFiles();
             foreach (var fileInfo in files)

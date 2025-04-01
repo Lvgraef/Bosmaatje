@@ -8,6 +8,8 @@ namespace Settings
 {
     public class SettingsManager : MonoBehaviour
     {
+        public GameObject statusText;
+        
         private float _volumeOfSound = 1;
         private bool _isAudioMuted = false;
 
@@ -21,6 +23,7 @@ namespace Settings
 
         private void OnEnable()
         {
+            statusText.SetActive(false);
             SetValuesSettingsManager();
             ChangeSoundimage(_volumeOfSound);
             ChangeSliderValue(_volumeOfSound);
@@ -61,6 +64,7 @@ namespace Settings
         {
             SettingsSingleton.Instance.SetPrefSoundOn(_isAudioMuted);
             SettingsSingleton.Instance.SetPrefSoundVolume(_volumeOfSound);
+            statusText.SetActive(true);
         }
 
         public void ToConfigurationscreenOnButtonClick()
@@ -72,6 +76,7 @@ namespace Settings
         public void CloseSettingsOnButtonClick()
         {
             gameObject.SetActive(false);
+            statusText.SetActive(false);
         }
 
         public void OpenSettingsOnButtonClick()
