@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using SFB;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Windows;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using File = UnityEngine.Windows.File;
+using Image = UnityEngine.UI.Image;
 
 //using UnityEngine;
 
@@ -13,6 +17,8 @@ namespace Diary
 {
     public class ImageMode : DiaryMode
     {
+        private List<Texture2D> _images = new();
+        
         public ImageMode(DiaryWriterManager diaryWriter) : base(diaryWriter)
         {
         }
@@ -45,19 +51,39 @@ namespace Diary
             yield return loader;
             byte[] png = loader.texture.EncodeToPNG();
             string path = Application.persistentDataPath + "/images/" + date.ToString("dd-MM-yyyy") + Guid.NewGuid() + ".png";
+            Debug.Log(path);
             File.WriteAllBytes(path, png);
         }
 
         #endregion
 
-        private void ReloadImages()
+        private void ReloadImages(DateTime date)
         {
-            throw new NotImplementedException();
+            string path = Application.persistentDataPath + "/images/" + date.ToString("dd-MM-yyyy");
+            var info = new DirectoryInfo(path);
+            var files = info.GetFiles();
+            foreach (var fileInfo in files)
+            {
+                var filePath = fileInfo.DirectoryName;
+                var bytes = File.ReadAllBytes(filePath);
+                var tex = new Texture2D(2, 2);
+                tex.LoadImage(bytes); //..this will auto-resize the texture dimensions.
+                _images.Add(tex);
+            }
+            _diaryWriter.scroll.SetActive(true);
+            foreach (var texture2D in _images)
+            {
+                var gameObject = new GameObject();
+                var image = gameObject.AddComponent<RawImage>();
+                image.texture = texture2D;
+            }
         }
 
         public override void HandleSaveUpdater()
         {
-            OnClick(_diaryWriter.GetDiaryDate());
+            var date = _diaryWriter.GetDiaryDate();
+            OnClick(date);
+            ReloadImages(date);
         }
 
         public override void HandleGoBack()

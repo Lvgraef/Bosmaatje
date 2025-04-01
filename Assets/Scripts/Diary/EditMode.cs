@@ -21,6 +21,8 @@ namespace Diary
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Opslaan";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "Afbeeldingen";
+            _diaryWriter.scroll.SetActive(false);
+
         }
 
         public async override void HandleSaveUpdater()
