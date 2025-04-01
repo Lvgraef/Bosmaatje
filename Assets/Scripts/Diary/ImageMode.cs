@@ -30,6 +30,7 @@ namespace Diary
             _diaryWriter.buttonSave.gameObject.SetActive(true);
             _diaryWriter.ClearText.gameObject.SetActive(false);
             _diaryWriter.BackgroundImages.gameObject.SetActive(true);
+            _diaryWriter.BackgroundText.gameObject.SetActive(false);
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Upload";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "dagboek";
@@ -94,7 +95,6 @@ namespace Diary
                 var image = gameObject.AddComponent<RawImage>();
                 image.texture = tex;
                 image.transform.SetParent(_diaryWriter.images.transform);
-                //todo set correct size
                 image.rectTransform.sizeDelta = new Vector2(800, 800);
             }
         }

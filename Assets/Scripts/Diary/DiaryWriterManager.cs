@@ -20,7 +20,6 @@ namespace Diary
         public RawImage BackgroundImages;
 
         public Button buttonSave;
-        public Button buttonTopBarSwitchMode;
         public Button buttonButtomMiddleSwitchMode;
 
         public Sprite PreviewTextSprite;

@@ -18,6 +18,7 @@ namespace Diary
             _diaryWriter.buttonSave.gameObject.SetActive(true);
             _diaryWriter.ClearText.gameObject.SetActive(true);
             _diaryWriter.BackgroundImages.gameObject.SetActive(false);
+            _diaryWriter.BackgroundText.gameObject.SetActive(true);
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Opslaan";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "Afbeeldingen";
