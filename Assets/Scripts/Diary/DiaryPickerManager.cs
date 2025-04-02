@@ -35,7 +35,7 @@ namespace Diary
 
         private static DateTime[] _filledDates;
         private static int _sumOfDates;
-        private int _weekNum = 0;
+        private int _weekNum;
 
 
 
@@ -101,16 +101,14 @@ namespace Diary
                 Fill7DiaryDays(_weekNum);
                 return;
             }
-            else
-            {
-                Fill7DiaryDays(_weekNum);
-            }
+
+            Fill7DiaryDays(_weekNum);
         }
 
         public void OpenOnButtonClick()
         {
-            this.gameObject.SetActive(true);
-            this.gameObject.GetComponent<CanvasGroup>().interactable = true;
+            gameObject.SetActive(true);
+            gameObject.GetComponent<CanvasGroup>().interactable = true;
 
             //if (_bars == null || _bars.Length == 0)
             //{
@@ -123,7 +121,7 @@ namespace Diary
 
         public void CloseOnButtonClick()
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         private void FillBar(GameObject bar, DateTime date, bool isExistend, bool isPreviewByDefault)
@@ -144,6 +142,14 @@ namespace Diary
             openButton.image.color = Color.green;
             openButton.onClick.RemoveAllListeners();
             openButton.onClick.AddListener(() => OpenDiary(date, isPreviewByDefault, isExistend));
+            bar.GetComponent<DiaryDay>().cameraButton.onClick.RemoveAllListeners();
+            bar.GetComponent<DiaryDay>().cameraButton.onClick.AddListener(() =>
+            {
+                var diaryWriter = OpenDiary(date, isPreviewByDefault, isExistend);
+                var scriptable = ScriptableObject.CreateInstance<ImageMode>();
+                scriptable.Init(diaryWriter);
+                diaryWriter.SwitchMode(scriptable);
+            });
         }
 
         private Sprite GetSprite(bool isExistend, bool isPreviewByDefault)
@@ -221,16 +227,18 @@ namespace Diary
         }
 
 
-        private void OpenDiary(DateTime date, bool isPreviewByDefault, bool isExistend)
+        private DiaryWriterManager OpenDiary(DateTime date, bool isPreviewByDefault, bool isExistend)
         {
             Debug.Log("we openen de WriterDiary");
-            this.gameObject.GetComponent<CanvasGroup>().interactable = false;
-            this.gameObject.SetActive(false);
+            gameObject.GetComponent<CanvasGroup>().interactable = false;
+            gameObject.SetActive(false);
             DiaryWriter.SetActive(true);
+            
+            DiaryWriterManager writer = DiaryWriter.GetComponent<DiaryWriterManager>();
+            
+            writer.OpenDiary(date, isExistend);
 
-            isPreviewByDefault = false;// omdat we deze functionaliteit niet meer willen hebben.
-
-            DiaryWriter.GetComponent<DiaryWriterManager>().OpenDiary(date, isPreviewByDefault, isExistend);
+            return writer;
         }
 
         private string GetAbreviationFromDayOfTheWeek(DateTime date)

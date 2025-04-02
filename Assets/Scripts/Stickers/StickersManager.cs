@@ -1,3 +1,4 @@
+using System;
 using Mono.Cecil;
 using Treatment;
 using UnityEditor;
@@ -30,6 +31,11 @@ namespace Stickers
             }
         }
 
+        public void Close()
+        {
+            Destroy(gameObject);
+        }
+        
         public async void StickerOnButtonClick(Button button, int stickerid) // button is overbodig?
         {
             await Treatment.PutSticker(stickerid);
@@ -39,7 +45,7 @@ namespace Stickers
 
         private static int CountStickerAssets()
         {
-            var stickers = Resources.LoadAll("Stickers");
+            var stickers = Resources.LoadAll<Sprite>("Stickers");
             int assetCount = stickers.Length;
             Debug.Log("assetCount: " + assetCount);
             return assetCount;

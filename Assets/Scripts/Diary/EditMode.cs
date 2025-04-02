@@ -18,9 +18,11 @@ namespace Diary
             _diaryWriter.buttonSave.gameObject.SetActive(true);
             _diaryWriter.ClearText.gameObject.SetActive(true);
             _diaryWriter.BackgroundImages.gameObject.SetActive(false);
+            _diaryWriter.BackgroundText.gameObject.SetActive(true);
 
             _diaryWriter.buttonSave.GetComponentInChildren<TMP_Text>().text = "Opslaan";
             _diaryWriter.buttonButtomMiddleSwitchMode.GetComponentInChildren<TMP_Text>().text = "Afbeeldingen";
+
         }
 
         public async override void HandleSaveUpdater()
@@ -33,12 +35,13 @@ namespace Diary
             {
                 PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { content = diaryContent };
                 Debug.Log("de put content dto is: " + putContentDto.content + " " + _diaryWriter.GetDiaryDate());
+                var dateCopy = _diaryWriter.GetDiaryDate();
                 bool response = await DiaryApiClient.PutDiaryContent(putContentDto, _diaryWriter.GetDiaryDate());
                 Debug.Log("we hebben een put gedaan en  de response is: " + response);
 
                 if (response)
                 {
-                    DiarySingleton.Instance.UpdateDiaryData(new DiaryReadDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent });
+                    DiarySingleton.Instance.UpdateDiaryData(new DiaryReadDto { date = dateCopy, content = diaryContent });
                 }
             }
             else
@@ -86,14 +89,11 @@ namespace Diary
             }
         }
 
-        public override void HandleTopBarSwitchMode()
-        {
-            _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));
-        }
-
         public override void HandleButtomMiddleSwitchMode()
         {
-            _diaryWriter.SwitchMode(new ImageMode(_diaryWriter));
+            var inst = CreateInstance<ImageMode>();
+            inst.Init(_diaryWriter);
+            _diaryWriter.SwitchMode(inst);
         }
     }
 }
