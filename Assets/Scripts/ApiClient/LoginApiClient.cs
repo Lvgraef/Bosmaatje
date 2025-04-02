@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Dto;
 using Global;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace ApiClient
             statusMessage.text = "Loading...";
         
             var response = await ApiUtil.PerformApiCall($"{ApiUtil.BaseUrl}/account/login", "Post",
-                JsonUtility.ToJson(request));
+                JsonConvert.SerializeObject(request));
 
             statusMessage.color = Color.red;
             
@@ -37,7 +38,7 @@ namespace ApiClient
             Debug.Log(response);
             statusMessage.text = "Ingelogd!";
 
-            var postLoginResponseDto = JsonUtility.FromJson<PostLoginResponseDto>(response);
+            var postLoginResponseDto = JsonConvert.DeserializeObject<PostLoginResponseDto>(response);
 
 
             UserSingleton.Instance.AccessToken = postLoginResponseDto.accessToken;
