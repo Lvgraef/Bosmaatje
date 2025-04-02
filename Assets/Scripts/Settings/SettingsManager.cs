@@ -8,12 +8,13 @@ namespace Settings
 {
     public class SettingsManager : MonoBehaviour
     {
-        private bool _isdebug = true;
+        private bool _isdebug = false;
 
         public GameObject statusText;
 
         private float _volumeOfSound = 1;
         private bool _isAudioMuted = false;
+        private bool _isInitializing = false;
 
         public Button soundbutton;
         public Slider slider;
@@ -25,15 +26,19 @@ namespace Settings
 
         private void OnEnable()
         {
+            _isInitializing = true;
             statusText.SetActive(false);
             SetValuesSettingsManager();
             ChangeSliderValue(_volumeOfSound);
             ChangeSoundimage(_volumeOfSound);
+            _isInitializing = false;
 
         }
 
         public void OnSliderValueChanged(float volume)
         {
+            if (_isInitializing) return;
+
             AudioListener.volume = volume;
             _volumeOfSound = volume;
             _isAudioMuted = false;
