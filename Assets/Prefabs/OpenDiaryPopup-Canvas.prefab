@@ -487,7 +487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1678428090999571565
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4934,11 +4934,11 @@ MonoBehaviour:
   pickDiaryPopup: {fileID: 1121552518984132926}
   textDate: {fileID: 3575308322569348367}
   textContentField: {fileID: 5518031038154019725}
+  images: {fileID: 0}
   ClearText: {fileID: 7169156551988200187}
   BackgroundText: {fileID: 8091978403730644235}
   BackgroundImages: {fileID: 1582451955129645549}
   buttonSave: {fileID: 7014697227130369449}
-  buttonTopBarSwitchMode: {fileID: 0}
   buttonButtomMiddleSwitchMode: {fileID: 2669922820816171459}
   PreviewTextSprite: {fileID: 21300000, guid: 2cca860a0e21b66419a7b7afd2acc46f, type: 3}
   EditTextSprite: {fileID: 21300000, guid: 37bbd6a1f389f7940b961e26d8f194c8, type: 3}
