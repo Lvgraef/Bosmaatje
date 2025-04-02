@@ -35,12 +35,13 @@ namespace Diary
             {
                 PutDiaryContentRequestDto putContentDto = new PutDiaryContentRequestDto { content = diaryContent };
                 Debug.Log("de put content dto is: " + putContentDto.content + " " + _diaryWriter.GetDiaryDate());
+                var dateCopy = _diaryWriter.GetDiaryDate();
                 bool response = await DiaryApiClient.PutDiaryContent(putContentDto, _diaryWriter.GetDiaryDate());
                 Debug.Log("we hebben een put gedaan en  de response is: " + response);
 
                 if (response)
                 {
-                    DiarySingleton.Instance.UpdateDiaryData(new DiaryReadDto { date = _diaryWriter.GetDiaryDate().Date, content = diaryContent });
+                    DiarySingleton.Instance.UpdateDiaryData(new DiaryReadDto { date = dateCopy, content = diaryContent });
                 }
             }
             else
