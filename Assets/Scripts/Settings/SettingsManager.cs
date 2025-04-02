@@ -8,8 +8,10 @@ namespace Settings
 {
     public class SettingsManager : MonoBehaviour
     {
+        private bool _isdebug = true;
+
         public GameObject statusText;
-        
+
         private float _volumeOfSound = 1;
         private bool _isAudioMuted = false;
 
@@ -25,44 +27,47 @@ namespace Settings
         {
             statusText.SetActive(false);
             SetValuesSettingsManager();
-            ChangeSoundimage(_volumeOfSound);
             ChangeSliderValue(_volumeOfSound);
+            ChangeSoundimage(_volumeOfSound);
+
         }
 
         public void OnSliderValueChanged(float volume)
         {
             AudioListener.volume = volume;
             _volumeOfSound = volume;
+            _isAudioMuted = false;
 
             ChangeSoundimage(volume);
+            if (_isdebug) Debug.Log(volume);
         }
 
         public void OnSoundButtonClick()
         {
+            Color fillColor = Color.white;
             if (_isAudioMuted)
             {
-                AudioListener.volume = 0;
-
+                // Unmute
+                AudioListener.volume = _volumeOfSound;
                 _isAudioMuted = false;
 
-                Color fillColor = new Color(13, 43, 32);// dark green
-                ChangeFillColorSlider(fillColor);
+                fillColor = new Color(13f / 255f, 43f / 255f, 32f / 255f); // Dark Green
             }
             else
             {
-                AudioListener.volume = _volumeOfSound;
+                // Mute
+                AudioListener.volume = 0;
                 _isAudioMuted = true;
 
-                Color fillColor = new Color(210, 196, 157);// light brown
-                ChangeFillColorSlider(fillColor);
+                fillColor = new Color(210f / 255f, 196f / 255f, 157f / 255f); // Light Brown
             }
-            ChangeSoundimage(_volumeOfSound, _isAudioMuted);
-
+            ChangeFillColorSlider(fillColor);
+            ChangeSoundimage(_volumeOfSound);
         }
 
         public void SaveOnButtonClick()
         {
-            SettingsSingleton.Instance.SetPrefSoundOn(_isAudioMuted);
+            SettingsSingleton.Instance.SetPrefSoundMuted(_isAudioMuted);
             SettingsSingleton.Instance.SetPrefSoundVolume(_volumeOfSound);
             statusText.SetActive(true);
         }
@@ -75,6 +80,7 @@ namespace Settings
 
         public void CloseSettingsOnButtonClick()
         {
+            SetValuesSettingsManager();
             gameObject.SetActive(false);
             statusText.SetActive(false);
         }
@@ -84,17 +90,17 @@ namespace Settings
             gameObject.SetActive(true);
         }
 
-        private void ChangeSoundimage(float volume, bool makeSoundOff = false)
+        private void ChangeSoundimage(float volume)
         {
-            soundbutton.image.sprite = GetSoundImage(volume, !makeSoundOff);
+            soundbutton.image.sprite = GetSoundImage(volume);
         }
         private void ChangeSliderValue(float volume)
         {
             slider.value = volume;
         }
-        private Sprite GetSoundImage(float volume, bool isSoundOn = true)
+        private Sprite GetSoundImage(float volume)
         {
-            if (!isSoundOn || volume <= 0)
+            if (_isAudioMuted || volume <= 0)
             {
                 return soundOff;
             }
@@ -119,16 +125,24 @@ namespace Settings
 
         private void SetValuesSettingsManager()
         {
-            if (!PlayerPrefs.HasKey("SoundOn"))
+            if (!PlayerPrefs.HasKey("SoundMuted"))
             {
-                _isAudioMuted = true;
+                _isAudioMuted = false;
             }
             if (!PlayerPrefs.HasKey("SoundVolume"))
             {
                 _volumeOfSound = .5f;
             }
             _volumeOfSound = SettingsSingleton.Instance.GetPrefSoundVolume();
-            _isAudioMuted = SettingsSingleton.Instance.GetPrefSoundOn();
+            _isAudioMuted = SettingsSingleton.Instance.GetPrefSoundMuted();
+
+            if (_isAudioMuted)
+            {
+                AudioListener.volume = 0;
+                return;
+            }
+
+            AudioListener.volume = _volumeOfSound;
         }
 
         private void ChangeFillColorSlider(Color fillColor)
