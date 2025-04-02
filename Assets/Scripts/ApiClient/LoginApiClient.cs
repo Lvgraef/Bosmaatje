@@ -33,7 +33,8 @@ namespace ApiClient
                     return false;
             }
             statusMessage.color = Color.green;
-
+            
+            Debug.Log(response);
             statusMessage.text = "Ingelogd!";
 
             var postLoginResponseDto = JsonUtility.FromJson<PostLoginResponseDto>(response);
