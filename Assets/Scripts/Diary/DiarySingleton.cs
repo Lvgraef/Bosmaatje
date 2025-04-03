@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ApiClient;
 using Dto;
 using UnityEngine;
 
-namespace Global
+namespace Diary
 {
     public class DiarySingleton: MonoBehaviour
     {
@@ -24,9 +21,9 @@ namespace Global
                 Destroy(gameObject);
                 return;
             }
-
+            
             Instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this); This was causing a bug and its only used in this scene anyways.
         }
 
         private async void Start()

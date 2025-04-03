@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ApiClient;
 using Dto;
 using JetBrains.Annotations;
@@ -83,7 +84,7 @@ namespace TreatmentPlan
             }
 
             Progress();
-            Reminders();
+            await Reminders();
         }
 
         public void OpenPlanning()
@@ -92,17 +93,17 @@ namespace TreatmentPlan
             planning.GetComponent<PlanningManager>().Initialize();
         }
 
-        private async void Reminders()
+        private async Task Reminders()
         {
             var appointments = (from treatment in Treatments
-                where treatment?.date != null && !(treatment.date < DateTime.Now)
+                where treatment?.date != null && !(treatment.date < (DateTime.Now - TimeSpan.FromDays(1)))
                 select new Appointment { Title = treatment.treatmentName, Date = treatment.date.Value, Custom = false}).ToList();
 
             var customPlans = await AppointmentApiClient.GetAppointments();
             if (customPlans != null)
             {
                 appointments.AddRange(from customPlan in customPlans
-                    where customPlan?.date != null && !(customPlan.date < DateTime.Now)
+                    where customPlan?.date != null && !(customPlan.date < (DateTime.Now - TimeSpan.FromDays(1)))
                     select new Appointment { Title = customPlan.name, Date = customPlan.date, Custom = true});
             }
 

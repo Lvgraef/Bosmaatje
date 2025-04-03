@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using ApiClient;
 using Dto;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Global
@@ -22,7 +23,7 @@ namespace Global
         private async Task Refresh()
         {
             var refreshToken = await ApiUtil.PerformApiCall($"https://localhost:7244/account/refresh", "POST", $"{{\"refreshToken\":\"{RefreshToken}\"}}");
-            var token = JsonUtility.FromJson<PostLoginResponseDto>(refreshToken);
+            var token = JsonConvert.DeserializeObject<PostLoginResponseDto>(refreshToken);
             Debug.Log("Refreshed Token!");
             AccessToken = token.accessToken;
             RefreshToken = token.refreshToken;

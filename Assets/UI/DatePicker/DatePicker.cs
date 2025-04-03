@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 using UI.Tables;
@@ -1040,7 +1041,7 @@ namespace UI.Dates
         /// <returns></returns>
         public string GetSerializedConfiguration()
         {
-            return JsonUtility.ToJson(Config);
+            return JsonConvert.SerializeObject(Config);
         }
 
         /// <summary>
@@ -1050,7 +1051,7 @@ namespace UI.Dates
         /// <param name="json"></param>
         public void SetConfigFromJsonString(string json)
         {
-            Config = JsonUtility.FromJson<DatePickerConfig>(json);
+            Config = JsonConvert.DeserializeObject<DatePickerConfig>(json);
             UpdateDisplay();
         }
     }

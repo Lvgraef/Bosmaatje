@@ -17,7 +17,7 @@ namespace ApiClient
             var url = $"{ApiUtil.BaseUrl}/configurations";
             var response = await ApiUtil.PerformApiCall(url, "GET", token: UserSingleton.Instance.AccessToken);
             if (response == "Cannot connect to destination host") return null;
-            return response == "HTTP/1.1 404 Not Found" ? null : JsonUtility.FromJson<GetConfigurationsResponseDto>(response);
+            return response == "HTTP/1.1 404 Not Found" ? null : JsonConvert.DeserializeObject<GetConfigurationsResponseDto>(response);
         }
         
         public static async Task<bool> Configure(PostConfigurationsRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
