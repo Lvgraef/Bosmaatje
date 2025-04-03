@@ -15,39 +15,39 @@ namespace Global
                 Destroy(gameObject);
                 return;
             }
-	
+
             Instance = this;
             DontDestroyOnLoad(this);
         }
 
         private void Start()
         {
-            if (!PlayerPrefs.HasKey("SoundOn"))
+            if (!PlayerPrefs.HasKey("SoundMuted"))
             {
-                SetPrefSoundOn(true);
+                SetPrefSoundMuted(false);
             }
             if (!PlayerPrefs.HasKey("SoundVolume"))
             {
                 SetPrefSoundVolume(.5F);
             }
 
-            if (GetPrefSoundOn())
-            {
-                AudioListener.volume = GetPrefSoundVolume();
-            }
-            else
+            if (GetPrefSoundMuted())
             {
                 AudioListener.volume = 0;
             }
+            else
+            {
+                AudioListener.volume = GetPrefSoundVolume();
+            }
         }
 
-        public void SetPrefSoundOn(bool turnedOn)
+        public void SetPrefSoundMuted(bool isMuted)
         {
-            SetBool("SoundOn", turnedOn);
+            SetBool("SoundMuted", isMuted);
         }
-        public bool GetPrefSoundOn()
+        public bool GetPrefSoundMuted()
         {
-            return Getbool("SoundOn");
+            return Getbool("SoundMuted");
         }
 
         public void SetPrefSoundVolume(float Value)
@@ -57,17 +57,6 @@ namespace Global
         public float GetPrefSoundVolume()
         {
             return GetFloat("SoundVolume");
-        }
-
-
-        private void SetString(string KeyName, string Value)
-        {
-            PlayerPrefs.SetString(KeyName, Value);
-        }
-
-        private string GetString(string KeyName)
-        {
-            return PlayerPrefs.GetString(KeyName);
         }
 
         private void SetBool(string KeyName, bool Value)
