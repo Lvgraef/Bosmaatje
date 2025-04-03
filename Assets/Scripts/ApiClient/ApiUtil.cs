@@ -7,8 +7,8 @@ namespace ApiClient
 {
     public static class ApiUtil
     {
-        //public const string BaseUrl = "https://bosmaatje.azurewebsites.net";
-        public const string BaseUrl = "https://localhost:7280";
+        public const string BaseUrl = "https://bosmaatje.azurewebsites.net";
+        //public const string BaseUrl = "https://localhost:7280";
         
         public static async Task<string> PerformApiCall(string url, string method, string jsonData = null, string token = null)
         {
