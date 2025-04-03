@@ -31,6 +31,10 @@ namespace Util
         public void SetCharacter(string name)
         {
             selectedCharacter = characters.FindIndex(character => character.name == name);
+            for (var i = 0; i < characters.Count; i++)
+            {
+                characters[i].character.SetActive(i == selectedCharacter);
+            }
         }
     }
     

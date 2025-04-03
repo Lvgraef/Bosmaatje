@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Dto;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace ApiClient
         public static async Task<bool> Register(PostRegisterRequestDto postRegisterRequestDto, TextMeshProUGUI statusText)
         {
             var url = $"{ApiUtil.BaseUrl}/account/register";
-            var json = JsonUtility.ToJson(postRegisterRequestDto);
+            var json = JsonConvert.SerializeObject(postRegisterRequestDto);
             var response = await ApiUtil.PerformApiCall(url, "POST", json);
 
             statusText.color = Color.red;

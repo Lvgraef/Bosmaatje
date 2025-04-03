@@ -49,7 +49,7 @@ namespace ApiClient
             var json = JsonConvert.SerializeObject(diaryDto);
             Debug.Log(json);
             var response = await ApiUtil.PerformApiCall(url, "POST", token: UserSingleton.Instance.AccessToken, jsonData: json);
-                
+            
 
             Debug.Log(response);
 

@@ -144,7 +144,12 @@ namespace Configuration
                 if (await ConfigurationApiClient.PutFirstTreatment(new PutTreatmentRequestDto
                     {
                         date = treatmentStartDateField.SelectedDate.Date
-                    }, statusText, treatmentPlanSelector.selectedButton == 0 ? "Hospitalization" : "NoHospitalization"))
+                    }, statusText, treatmentPlanSelector.selectedButton switch
+                    {
+                        -1 => null,
+                        0 => "Hospitalization",
+                        _ => "NoHospitalization"
+                    }))
                 {
                     await SceneManager.LoadSceneAsync("Scenes/Introduction");
                 }
